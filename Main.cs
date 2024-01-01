@@ -5,7 +5,7 @@ using System.Numerics;
 
 namespace Restaurant_C__Project
 {
-    internal class Program
+    internal class Main
     {
         static void Main(string[] args)
         {
