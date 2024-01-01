@@ -7,7 +7,7 @@ using System.Text;
 using System.Text.Json.Nodes;
 using System.Threading.Tasks;
 
-namespace round2
+namespace Restaurant_C__Project
 {
     internal class ingredients
     {

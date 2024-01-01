@@ -13,13 +13,13 @@ namespace Restaurant_C__Project
         public void AddItemIngredint(int id, string quantity)
         {
             recipe.Add(new ItemIngredient
-            { ItemIngredientID = id, ItemIngredientQuantity = quantity });
+            { IngredientID = id, ItemIngredientQuantity = quantity });
         }
         public void RemoveItemIngredient(int deletedItemIngredient)
         {
             foreach (var x in recipe)
             {
-                if (x.ItemIngredientID == deletedItemIngredient)
+                if (x.IngredientID == deletedItemIngredient)
                 {
                     recipe.Remove(x);
                 }
@@ -29,9 +29,9 @@ namespace Restaurant_C__Project
         {
             foreach (var x in recipe)
             {
-                if (x.ItemIngredientID == IDtoChange)
+                if (x.IngredientID == IDtoChange)
                 {
-                    x.ItemIngredientID = NewItemIngredientID;
+                    x.IngredientID = NewItemIngredientID;
                     x.ItemIngredientQuantity = NewItemIngredientQuan;
                 }
             }
