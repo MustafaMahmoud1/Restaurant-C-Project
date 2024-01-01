@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
 
-namespace round2
+namespace Restaurant_C__Project
 {
      internal sealed class stock
     {
