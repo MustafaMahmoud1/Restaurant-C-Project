@@ -4,35 +4,32 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace c__project
+namespace Restaurant_C__Project
 {
-    internal class reservations
+    internal class Reservation
     {
-        public int  reserveid {  get; set; }
-        public int reservetime { get; set; }
+        public int  reserveId {  get; set; }
+        public int reserveTime { get; set; }
 
-        public string reservename { get; set; }
-
-
-        public string  reservantphone { get; set; }
+        public string reservantName { get; set; }
 
 
-        public string reservanttable { get; set; }
+        public string  reservantPhone { get; set; }
 
-        public reservations(int reserveid, int reservetime, string reservename, string reservantphone, string reservanttable)
+
+        public string reservantTable { get; set; }
+
+        public Reservation (int reserveid, int reservetime, string reservename, string reservantphone, string reservanttable)
         {
-           reserveid = reserveid;
+           reserveId = reserveid;
         
-            reservetime = reservetime;
+            reserveTime = reservetime;
            
-            reservename = reservename;
+            reservantName = reservename;
 
-            reservantphone = reservantphone;
-            reservanttable = reservanttable;
+            reservantPhone = reservantphone;
 
-
-
-
+            reservantTable = reservanttable;
         }
     }
 }

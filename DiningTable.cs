@@ -10,16 +10,12 @@ namespace c__project
     {
         private int tableNo { get; set; }
         private int tableCapicty { get; set; }
-        
-
         private bool type { get; set; }
 
         public DiningTable(int tableNo , int tableCapicty , bool state , bool type)
         {
             this.tableNo = tableNo;
             this.tableCapicty = tableCapicty;
-            
-
             this.type = type;
         }
 

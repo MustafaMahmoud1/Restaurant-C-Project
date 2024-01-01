@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace Restaurant_C__Project
 {
@@ -56,9 +57,13 @@ namespace Restaurant_C__Project
             Console.WriteLine("");
         }
 
-        public string showReservations()
+        public void showReservations()
         {
-
+            foreach (var member in activeReservations)
+            {
+                if (activeReservation.Reservation.reservantName == fullName && activeReservation.Reservation.reservantPhone == phoneNumber)
+                Console.WriteLine(activeReservation.Reservation.reserveTime + /n + activeReservation.Reservation.reservedTable);
+            }
         }
     }
 }
