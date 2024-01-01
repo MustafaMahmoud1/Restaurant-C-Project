@@ -31,10 +31,15 @@ namespace Restaurant_C__Project
         //    Console.WriteLine(Deserialized.IngredientID);
 
         //} 
+        public ingredients() { }
         static List<ingredients> LoadIngredients(string filePath)
         {
             string jsonText = System.IO.File.ReadAllText(filePath);
             return JsonConvert.DeserializeObject<List<ingredients>>(jsonText);
+        }
+        public void LoadIngredient()
+        {
+            List<ingredients>LoadIngredients=new List<ingredients>();
         }
         //foreach (var x in Deserialized)
         //{

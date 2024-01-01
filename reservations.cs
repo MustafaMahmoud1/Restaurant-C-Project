@@ -4,32 +4,46 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Restaurant_C__Project
+namespace c__project
 {
-    internal class Reservation
+    internal class reservations
     {
-        public int  reserveId {  get; set; }
-        public int reserveTime { get; set; }
+        public int  reserveid {  get; set; }
+        public int reservetime { get; set; }
 
-        public string reservantName { get; set; }
-
-
-        public string  reservantPhone { get; set; }
+        public string reservename { get; set; }
 
 
-        public string reservantTable { get; set; }
+        public string  reservantphone { get; set; }
 
-        public Reservation (int reserveid, int reservetime, string reservename, string reservantphone, string reservanttable)
+
+        public string reservanttable { get; set; }
+        public List<int> reservants { get; set; } = new List<int>();
+        public reservations() { }
+
+        public reservations(int reserveid, int reservetime, string reservename, string reservantphone, string reservanttable, List<int>reservats)
         {
-           reserveId = reserveid;
+           reserveid = reserveid;
         
-            reserveTime = reservetime;
+            reservetime = reservetime;
            
-            reservantName = reservename;
+            reservename = reservename;
 
-            reservantPhone = reservantphone;
-
-            reservantTable = reservanttable;
+            reservantphone = reservantphone;
+            reservanttable = reservanttable;
+            reservats = reservats;
+        }
+        public void AddToReservation()
+        {
+            reservants.Add(reserveid);
+        }
+        public void RemoveFromReservation()
+        {
+            reservants.Remove(reserveid);
+        }
+        public void DeleteReservation()
+        {
+            reservants.Clear();
         }
     }
 }

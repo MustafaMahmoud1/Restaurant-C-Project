@@ -11,6 +11,8 @@ namespace C__Project
         public int EmpId { get; set; }
         public int EmpSalary { get; set; }
         public string EmpName { get; set; }
+        public Employee() { }
+
         public Employee(int empId, int empSalary, string empName, string UserName, string UserPassword, string UserRole):base(UserName, UserPassword, UserRole)
         {
             EmpId = empId;
