@@ -32,7 +32,7 @@ namespace Restaurant_C__Project
                 if (x.IngredientID == IDtoChange)
                 {
                     x.IngredientID = NewItemIngredientID;
-                    x.IngredientQuantity = NewItemIngredientQuan;
+                    x.ItemIngredientQuantity = NewItemIngredientQuan;
                 }
             }
 
