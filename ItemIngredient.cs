@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace round2
+namespace Restaurant_C__Project
 {
     internal class ItemIngredient
     {
-        public int ItemIngredientID { get; set; }
+        public int IngredientID { get; set; }
         public string ItemIngredientQuantity { get; set; }
     }
 }
