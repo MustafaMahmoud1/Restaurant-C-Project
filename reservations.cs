@@ -18,8 +18,10 @@ namespace c__project
 
 
         public string reservanttable { get; set; }
+        public List<int> reservants { get; set; } = new List<int>();
+        public reservations() { }
 
-        public reservations(int reserveid, int reservetime, string reservename, string reservantphone, string reservanttable)
+        public reservations(int reserveid, int reservetime, string reservename, string reservantphone, string reservanttable, List<int>reservats)
         {
            reserveid = reserveid;
         
@@ -29,10 +31,19 @@ namespace c__project
 
             reservantphone = reservantphone;
             reservanttable = reservanttable;
-
-
-
-
+            reservats = reservats;
+        }
+        public void AddToReservation()
+        {
+            reservants.Add(reserveid);
+        }
+        public void RemoveFromReservation()
+        {
+            reservants.Remove(reserveid);
+        }
+        public void DeleteReservation()
+        {
+            reservants.Clear();
         }
     }
 }

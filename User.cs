@@ -11,6 +11,7 @@ namespace C__Project
         public string UserName { get; set; }
         public string UserPassword { get; set; }
         public string UserRole {  get; set; }
+        public User() { }
         public User (string UserName, string UserPassword, string UserRole)
         {
             this.UserName = UserName;
