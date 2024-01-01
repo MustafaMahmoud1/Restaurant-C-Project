@@ -1,4 +1,5 @@
-﻿using System;
+﻿using round2;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -26,8 +27,38 @@ namespace Restaurant_C__Project
             phoneNumber = phonenumber;
             this.address = address;
         }
+        //waiting for confirmation on menu structure
+        public string showMenu ()
+        {
+            menu.ckeck().
+        }
+        //waiting for diningtable class
+        public string showTables ()
+        {
+            
+        }
+        // waiting for ordereditem
+        public void createOrder ()
+        {
+            Console.WriteLine();
+        }
 
+        public void addToBalance ()
+        { 
+            Console.WriteLine($"Hi {fullName}, your account balance is currently at {balance}. Consider adding more funds to avoid any issues.");
+            int addedbalance = int.Parse(Console.ReadLine());
+            balance = balance + addedbalance;
+            Console.WriteLine($"Success! an amount of {addedbalance} has been added to your account.");
+        }
 
+        public string showNotification()
+        {
+            Console.WriteLine("");
+        }
 
+        public string showReservations()
+        {
+
+        }
     }
 }
