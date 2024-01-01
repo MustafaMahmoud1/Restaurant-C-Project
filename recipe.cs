@@ -1,27 +1,14 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace round2
+namespace Restaurant_C__Project
 {
     internal class Recipe
     {
-        List<ItemIngredient> recipe = new List<ItemIngredient>()
-        {
-            //assume that each recipe consists of 5 ingredients
-            new ItemIngredient
-            {ItemIngredientID=1, ItemIngredientQuantity="1 kilo"},
-            new ItemIngredient
-            {ItemIngredientID=1, ItemIngredientQuantity="1 kilo"},
-             new ItemIngredient
-            {ItemIngredientID=1, ItemIngredientQuantity="1 kilo"},
-              new ItemIngredient
-            {ItemIngredientID=1, ItemIngredientQuantity="1 kilo"},
-               new ItemIngredient
-            {ItemIngredientID=1, ItemIngredientQuantity="1 kilo"},
-        };
+        public List<ItemIngredient> recipe { get; set; }
 
         public void AddItemIngredint(int id, string quantity)
         {
@@ -38,9 +25,9 @@ namespace round2
                 }
             }
         }
-           public void ChangeItemIngredient(int IDtoChange , int NewItemIngredientID , string NewItemIngredientQuan)
+        public void ChangeItemIngredient(int IDtoChange, int NewItemIngredientID, string NewItemIngredientQuan)
         {
-            foreach(var x in recipe)
+            foreach (var x in recipe)
             {
                 if (x.ItemIngredientID == IDtoChange)
                 {
