@@ -1,51 +1,38 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace round2
+namespace Restaurant_C__Project
 {
     internal class Recipe
     {
-        List<ItemIngredient> recipe = new List<ItemIngredient>()
-        {
-            //assume that each recipe consists of 5 ingredients
-            new ItemIngredient
-            {ItemIngredientID=1, ItemIngredientQuantity="1 kilo"},
-            new ItemIngredient
-            {ItemIngredientID=1, ItemIngredientQuantity="1 kilo"},
-             new ItemIngredient
-            {ItemIngredientID=1, ItemIngredientQuantity="1 kilo"},
-              new ItemIngredient
-            {ItemIngredientID=1, ItemIngredientQuantity="1 kilo"},
-               new ItemIngredient
-            {ItemIngredientID=1, ItemIngredientQuantity="1 kilo"},
-        };
+        public List<ItemIngredient> recipe { get; set; }
 
         public void AddItemIngredint(int id, string quantity)
         {
             recipe.Add(new ItemIngredient
-            { ItemIngredientID = id, ItemIngredientQuantity = quantity });
+            { IngredientID = id, ItemIngredientQuantity = quantity });
         }
         public void RemoveItemIngredient(int deletedItemIngredient)
         {
             foreach (var x in recipe)
             {
-                if (x.ItemIngredientID == deletedItemIngredient)
+                if (x.IngredientID == deletedItemIngredient)
                 {
                     recipe.Remove(x);
                 }
             }
         }
-           public void ChangeItemIngredient(int IDtoChange , int NewItemIngredientID , string NewItemIngredientQuan)
+        public void ChangeItemIngredient(int IDtoChange, int NewItemIngredientID, string NewItemIngredientQuan)
         {
-            foreach(var x in recipe)
+            foreach (var x in recipe)
             {
-                if (x.ItemIngredientID == IDtoChange)
+                if (x.IngredientID == IDtoChange)
                 {
-                    x.ItemIngredientID = NewItemIngredientID;
-                    x.ItemIngredientQuantity = NewItemIngredientQuan;
+                    x.IngredientID = NewItemIngredientID;
+                    x.IngredientQuantity = NewItemIngredientQuan;
                 }
             }
 

@@ -1,10 +1,10 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace round2
+namespace Restaurant_C__Project
 {
     internal class Item
     {
@@ -14,7 +14,8 @@ namespace round2
         public string description { get; set; }
         public string category { get; set; }
         public bool availability { get; set; }
-        public Recipe ItemRecipe { get; set; }   //class for recipe list
+        public List<ItemIngredient> recipe { get; set; }
+       
 
         //JSON PART
 
