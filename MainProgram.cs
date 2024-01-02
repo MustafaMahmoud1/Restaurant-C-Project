@@ -9,6 +9,9 @@ namespace Restaurant_C__Project
     {
         static void Main(string[] args)
         {
+            // choose your role
+
+            
             Console.WriteLine("Enter your Username (Used when Logging in)");
             string username = Console.ReadLine();
             username = username.ToLower();

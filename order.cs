@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace c__project
+namespace Restaurant_C__Project
 {
-    internal class order
+    public class Order
     {
         public int OrderId { get; set; }
 
@@ -60,6 +60,17 @@ namespace c__project
                 Console.WriteLine(item);
             }
         }
+        public void UpdateOrderPrice ()
+        {
+
+            int TotalPrice = 0; 
+            foreach (var item in listitem)
+            {
+                TotalPrice = TotalPrice + item.Price;
+            }
+            OrderPrice = TotalPrice;
+        }
+
     }
        
 }

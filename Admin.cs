@@ -29,6 +29,7 @@ namespace C__Project
         {
             customer.GetCustomerData();
         }
+
         public void UpdateMenu()
         {
             string NewItemName = Console.ReadLine();
@@ -68,7 +69,7 @@ namespace C__Project
         }
         public void GetIngredient()
         {
-            ingredients.LoadIngredient();   
+            ingredients.LoadIngredient();
         }
     }
 }
