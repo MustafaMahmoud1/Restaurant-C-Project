@@ -7,29 +7,29 @@ using System.Threading.Tasks;
 
 namespace c__project
 {
-    internal class reservations: DiningTable
+    internal class Reservations
     {
         public int  ReserveId {  get; set; }
         public int ReserveTime { get; set; }
-        public string ReserveName { get; set; }
+        public string ReservantName { get; set; }
         public string  ReservantPhone { get; set; }
-        public string ReservantTable { get; set; }
+        public string ReservedTable { get; set; }
         public List<int> Reservants { get; set; } = new List<int>();
         public List<int>DinningTableList { get; set; }= new List<int>();
-        public reservations() { }
+        public Reservations() { }
 
-        public reservations(int tableNo, int tableCapacity ,bool type, int reserveid, int reservetime, string reservename, string reservantphone, string reservanttable, List<int>reservats):base(tableNo, tableCapacity, type)
+        public Reservations(int tableNo, int tableCapacity ,bool type, int reserveid, int reservetime, string reservename, string reservantphone, string reservanttable, List<int>reservats):base(tableNo, tableCapacity, type)
         {
            ReserveId = ReserveId;
            ReserveTime = ReserveTime;
-           ReserveName = ReserveName;
+           ReservantName = ReservantName;
            ReservantPhone = ReservantPhone;
-           ReservantTable = ReservantTable;
+           ReservedTable = ReservedTable;
            Reservants = Reservants;
         }
     public void AddToReservation()
         {
-            foreach (var item in ReserveName)
+            foreach (var item in ReservantName)
             {
                 Reservants.Add(item);
             }
@@ -51,7 +51,7 @@ namespace c__project
         }
         public void ReserveTable()
         {
-            DinningTableList.AddRange(new List<int> { tableNo, ReserveTime});
+            DinningTableList.AddRange(new List<int> {tableNo, ReserveTime});
             foreach (var item in ReserveName)
             {
                 Console.WriteLine(item);

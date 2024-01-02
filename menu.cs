@@ -18,7 +18,6 @@ namespace Restaurant_C__Project
                 ItemPrice=100 , 
                 ItemID=1 , 
                 description="Classic Italian dish with meat sauce", 
-                availability=true , 
                 category="pasta" ,
                 recipe=new List<ItemIngredient>
                 {
@@ -54,7 +53,6 @@ namespace Restaurant_C__Project
                 ItemPrice = 9,
                 ItemID = 3,
                 description = "Fresh salad with grilled chicken and Caesar dressing",
-                availability = true,
                 category = "Salad",
                 recipe = new List<ItemIngredient>
                 {
@@ -72,7 +70,6 @@ namespace Restaurant_C__Project
                 ItemPrice = 9,
                  ItemID = 4,
                 description = "Fresh salad with grilled chicken and Caesar dressing",
-                availability = true,
                 category = "Salad",
                 recipe = new List<ItemIngredient>
                 {
@@ -103,7 +100,6 @@ namespace Restaurant_C__Project
                 Console.WriteLine($"item name         : {MenuItems.ItemName}  ");
                 Console.WriteLine($"item price        : {MenuItems.ItemPrice}  ");
                 Console.WriteLine($"item description  : {MenuItems.description}   ");
-                Console.WriteLine($"item availability : {MenuItems.availability}   ");
                 Console.WriteLine($"item category     : {MenuItems.category}   ");
                 Console.WriteLine("Recipe :");
                 foreach (var Ingred in MenuItems.recipe)

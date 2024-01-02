@@ -81,7 +81,11 @@ namespace Restaurant_C__Project
         {
             foreach (var x in IngredientsList)
             {
-                Console.WriteLine(x);
+               Console.WriteLine($"Ingredient ID        : {x.IngrdientID}");
+               Console.WriteLine($"Ingredient Name      : {x.IngrdientName}");
+               Console.WriteLine($"Ingredient Status    : {x.IngrdientStatus}");
+               Console.WriteLine($"Ingredient Quantity  : {x.IngrdientQuantity}");
+               Console.WriteLine("********************************************************");
             }
         }
     }

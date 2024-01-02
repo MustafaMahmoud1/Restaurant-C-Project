@@ -13,7 +13,6 @@ namespace Restaurant_C__Project
         public int ItemID { get; set; }
         public string description { get; set; }
         public string category { get; set; }
-        public bool availability { get; set; }
         public List<ItemIngredient> recipe { get; set; }
        
 
