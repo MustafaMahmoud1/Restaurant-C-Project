@@ -11,31 +11,33 @@ namespace Restaurant_C__Project
     {
         public int OrderId { get; set; }
 
-        
+        public int OrderPrice { get; set; }
 
         public List<int> ListItem { get; } = new List<int>();
         public List<int>ItemData { get; } = new List<int>();
-        public order()
+        public Order()
         {
             OrderId = 0;
             ListItem = null;
           
         }
-      
-        public void AddToOrder(int OrderId, List<int> ItemData)
+        //continue from here
+        public void AddToOrder(OrderedItem ordereditem)
         {
-            int ItemId=int.Parse(Console.ReadLine());
+
+            OrderedItem.ItemID =int.Parse(Console.ReadLine());
             int Quantity=int.Parse(Console.ReadLine());
             int Price=int.Parse(Console.ReadLine());
             ItemData.AddRange(new List<int> { ItemId, Quantity, Price});
             ListItem.AddRange(new List<int> { OrderId});
             foreach (var item in ListItem)
             {
+                ListItem.Add(item);
                 foreach (var x in ItemData)
                 {
                     ItemData.Add(x);
                 }
-                ListItem.Add(item);
+                
             }
         }
         public void RemoveFromOrder()

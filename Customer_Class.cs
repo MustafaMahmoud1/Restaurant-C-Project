@@ -122,8 +122,8 @@ namespace Restaurant_C__Project
             foreach (var member in ActiveReservations)
             {
                 if (ActiveReservation.Reservation.reservantName == FullName && ActiveReservation.Reservation.reservantPhone == PhoneNumber)
-                Console.WriteLine(@ActiveReservation.Reservation.reserveTime 
-                                  + ActiveReservation.Reservation.reservedTable);
+                Console.WriteLine(ActiveReservation.Reservation.reserveTime 
+                                  + "\n" + ActiveReservation.Reservation.reservedTable);
             }
         }
     }
