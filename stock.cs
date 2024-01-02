@@ -1,3 +1,4 @@
+
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Xml;
 
 namespace Restaurant_C__Project
 {
-     internal sealed class stock
+    internal sealed class stock
     {
         public List<ingredients> IngredientsList = new List<ingredients>() {
         new ingredients
@@ -46,6 +47,7 @@ namespace Restaurant_C__Project
         public void CheckAvailability(int CheckIngredientID)
         {
             bool condition = false;
+            foreach (var x in IngredientsList)
             {
                 if (CheckIngredientID == x.IngredientID)
                 {
@@ -69,14 +71,15 @@ namespace Restaurant_C__Project
                 if (IngredientID == x.IngredientID)
                 {
                     x.IngredientID = IngredientID;
-                   x.IngredientStatus = true;
-                   x.IngredientQuantity = IngredientQuantity;
+                    x.IngredientStatus = true;
+                    x.IngredientQuantity = IngredientQuantity;
                 }
             }
-          
+
         }
         public void ShowListOfIngredients()
         {
+            foreach (var x in IngredientsList)
             {
                 Console.WriteLine(x);
             }
