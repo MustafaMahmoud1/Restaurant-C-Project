@@ -77,7 +77,7 @@ namespace Restaurant_C__Project
             }
 
         }
-        public void ShowListOfIngredients()
+        public void ShowListOfIngredients(int IngredientID)
         {
             foreach (var x in IngredientsList)
             {

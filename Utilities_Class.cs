@@ -27,7 +27,7 @@ namespace Restaurant_C__Project
         public void signUpUser(string fullname, string phone, string address, string username, string password)
         {
             Customer customer = new Customer(fullname, phone, address);
-            SystemUser user = new SystemUser(username, password, "customer");
+            User user = new User(username, password, "customer");
         }
     }
 }

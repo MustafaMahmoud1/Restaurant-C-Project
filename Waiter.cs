@@ -1,11 +1,13 @@
 ﻿using c__project;
+using Restaurant_C__Project;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Runtime.InteropServices.Marshalling.IIUnknownCacheStrategy;
 
-namespace C__Project
+namespace Restaurant_C__Project
 {
     internal class Waiter : Employee
     {
@@ -14,16 +16,21 @@ namespace C__Project
         ordereditem orderitem = new ordereditem();
         public int ShowReservationList()
         {
-            reserve.ShowActiveReservatioList();
+            int ReserveId=int.Parse(Console.ReadLine());
+            reserve.ShowActiveReservatioList(ReserveId);
             return ShowReservationList();
         }
         public void OrderCreation()
         {
-            orderitem.CreateOrder();
+             int ItemID = int.Parse(Console.ReadLine());
+             int Quantity = int.Parse(Console.ReadLine());
+            orderitem.CreateOrder( ItemID,  Quantity);
         }
         public void TableReservation()
         {
-            reserve.ReserveTable();
+            int tableNo=int.Parse(Console.ReadLine());
+            int ReserveTime=int.Parse(Console.ReadLine());
+            reserve.ReserveTable( tableNo,  ReserveTime);
         }
         public void ModifyReservation()
         {

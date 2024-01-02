@@ -40,7 +40,9 @@ namespace C__Project
         }
         public void ModifyOrder()
         {
-            order.AddToOrder();
+            int OrderId=int.Parse(Console.ReadLine());
+            List< int > ItemData=new List< int >();
+            order.AddToOrder(OrderId, ItemData);
             order.RemoveFromOrder();
         }
         public void CancelOrder()
@@ -49,7 +51,8 @@ namespace C__Project
         }
         public void ModifyReservation()
         {
-            reservations.AddToReservation();
+            int ReserveId=int.Parse(Console.ReadLine());
+            reservations.AddToReservation(ReserveId);
             reservations.RemoveFromReservation();
         }
         public void CancelReservation()
