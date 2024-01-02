@@ -1,5 +1,4 @@
-﻿using round2;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,23 +7,23 @@ using Newtonsoft.Json;
 
 namespace Restaurant_C__Project
 {
-    internal class Customer
+    public class Customer
     {
         public string FullName { get; set; }
         public string PhoneNumber { get; set; }
         public string Address { get; set; }
-        public List<Order> activeOrders { get; set; }
-        public List<Order> orderHistory { get; set; }
-        public List<Reservation> activeReservations { get; set; }
-        public int balance { get; set; }
+        public List<Order> ActiveOrders { get; set; }
+        public List<Order> OrderHistory { get; set; }
+        public List<Reservations> ActiveReservations { get; set; }
+        public int Balance { get; set; }
         public Customer() { }
 
         public Customer(string Fullname, string Phonenumber, string Address)
         {
-            List<Order> activeOrders = new List<Order>;
-            List<Order> orderHistory = new List<Order>;
-            List<Reservation> activeReservations = new List<Reservation>;
-            balance = 0;
+            List<Order> ActiveOrders = new List<Order> { };
+            List<Order> OrderHistory = new List<Order> { };
+            List<Reservations> activeReservations = new List<Reservations> { };
+            Balance = 0;
             FullName = Fullname;
             PhoneNumber = Phonenumber;
             this.Address = Address;
@@ -36,26 +35,51 @@ namespace Restaurant_C__Project
             Console.WriteLine( Address);
         }
         //waiting for confirmation on menu structure
-        public string showMenu ()
+        public void showMenu ()
         {
-            menu.ckeck().
         }
         //waiting for diningtable class
-        public string showTables ()
+        public string ShowTables ()
         {
             
         }
         // waiting for ordereditem
-        public void createOrder ()
+        public void CreateOrder ()
         {
-            Console.WriteLine();
+            Console.WriteLine("May I take your order now?");
+            List<int> PotentialOrderItemId = new List<int>();
+            List<int> PotentialOrderQuantity = new List<int>();
+            while (true)
+            {
+                Console.WriteLine("Please select an item from the menu above.");
+                int IdInput = int.Parse(Console.ReadLine());
+                Console.WriteLine("Enter the quantity you'd like to order.");
+                int QuantityInput = int.Parse(Console.ReadLine());
+                Order order = new Order();
+                OrderedItem item = new OrderedItem(IdInput, QuantityInput);
+                order.AddToOrder(item);
+                order.UpdateOrderPrice();
+                Console.WriteLine(@"Do you want to add more items?
+                                    1: Yes, I'd like to add more items
+                                    2: No, I want to procced with current order.");
+                int OrderMore = int.Parse(Console.ReadLine());
+                if (OrderMore == 2)
+                {
+                    break;
+                }
+            }
+
+
+            }
+
+
         }
 
-        public void addToBalance ()
+        public void addToBalance()
         { 
-            Console.WriteLine($"Hi {fullName}, your account balance is currently at {balance}. Consider adding more funds to avoid any issues.");
+            Console.WriteLine($"Hi {FullName}, your account balance is currently at {Balance}. Consider adding more funds to avoid any issues.");
             int addedbalance = int.Parse(Console.ReadLine());
-            balance = balance + addedbalance;
+            Balance = Balance + addedbalance;
             Console.WriteLine($"Success! an amount of {addedbalance} has been added to your account.");
         }
 

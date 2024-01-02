@@ -4,18 +4,42 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace c__project
+namespace Restaurant_C__Project
 {
-    internal class ordereditem
+    public class OrderedItem
     {
-        public int itemID {  get; set; } 
+        public int ItemID {  get; set; } 
 
-        public int quantity {  get; set; }
+        public int Quantity {  get; set; }
+        public int Price { get; set; }
+        public List<int>ItemIdAndQuantities { get; set; }
+        public List<int> ItemPrice { get; set; }
+        public OrderedItem() { }
 
-        public ordereditem(int itemID , int quantity)
+        public OrderedItem(int itemID , int quantity)
         {
-            this.itemID = itemID;
-            this.quantity = quantity;
+            this.ItemID = itemID;
+            this.Quantity = quantity;
+        }
+        public void CreateOrder ()
+        {
+            ItemIdAndQuantities.AddRange(new List<int> {ItemID,Quantity});
+            foreach (var item in ItemIdAndQuantities)
+            {
+                Console.WriteLine(item);
+            }
+        }
+        public void Printing()
+        {
+            ItemPrice.AddRange(new List<int> { ItemID, Quantity,Price });
+            int TotalPrice = 0;
+            foreach (var item in ItemPrice)
+            {
+                TotalPrice += Quantity * Price;
+                Console.WriteLine(item + "Total Price is " + TotalPrice);
+            }
+
+
         }
     }
 }

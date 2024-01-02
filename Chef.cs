@@ -1,4 +1,6 @@
-﻿using System;
+﻿using c__project;
+using Restaurant_C__Project;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,8 +11,26 @@ namespace C__Project
     internal class Chef : Employee
     {
         public Chef(int empId, int empSalary, string empName, string UserName, string UserPassword, string UserRole) : base(empId, empSalary, empName, UserName, UserPassword, UserRole) { }
-        public void ShowOrderList() { }
-        public void FinishOrder() { }
+        order order = new order();
+        stock stock = new stock();
+        ingredients ingredients = new ingredients();
+        public void ShowOrderList()
+        {
+            order.ShowOrder();
+        }
+        public void FinishOrder()
+        {
+            order.RemoveFromOrder();
+        }
+        public void ShowStock()
+        {
+            
+        }
+        public void RequestIngredient()
+        {
+            ingredients.RequestIngredients();
+        }
+
 
     }
 }

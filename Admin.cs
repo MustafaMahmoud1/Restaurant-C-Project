@@ -51,8 +51,8 @@ namespace C__Project
         }
         public void SignUp()
         {
-            UserName = string.Empty;
-            UserPassword = string.Empty;
+            UserName = "RestaurantAdmin";
+            UserPassword = "123MMB";
             UserRole = string.Empty;
             EmpName = string.Empty;
             EmpId= int.MaxValue;

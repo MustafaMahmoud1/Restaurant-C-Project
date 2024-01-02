@@ -40,15 +40,28 @@ namespace Restaurant_C__Project
         public void LoadIngredient()
         {
             List<ingredients>LoadIngredients=new List<ingredients>();
+            foreach (var item in LoadIngredients)
+            {
+                Console.WriteLine(LoadIngredients);
+            }
         }
-        //foreach (var x in Deserialized)
-        //{
-        //    Console.WriteLine(x.IngredientName);
-        //    Console.WriteLine(x.IngredientID);
-        //    Console.WriteLine(x.IngredientStatus);
-        //    Console.WriteLine(x.IngredientQuantity);
-        //}
-    }
+        public void RequestIngredients()
+        {
+            List<int> ReaquestIngredients = new List<int>();
+            ReaquestIngredients.AddRange(new List<int> { IngredientID, IngredientQuantity });
+            foreach (var item in ReaquestIngredients)
+            {
+                Console.WriteLine(item);
+            }
+        }
+            //foreach (var x in Deserialized)
+            //{
+            //    Console.WriteLine(x.IngredientName);
+            //    Console.WriteLine(x.IngredientID);
+            //    Console.WriteLine(x.IngredientStatus);
+            //    Console.WriteLine(x.IngredientQuantity);
+            //}
+        }
 
     
 

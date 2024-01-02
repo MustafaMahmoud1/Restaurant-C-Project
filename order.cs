@@ -5,33 +5,58 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace c__project
+namespace Restaurant_C__Project
 {
-    internal class order
+    public class Order
     {
         public int orderid { get; set; }
+        public int OrderPrice { get; set; }
 
-        
-
-        public List<int> listitem { get; } = new List<int>();
-        public order()
+        public List<OrderedItem> listitem { get; } = new List<OrderedItem>();
+        public Order()
         {
             orderid = 0;
             listitem = null;
+            OrderPrice = 0;
           
         }
+      
         public void AddToOrder()
         {
-            listitem.Add(orderid);
+            foreach (var item in listitem)
+            {
+                listitem.Add(item);
+            }
         }
         public void RemoveFromOrder()
         {
-            listitem.Remove(orderid);
+            foreach (var item in listitem)
+            {
+                listitem.Remove(item);
+            }
         }
         public void DeleteOrder()
         {
             listitem.Clear();
         }
+        public void ShowOrder()
+        {
+            foreach (var item in listitem)
+            {
+                Console.WriteLine(item);
+            }
+        }
+        public void UpdateOrderPrice ()
+        {
+
+            int TotalPrice = 0; 
+            foreach (var item in listitem)
+            {
+                TotalPrice = TotalPrice + item.Price;
+            }
+            OrderPrice = TotalPrice;
+        }
+
     }
        
 }
