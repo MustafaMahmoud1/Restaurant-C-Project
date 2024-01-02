@@ -115,6 +115,19 @@ namespace Restaurant_C__Project
                 Console.WriteLine("******************************************************************");
             }
         }
+
+         public void Showitemstocustomer()
+ {
+     foreach (var MenuItems in MenuItems)
+     {
+         Console.WriteLine($"item ID           : {MenuItems.ItemID}  ");
+         Console.WriteLine($"item name         : {MenuItems.ItemName}  ");
+         Console.WriteLine($"item price        : {MenuItems.ItemPrice}  ");
+         Console.WriteLine($"item description  : {MenuItems.description}   ");
+         Console.WriteLine($"item category     : {MenuItems.category}   ");
+         Console.WriteLine("******************************************************************");
+     }
+ }
     
         public void AddItem(string NewItemName,int NewItemPrice ,int NewItemID ,string NewDescription)
         { 
