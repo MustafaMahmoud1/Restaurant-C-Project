@@ -51,8 +51,8 @@ namespace Restaurant_C__Project
         }
         public void ReserveTable(int tableNo, int ReserveTime)
         {
-            DinningTableList.AddRange(new List<int> { tableNo, ReserveTime});
-            foreach (var item in Reservants)
+            DinningTableList.AddRange(new List<int> {tableNo, ReserveTime});
+            foreach (var item in ReserveName)
             {
                 Console.WriteLine(item);
             }
