@@ -22,7 +22,7 @@ namespace Restaurant_C__Project
         {
             List<Order> ActiveOrders = new List<Order> { };
             List<Order> OrderHistory = new List<Order> { };
-            List<Reservations> activeReservations = new List<Reservations> { };
+            List<Reservations> ActiveReservations = new List<Reservations> { };
             Balance = 0;
             FullName = Fullname;
             PhoneNumber = Phonenumber;
@@ -47,15 +47,13 @@ namespace Restaurant_C__Project
         public void CreateOrder ()
         {
             Console.WriteLine("May I take your order now?");
-            List<int> PotentialOrderItemId = new List<int>();
-            List<int> PotentialOrderQuantity = new List<int>();
+            Order order = new Order();
             while (true)
             {
                 Console.WriteLine("Please select an item from the menu above.");
                 int IdInput = int.Parse(Console.ReadLine());
                 Console.WriteLine("Enter the quantity you'd like to order.");
                 int QuantityInput = int.Parse(Console.ReadLine());
-                Order order = new Order();
                 OrderedItem item = new OrderedItem(IdInput, QuantityInput);
                 order.AddToOrder(item);
                 order.UpdateOrderPrice();
@@ -68,12 +66,20 @@ namespace Restaurant_C__Project
                     break;
                 }
             }
-
+            if (Balance < order.OrderPrice)
+            {
+                Console.WriteLine("Sorry, you don't have enough funds to complete this order.");
+                customer.addToBalance();
+            }
+            else
+            {
+                Console.WriteLine("Your order has been placed successfully.");
+                ActiveOrders.Add(order);
+                Balance = Balance - order.OrderPrice;
+            }
 
             }
 
-
-        }
 
         public void addToBalance()
         { 
@@ -83,7 +89,7 @@ namespace Restaurant_C__Project
             Console.WriteLine($"Success! an amount of {addedbalance} has been added to your account.");
         }
 
-        public string showNotification()
+        public string ShowNotification()
         {
             Console.WriteLine("");
         }
