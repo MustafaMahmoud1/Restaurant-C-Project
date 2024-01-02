@@ -23,25 +23,25 @@ namespace Restaurant_C__Project
       
         public void AddToOrder()
         {
-            foreach (var item in listitem)
+            foreach (var item in ListItem)
             {
-                listitem.Add(item);
+                ListItem.Add(item);
             }
         }
         public void RemoveFromOrder()
         {
-            foreach (var item in listitem)
+            foreach (var item in ListItem)
             {
-                listitem.Remove(item);
+                ListItem.Remove(item);
             }
         }
         public void DeleteOrder()
         {
-            listitem.Clear();
+            ListItem.Clear();
         }
         public void ShowOrder()
         {
-            foreach (var item in listitem)
+            foreach (var item in ListItem)
             {
                 Console.WriteLine(item);
             }

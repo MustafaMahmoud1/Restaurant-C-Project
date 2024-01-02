@@ -13,7 +13,6 @@ namespace C__Project
     {
         public Admin (int EmpId, int EmpSalary, string EmpName, string UserName, string UserPassword, string UserRole):base( EmpId, EmpSalary, EmpName, UserName, UserPassword, "Admin") { }
         Customer customer = new Customer();
-        //menu menu = new menu();
         order order = new order();
         reservations reservations = new reservations();
         ingredients ingredients = new ingredients();
@@ -30,7 +29,14 @@ namespace C__Project
         {
             customer.GetCustomerData();
         }
-        public void UpdateMenu() { }
+        public void UpdateMenu()
+        {
+            string NewItemName = Console.ReadLine();
+            int NewItemPrice = int.Parse(Console.ReadLine());
+            int NewItemID = int.Parse(Console.ReadLine());
+            string NewDescription = Console.ReadLine();
+            menu.ckeck().AddItem( NewItemName,  NewItemPrice,  NewItemID,  NewDescription);
+        }
         public void ModifyOrder()
         {
             order.AddToOrder();
