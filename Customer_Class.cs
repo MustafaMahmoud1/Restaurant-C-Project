@@ -37,6 +37,7 @@ namespace Restaurant_C__Project
         //waiting for confirmation on menu structure
         public void showMenu ()
         {
+
         }
         //waiting for diningtable class
         public string ShowTables ()
@@ -68,14 +69,30 @@ namespace Restaurant_C__Project
             }
             if (Balance < order.OrderPrice)
             {
-                Console.WriteLine("Sorry, you don't have enough funds to complete this order.");
-                customer.addToBalance();
+                Console.WriteLine(@"Sorry, you don't have enough funds to complete this order.
+                                    Do you wish to top up?
+                                     1: Yes, I want to top up and Process with my order.
+                                     2: No, Cancel my order.");
+                int TopUp = int.Parse(Console.ReadLine());
+                if (TopUp == 1)
+                {
+                    addToBalance();
+                    Console.WriteLine("Your order has been placed successfully.");
+                    ActiveOrders.Add(order);
+                    Balance = Balance - order.OrderPrice;
+                }
+                else
+                {
+                    Console.WriteLine("Your order has been cancelled.");
+                    order.DeleteOrder();
+                }
             }
             else
             {
                 Console.WriteLine("Your order has been placed successfully.");
                 ActiveOrders.Add(order);
                 Balance = Balance - order.OrderPrice;
+                ShowNotification("Order");
             }
 
             }
@@ -89,17 +106,29 @@ namespace Restaurant_C__Project
             Console.WriteLine($"Success! an amount of {addedbalance} has been added to your account.");
         }
 
-        public string ShowNotification()
+        public void ShowNotification(string service)
         {
-            Console.WriteLine("");
+            switch (service)
+            {
+                case "Order":
+                    Console.WriteLine("Thank you for your order from [Restaurant Name]! We're busy preparing your delicious food");
+                    break;
+                case "Reservation":
+                    Console.WriteLine("Your table at [Restaurant Name] is waiting!");
+                    break;
+                default:
+                    Console.WriteLine("Error: Invalid service.");
+                    break;
+            }
         }
 
         public void showReservations()
         {
-            foreach (var member in activeReservations)
+            foreach (var member in ActiveReservations)
             {
-                if (activeReservation.Reservation.reservantName == fullName && activeReservation.Reservation.reservantPhone == phoneNumber)
-                Console.WriteLine(activeReservation.Reservation.reserveTime + /n + activeReservation.Reservation.reservedTable);
+                if (ActiveReservation.Reservation.reservantName == FullName && ActiveReservation.Reservation.reservantPhone == PhoneNumber)
+                Console.WriteLine(@ActiveReservation.Reservation.reserveTime 
+                                  + ActiveReservation.Reservation.reservedTable);
             }
         }
     }
