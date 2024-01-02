@@ -54,15 +54,15 @@ namespace Restaurant_C__Project
                 Console.WriteLine(item);
             }
         }
-        //foreach (var x in Deserialized)
-        //{
-        //    Console.WriteLine(x.IngredientName);
-        //    Console.WriteLine(x.IngredientID);
-        //    Console.WriteLine(x.IngredientStatus);
-        //    Console.WriteLine(x.IngredientQuantity);
-        //}
-    }
+            //foreach (var x in Deserialized)
+            //{
+            //    Console.WriteLine(x.IngredientName);
+            //    Console.WriteLine(x.IngredientID);
+            //    Console.WriteLine(x.IngredientStatus);
+            //    Console.WriteLine(x.IngredientQuantity);
+            //}
+        }
 
-
+    
 
 }

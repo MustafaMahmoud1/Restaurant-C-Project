@@ -14,11 +14,11 @@ namespace Restaurant_C__Project
         {
             new Item
             {
-                ItemName="Spaghetti Bolognese" ,
-                ItemPrice=100 ,
-                ItemID=1 ,
-                description="Classic Italian dish with meat sauce",
-                availability=true ,
+                ItemName="Spaghetti Bolognese" , 
+                ItemPrice=100 , 
+                ItemID=1 , 
+                description="Classic Italian dish with meat sauce", 
+                availability=true , 
                 category="pasta" ,
                 recipe=new List<ItemIngredient>
                 {
@@ -31,7 +31,7 @@ namespace Restaurant_C__Project
             },
             new Item
             {
-
+                
                 ItemName = "Chicken Caesar Salad",
                 ItemPrice = 9,
                 ItemID = 2,
@@ -49,7 +49,7 @@ namespace Restaurant_C__Project
             },
             new Item
             {
-
+                
                 ItemName = "Chicken Caesar Salad",
                 ItemPrice = 9,
                 ItemID = 3,
@@ -67,7 +67,7 @@ namespace Restaurant_C__Project
             },
             new Item
             {
-
+               
                 ItemName = "Chicken Caesar Salad",
                 ItemPrice = 9,
                  ItemID = 4,
@@ -115,9 +115,9 @@ namespace Restaurant_C__Project
                 Console.WriteLine("******************************************************************");
             }
         }
-
+    
         public void AddItem(string NewItemName, int NewItemPrice, int NewItemID, string NewDescription)
-        {
+        { 
             MenuItems.Add(new Item
             { ItemName = NewItemName, ItemPrice = NewItemPrice, ItemID = NewItemID, description = NewDescription });
         }
