@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -35,6 +35,7 @@ namespace Restaurant_C__Project
                 ItemPrice = 9,
                 ItemID = 2,
                 description = "Fresh salad with grilled chicken and Caesar dressing",
+                availability = true,
                 category = "Salad",
                 recipe = new List<ItemIngredient>
                 {
@@ -101,7 +102,7 @@ namespace Restaurant_C__Project
                 Console.WriteLine($"item description  : {MenuItems.description}   ");
                 Console.WriteLine($"item category     : {MenuItems.category}   ");
                 Console.WriteLine("Recipe :");
-                foreach( var Ingred in MenuItems.recipe)
+                foreach (var Ingred in MenuItems.recipe)
                 {
                     Console.WriteLine($"    Ingredient ID       : {Ingred.IngredientID}");
                     Console.WriteLine($"    Ingredient Quantity : {Ingred.ItemIngredientQuantity}");
@@ -111,20 +112,20 @@ namespace Restaurant_C__Project
             }
         }
 
-         public void Showitemstocustomer()
- {
-     foreach (var MenuItems in MenuItems)
-     {
-         Console.WriteLine($"item ID           : {MenuItems.ItemID}  ");
-         Console.WriteLine($"item name         : {MenuItems.ItemName}  ");
-         Console.WriteLine($"item price        : {MenuItems.ItemPrice}  ");
-         Console.WriteLine($"item description  : {MenuItems.description}   ");
-         Console.WriteLine($"item category     : {MenuItems.category}   ");
-         Console.WriteLine("******************************************************************");
-     }
- }
-    
-        public void AddItem(string NewItemName,int NewItemPrice ,int NewItemID ,string NewDescription)
+        public void Showitemstocustomer()
+        {
+            foreach (var MenuItems in MenuItems)
+            {
+                Console.WriteLine($"item ID           : {MenuItems.ItemID}  ");
+                Console.WriteLine($"item name         : {MenuItems.ItemName}  ");
+                Console.WriteLine($"item price        : {MenuItems.ItemPrice}  ");
+                Console.WriteLine($"item description  : {MenuItems.description}   ");
+                Console.WriteLine($"item category     : {MenuItems.category}   ");
+                Console.WriteLine("******************************************************************");
+            }
+        }
+
+        public void AddItem(string NewItemName, int NewItemPrice, int NewItemID, string NewDescription)
         { 
             MenuItems.Add(new Item
             { ItemName = NewItemName, ItemPrice = NewItemPrice, ItemID = NewItemID, description = NewDescription });
@@ -132,7 +133,7 @@ namespace Restaurant_C__Project
 
         public void RemoveItem(int deleteItemID)
         {
-           foreach(var x in MenuItems)
+            foreach (var x in MenuItems)
             {
                 if (x.ItemID == deleteItemID)
                 {

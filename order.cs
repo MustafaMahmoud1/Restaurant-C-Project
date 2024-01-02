@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Restaurant_C__Project
 {
-    public class Order
+    internal class order
     {
         public int OrderId { get; set; }
 
@@ -72,7 +72,6 @@ namespace Restaurant_C__Project
             }
             OrderPrice = TotalPrice;
         }
-
     }
        
 }

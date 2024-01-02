@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Restaurant_C__Project
+namespace c__project
 {
-    public class OrderedItem
+    internal class ordereditem
     {
         public int ItemID {  get; set; } 
 
@@ -14,9 +14,9 @@ namespace Restaurant_C__Project
         public int Price { get; set; }
         public List<int>ItemIdAndQuantities { get; set; }
         public List<int> ItemPrice { get; set; }
-        public OrderedItem() { }
+        public ordereditem() { }
 
-        public OrderedItem(int itemID , int quantity)
+        public ordereditem(int itemID , int quantity)
         {
             this.ItemID = itemID;
             this.Quantity = quantity;

@@ -39,7 +39,7 @@ namespace Restaurant_C__Project
         }
         public void LoadIngredient()
         {
-            List<ingredients>LoadIngredients=new List<ingredients>();
+            List<ingredients> LoadIngredients = new List<ingredients>();
             foreach (var item in LoadIngredients)
             {
                 Console.WriteLine(LoadIngredients);
