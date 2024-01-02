@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace c__project
+namespace Restaurant_C__Project
 {
     internal class Reservations
     {
