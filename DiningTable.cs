@@ -15,11 +15,11 @@ namespace c__project
         public bool Type { get; set; }
         public DiningTable() { }
 
-        public DiningTable(int tableNo , int tableCapicty , bool type)
+        public DiningTable(int TableNo , int TableCapicty , bool Type)
         {
-            this.TableNo = tableNo;
-            this.TableCapicty = tableCapicty;
-            this.Type = type;
+            this.TableNo = TableNo;
+            this.TableCapicty = TableCapicty;
+            this.Type = Type;
         }
        
 
