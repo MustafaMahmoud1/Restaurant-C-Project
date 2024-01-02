@@ -18,7 +18,7 @@ namespace c__project
         public List<int>DinningTableList { get; set; }= new List<int>();
         public reservations() { }
 
-        public reservations(int TableNo, int TableCapacity ,bool Type, int Reserveid, int Reservetime, string ReserveName, string ReservantPhone, string ReservantTable, List<int>reservats):base(TableNo, TableCapacity, Type)
+        public reservations(int tableNo, int tableCapacity ,bool type, int reserveid, int reservetime, string reservename, string reservantphone, string reservanttable, List<int>reservats):base(tableNo, tableCapacity, type)
         {
            ReserveId = ReserveId;
            ReserveTime = ReserveTime;
@@ -51,7 +51,7 @@ namespace c__project
         }
         public void ReserveTable()
         {
-            DinningTableList.AddRange(new List<int> { TableNo, ReserveTime});
+            DinningTableList.AddRange(new List<int> { tableNo, ReserveTime});
             foreach (var item in ReserveName)
             {
                 Console.WriteLine(item);
