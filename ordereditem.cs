@@ -21,7 +21,7 @@ namespace c__project
             this.ItemID = itemID;
             this.Quantity = quantity;
         }
-        public void CreateOrder ()
+        public void CreateOrder (int ItemID, int Quantity)
         {
             ItemIdAndQuantities.AddRange(new List<int> {ItemID,Quantity});
             foreach (var item in ItemIdAndQuantities)
@@ -29,7 +29,7 @@ namespace c__project
                 Console.WriteLine(item);
             }
         }
-        public void Printing()
+        public void Printing(int ItemID, int Quantity, int Price)
         {
             ItemPrice.AddRange(new List<int> { ItemID, Quantity,Price });
             int TotalPrice = 0;

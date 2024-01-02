@@ -27,16 +27,16 @@ namespace c__project
            ReservantTable = ReservantTable;
            Reservants = Reservants;
         }
-    public void AddToReservation()
+    public void AddToReservation(int ReserveId)
         {
-            foreach (var item in ReserveName)
+            foreach (var item in Reservants)
             {
                 Reservants.Add(item);
             }
         }
         public void RemoveFromReservation()
         {
-            foreach (var item in ReserveName)
+            foreach (var item in Reservants)
             {
                 Reservants.Remove(item);
             }
@@ -45,11 +45,11 @@ namespace c__project
         {
             Reservants.Clear();
         }
-        public void ShowActiveReservatioList()
+        public void ShowActiveReservatioList(int ReserveId)
         {
             Console.WriteLine(Reservants);
         }
-        public void ReserveTable()
+        public void ReserveTable(int tableNo, int ReserveTime)
         {
             DinningTableList.AddRange(new List<int> { tableNo, ReserveTime});
             foreach (var item in ReserveName)
