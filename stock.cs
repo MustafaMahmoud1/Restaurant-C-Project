@@ -76,5 +76,12 @@ namespace Restaurant_C__Project
             }
           
         }
+        public void ShowListOfIngredients()
+        {
+            foreach(var x in IngredientsList)
+            {
+                Console.WriteLine(x);
+            }
+        }
     }
 }

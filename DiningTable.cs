@@ -6,22 +6,22 @@ using System.Threading.Tasks;
 
 namespace c__project
 {
-    internal class DiningTable
+    internal class DiningTable 
     {
-        private int tableNo { get; set; }
-        private int tableCapicty { get; set; }
+        public int tableNo { get; set; }
+        public int tableCapicty { get; set; }
         
 
-        private bool type { get; set; }
+        public bool type { get; set; }
+        public DiningTable() { }
 
-        public DiningTable(int tableNo , int tableCapicty , bool state , bool type)
+        public DiningTable(int tableNo , int tableCapicty , bool type)
         {
             this.tableNo = tableNo;
             this.tableCapicty = tableCapicty;
-            
-
             this.type = type;
         }
+       
 
     }
 }

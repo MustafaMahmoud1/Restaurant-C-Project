@@ -20,17 +20,31 @@ namespace c__project
             listitem = null;
           
         }
+      
         public void AddToOrder()
         {
-            listitem.Add(orderid);
+            foreach (var item in listitem)
+            {
+                listitem.Add(item);
+            }
         }
         public void RemoveFromOrder()
         {
-            listitem.Remove(orderid);
+            foreach (var item in listitem)
+            {
+                listitem.Remove(item);
+            }
         }
         public void DeleteOrder()
         {
             listitem.Clear();
+        }
+        public void ShowOrder()
+        {
+            foreach (var item in listitem)
+            {
+                Console.WriteLine(item);
+            }
         }
     }
        

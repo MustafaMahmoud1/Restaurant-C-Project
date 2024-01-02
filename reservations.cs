@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Restaurant_C__Project;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace c__project
 {
-    internal class reservations
+    internal class reservations: DiningTable
     {
         public int  reserveid {  get; set; }
         public int reservetime { get; set; }
@@ -19,9 +20,10 @@ namespace c__project
 
         public string reservanttable { get; set; }
         public List<int> reservants { get; set; } = new List<int>();
+        public List<int>DinningTableList { get; set; }= new List<int>();
         public reservations() { }
 
-        public reservations(int reserveid, int reservetime, string reservename, string reservantphone, string reservanttable, List<int>reservats)
+        public reservations(int tableNo, int tableCapacity ,bool type, int reserveid, int reservetime, string reservename, string reservantphone, string reservanttable, List<int>reservats):base(tableNo, tableCapacity, type)
         {
            reserveid = reserveid;
         
@@ -35,15 +37,33 @@ namespace c__project
         }
         public void AddToReservation()
         {
-            reservants.Add(reserveid);
+            foreach (var item in reservename)
+            {
+                reservants.Add(item);
+            }
         }
         public void RemoveFromReservation()
         {
-            reservants.Remove(reserveid);
+            foreach (var item in reservename)
+            {
+                reservants.Remove(item);
+            }
         }
         public void DeleteReservation()
         {
             reservants.Clear();
+        }
+        public void ShowActiveReservatioList()
+        {
+            Console.WriteLine(reservants);
+        }
+        public void ReserveTable()
+        {
+            DinningTableList.AddRange(new List<int> { tableNo, reservetime});
+            foreach (var item in reservename)
+            {
+                Console.WriteLine(item);
+            }
         }
     }
 }
