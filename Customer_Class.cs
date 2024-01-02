@@ -32,12 +32,7 @@ namespace Restaurant_C__Project
         {
             Console.WriteLine(FullName);
             Console.WriteLine(PhoneNumber);
-            Console.WriteLine( Address);
-        }
-        //waiting for confirmation on menu structure
-        public void showMenu ()
-        {
-
+            Console.WriteLine(Address);
         }
         //waiting for diningtable class
         public string ShowTables ()

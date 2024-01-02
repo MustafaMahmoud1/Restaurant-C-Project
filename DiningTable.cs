@@ -11,7 +11,6 @@ namespace c__project
         public int TableNo { get; set; }
         public int TableCapicty { get; set; }
         
-
         public bool Type { get; set; }
         public DiningTable() { }
 
