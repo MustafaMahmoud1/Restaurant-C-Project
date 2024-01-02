@@ -8,18 +8,18 @@ namespace c__project
 {
     internal class DiningTable 
     {
-        public int tableNo { get; set; }
-        public int tableCapicty { get; set; }
+        public int TableNo { get; set; }
+        public int TableCapicty { get; set; }
         
 
-        public bool type { get; set; }
+        public bool Type { get; set; }
         public DiningTable() { }
 
         public DiningTable(int tableNo , int tableCapicty , bool type)
         {
-            this.tableNo = tableNo;
-            this.tableCapicty = tableCapicty;
-            this.type = type;
+            this.TableNo = tableNo;
+            this.TableCapicty = tableCapicty;
+            this.Type = type;
         }
        
 
