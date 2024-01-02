@@ -9,69 +9,54 @@ namespace Restaurant_C__Project
 {
     public class Order
     {
-<<<<<<< HEAD
-        public int orderid { get; set; }
-        public int OrderPrice { get; set; }
-
-        public List<OrderedItem> listitem { get; } = new List<OrderedItem>();
-        public Order()
-        {
-            orderid = 0;
-            listitem = null;
-            OrderPrice = 0;
-          
-=======
         public int OrderId { get; set; }
 
         
 
         public List<int> ListItem { get; } = new List<int>();
+        public List<int>ItemData { get; } = new List<int>();
         public order()
         {
             OrderId = 0;
             ListItem = null;
           
->>>>>>> 38d97c139af3fba3f5784c3233cbe3e9c82b4e98
         }
       
-        public void AddToOrder()
+        public void AddToOrder(int OrderId, List<int> ItemData)
         {
-<<<<<<< HEAD
-            foreach (var item in listitem)
-            {
-                listitem.Add(item);
-=======
+            int ItemId=int.Parse(Console.ReadLine());
+            int Quantity=int.Parse(Console.ReadLine());
+            int Price=int.Parse(Console.ReadLine());
+            ItemData.AddRange(new List<int> { ItemId, Quantity, Price});
+            ListItem.AddRange(new List<int> { OrderId});
             foreach (var item in ListItem)
             {
+                foreach (var x in ItemData)
+                {
+                    ItemData.Add(x);
+                }
                 ListItem.Add(item);
->>>>>>> 38d97c139af3fba3f5784c3233cbe3e9c82b4e98
             }
         }
         public void RemoveFromOrder()
         {
-<<<<<<< HEAD
-            foreach (var item in listitem)
-            {
-                listitem.Remove(item);
-=======
             foreach (var item in ListItem)
             {
                 ListItem.Remove(item);
->>>>>>> 38d97c139af3fba3f5784c3233cbe3e9c82b4e98
             }
         }
         public void DeleteOrder()
         {
             ListItem.Clear();
         }
-        public void ShowOrder()
+        public void ShowOrder(int OrderId, int ItemID, int Quantity, int Price)
         {
-<<<<<<< HEAD
-            foreach (var item in listitem)
-=======
             foreach (var item in ListItem)
->>>>>>> 38d97c139af3fba3f5784c3233cbe3e9c82b4e98
             {
+                foreach(var x in ItemData)
+                {
+                    Console.WriteLine(x);
+                }
                 Console.WriteLine(item);
             }
         }
