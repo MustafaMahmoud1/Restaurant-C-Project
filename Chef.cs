@@ -12,7 +12,6 @@ namespace C__Project
     {
         public Chef(int empId, int empSalary, string empName, string UserName, string UserPassword, string UserRole) : base(empId, empSalary, empName, UserName, UserPassword, UserRole) { }
         order order = new order();
-        stock stock = new stock();
         ingredients ingredients = new ingredients();
         public void ShowOrderList()
         {
@@ -24,6 +23,7 @@ namespace C__Project
         }
         public void ShowStock()
         {
+            stock.ckeck().ShowListOfIngredients();
             
         }
         public void RequestIngredient()
