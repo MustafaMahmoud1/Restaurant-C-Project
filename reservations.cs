@@ -9,58 +9,50 @@ namespace c__project
 {
     internal class reservations: DiningTable
     {
-        public int  reserveid {  get; set; }
-        public int reservetime { get; set; }
-
-        public string reservename { get; set; }
-
-
-        public string  reservantphone { get; set; }
-
-
-        public string reservanttable { get; set; }
-        public List<int> reservants { get; set; } = new List<int>();
+        public int  ReserveId {  get; set; }
+        public int ReserveTime { get; set; }
+        public string ReserveName { get; set; }
+        public string  ReservantPhone { get; set; }
+        public string ReservantTable { get; set; }
+        public List<int> Reservants { get; set; } = new List<int>();
         public List<int>DinningTableList { get; set; }= new List<int>();
         public reservations() { }
 
         public reservations(int tableNo, int tableCapacity ,bool type, int reserveid, int reservetime, string reservename, string reservantphone, string reservanttable, List<int>reservats):base(tableNo, tableCapacity, type)
         {
-           reserveid = reserveid;
-        
-            reservetime = reservetime;
-           
-            reservename = reservename;
-
-            reservantphone = reservantphone;
-            reservanttable = reservanttable;
-            reservats = reservats;
+           ReserveId = ReserveId;
+           ReserveTime = ReserveTime;
+           ReserveName = ReserveName;
+           ReservantPhone = ReservantPhone;
+           ReservantTable = ReservantTable;
+           Reservants = Reservants;
         }
-        public void AddToReservation()
+    public void AddToReservation()
         {
-            foreach (var item in reservename)
+            foreach (var item in ReserveName)
             {
-                reservants.Add(item);
+                Reservants.Add(item);
             }
         }
         public void RemoveFromReservation()
         {
-            foreach (var item in reservename)
+            foreach (var item in ReserveName)
             {
-                reservants.Remove(item);
+                Reservants.Remove(item);
             }
         }
         public void DeleteReservation()
         {
-            reservants.Clear();
+            Reservants.Clear();
         }
         public void ShowActiveReservatioList()
         {
-            Console.WriteLine(reservants);
+            Console.WriteLine(Reservants);
         }
         public void ReserveTable()
         {
-            DinningTableList.AddRange(new List<int> { tableNo, reservetime});
-            foreach (var item in reservename)
+            DinningTableList.AddRange(new List<int> { tableNo, ReserveTime});
+            foreach (var item in ReserveName)
             {
                 Console.WriteLine(item);
             }
