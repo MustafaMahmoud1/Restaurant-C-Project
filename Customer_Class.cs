@@ -12,9 +12,9 @@ namespace Restaurant_C__Project
         public string FullName { get; set; }
         public string PhoneNumber { get; set; }
         public string Address { get; set; }
-        public List<Order> ActiveOrders { get; set; }
-        public List<Order> OrderHistory { get; set; }
-        public List<Reservations> ActiveReservations { get; set; }
+        //public List<Order> ActiveOrders { get; set; }
+        //public List<Order> OrderHistory { get; set; }
+        //public List<Reservations> ActiveReservations { get; set; }
         public int Balance { get; set; }
         public Customer() { }
 
@@ -28,7 +28,7 @@ namespace Restaurant_C__Project
             PhoneNumber = Phonenumber;
             this.Address = Address;
             string json = JsonConvert.SerializeObject(this);
-            System.IO.File.WriteAllText(@"C:\Users\HP\Desktop\Restaurant C# Project\Restaurant C# Project\Customer.json", json);
+            System.IO.File.WriteAllText(@"D:\C# Projects\Restaurant C# Project\Customer.json", json);
         }
         public void GetCustomerData ()
         {
@@ -37,10 +37,10 @@ namespace Restaurant_C__Project
             Console.WriteLine(Address);
         }
         //waiting for diningtable class
-        public string ShowTables ()
-        {
+        //public string ShowTables ()
+        //{
             
-        }
+        //}
         // waiting for ordereditem
         public void CreateOrder ()
         {
@@ -75,7 +75,7 @@ namespace Restaurant_C__Project
                 {
                     addToBalance();
                     Console.WriteLine("Your order has been placed successfully.");
-                    ActiveOrders.Add(order);
+                    //ActiveOrders.Add(order);
                     Balance = Balance - order.OrderPrice;
                 }
                 else
@@ -87,7 +87,7 @@ namespace Restaurant_C__Project
             else
             {
                 Console.WriteLine("Your order has been placed successfully.");
-                ActiveOrders.Add(order);
+                //ActiveOrders.Add(order);
                 Balance = Balance - order.OrderPrice;
                 ShowNotification("Order");
             }
@@ -119,14 +119,14 @@ namespace Restaurant_C__Project
             }
         }
 
-        public void showReservations()
-        {
-            foreach (var member in ActiveReservations)
-            {
-                if (ActiveReservation.Reservation.reservantName == FullName && ActiveReservation.Reservation.reservantPhone == PhoneNumber)
-                Console.WriteLine(ActiveReservation.Reservation.reserveTime 
-                                  + "\n" + ActiveReservation.Reservation.reservedTable);
-            }
-        }
+        //public void showReservations()
+        //{
+        //    foreach (var member in ActiveReservations)
+        //    {
+        //        if (ActiveReservation.Reservation.reservantName == FullName && ActiveReservation.Reservation.reservantPhone == PhoneNumber)
+        //        Console.WriteLine(ActiveReservation.Reservation.reserveTime 
+        //                          + "\n" + ActiveReservation.Reservation.reservedTable);
+        //    }
+        //}
     }
 }
