@@ -18,6 +18,12 @@ namespace Restaurant_C__Project
             int start = int.Parse(Console.ReadLine());
             switch (start)
             {
+                case 0:
+                    Menu.LoadAllItemsFromJson(@"D:\C# Projects\Restaurant C# Project\Menu.json");
+                    Menu.GetInstance().AddItem("pizza", 220 , 2042235, "pizzaaa");
+                    Menu.SaveItemsToFile(@"D:\C# Projects\Restaurant C# Project\Menu.json");
+                    Menu.GetInstance().ShowItems();
+                    break;
                 case 1:
                     Console.WriteLine("Choose from options.");
                     Console.WriteLine("1: Sign up");
@@ -70,8 +76,8 @@ namespace Restaurant_C__Project
                             User.LoadAllUsersFromJson(@"D:\C# Projects\Restaurant C# Project\User.json");
                             user.AddUser();
                             User.SaveUsersToFile(@"D:\C# Projects\Restaurant C# Project\User.json");
-                            goto loop;
-                        // sign in proccess.
+                            return;
+                            // sign in proccess.
                         case 2:
                             Console.WriteLine("Please enter your username");
                             string usernametrial = Console.ReadLine();
@@ -92,12 +98,13 @@ namespace Restaurant_C__Project
                             Console.WriteLine("2: reserve a table.");
                             Console.WriteLine("3: Go back to main page.");
                             int servicechoice = int.Parse(Console.ReadLine());
+                            break;
                             switch (servicechoice)
                             {
                                 case 1:
-                                    menu.ckeck().Showitemstocustomer();
-                                    customer.CreateOrder();
-                                    customer.ShowNotification("Order");
+                                    //menu.ckeck().Showitemstocustomer();
+                                    //customer.CreateOrder();
+                                    //customer.ShowNotification("Order");
                                 break;
                                 case 2:
                                     //reserve a table
