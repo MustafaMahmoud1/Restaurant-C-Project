@@ -22,22 +22,22 @@ namespace Restaurant_C__Project
 
 
 
-        public static void LoadAllIngredientsFromJson(string jsonFilePath)
+        public static void LoadAllItemsFromJson(string jsonFilePath)
         {
             if (File.Exists(jsonFilePath))
             {
                 string json = File.ReadAllText(jsonFilePath);
-                IngredientsList = JsonConvert.DeserializeObject<List<ingredients>>(json);
+                AllItems = JsonConvert.DeserializeObject<List<ingredients>>(json);
             }
         }
-        public static void SaveIngredientToFile(string jsonFilePath)
+        public static void SaveItemsToFile(string jsonFilePath)
         {
             string json = JsonConvert.SerializeObject(IngredientsList, Formatting.Indented);
             File.WriteAllText(jsonFilePath, json);
         }
         public void ShowListOfIngredients()
         {
-            foreach (var x in IngredientsList)
+            foreach (var x in AllItems)
             {
                 Console.WriteLine($"Ingredient ID        : {x.IngredientID}");
                 Console.WriteLine($"Ingredient Name      : {x.IngredientName}");
@@ -49,7 +49,7 @@ namespace Restaurant_C__Project
         public void CheckAvailability(int CheckIngredientID)
         {
             bool condition = false;
-            foreach (var x in IngredientsList)
+            foreach (var x in AllItems)
             {
                 if (CheckIngredientID == x.IngredientID)
                 {
@@ -71,7 +71,7 @@ namespace Restaurant_C__Project
         public void AddIngredient(int IngredientID, string IngredientName, int IngredientQuantity)
         {
             bool IsIngredientInStock = false;
-            foreach (var x in IngredientsList)
+            foreach (var x in AllItems)
             {
                 if (IngredientID == x.IngredientID)
                     IsIngredientInStock = true;
@@ -79,7 +79,7 @@ namespace Restaurant_C__Project
             }
             if (IsIngredientInStock == false)
             {
-                IngredientsList.Add(
+                AllItems.Add(
                     new ingredients {IngredientID = IngredientID, IngredientName = IngredientName,IngredientStatus = true,
                         IngredientQuantity = IngredientQuantity
                     });

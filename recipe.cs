@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace Restaurant_C__Project
 {
@@ -10,24 +11,38 @@ namespace Restaurant_C__Project
     {
         public List<ItemIngredient> recipe { get; set; }
 
+        public static void LoadAllItemsFromJson(string jsonFilePath)
+        {
+            if (File.Exists(jsonFilePath))
+            {
+                string json = File.ReadAllText(jsonFilePath);
+                AllItems = JsonConvert.DeserializeObject<List<ItemIngredient>>(json);
+            }
+        }
+        public static void SaveItemsToFile(string jsonFilePath)
+        {
+            string json = JsonConvert.SerializeObject(AllItems, Formatting.Indented);
+            File.WriteAllText(jsonFilePath, json);
+        }
+
         public void AddItemIngredint(int id, string quantity)
         {
-            recipe.Add(new ItemIngredient
+            AllItems.Add(new ItemIngredient
             { IngredientID = id, ItemIngredientQuantity = quantity });
         }
         public void RemoveItemIngredient(int deletedItemIngredient)
         {
-            foreach (var x in recipe)
+            foreach (var x in AllItems)
             {
                 if (x.IngredientID == deletedItemIngredient)
                 {
-                    recipe.Remove(x);
+                    AllItems.Remove(x);
                 }
             }
         }
         public void ChangeItemIngredient(int IDtoChange, int NewItemIngredientID, string NewItemIngredientQuan)
         {
-            foreach (var x in recipe)
+            foreach (var x in AllItems)
             {
                 if (x.IngredientID == IDtoChange)
                 {
