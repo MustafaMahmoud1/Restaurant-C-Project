@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Restaurant_C__Project
 {
-    internal class ingredients
+    public class ingredients
     {
 
         public string IngredientName { get; set; }
@@ -17,34 +17,14 @@ namespace Restaurant_C__Project
         public bool IngredientStatus { get; set; }
         public int IngredientQuantity { get; set; }
 
-        /// <summary>
-        /// JSON PART
-        /// </summary>
-        /// 
-
-
-        //public void deserializ()
+        //public void LoadIngredient()
         //{
-        //    string json = System.IO.File.ReadAllText(@"C:\Users\abdelrahman shalaby\Desktop\ingredients.json");
-
-        //    ingredients Deserialized = JsonConvert.DeserializeObject<ingredients>(json);
-        //    Console.WriteLine(Deserialized.IngredientID);
-
-        //} 
-        public ingredients() { }
-        static List<ingredients> LoadIngredients(string filePath)
-        {
-            string jsonText = System.IO.File.ReadAllText(filePath);
-            return JsonConvert.DeserializeObject<List<ingredients>>(jsonText);
-        }
-        public void LoadIngredient()
-        {
-            List<ingredients> LoadIngredients = new List<ingredients>();
-            foreach (var item in LoadIngredients)
-            {
-                Console.WriteLine(LoadIngredients);
-            }
-        }
+        //    List<ingredients> LoadIngredients = new List<ingredients>();
+        //    foreach (var item in LoadIngredients)
+        //    {
+        //        Console.WriteLine(LoadIngredients);
+        //    }
+        //}
         public void RequestIngredients()
         {
             List<int> ReaquestIngredients = new List<int>();
@@ -54,15 +34,8 @@ namespace Restaurant_C__Project
                 Console.WriteLine(item);
             }
         }
-            //foreach (var x in Deserialized)
-            //{
-            //    Console.WriteLine(x.IngredientName);
-            //    Console.WriteLine(x.IngredientID);
-            //    Console.WriteLine(x.IngredientStatus);
-            //    Console.WriteLine(x.IngredientQuantity);
-            //}
-        }
+    }
 
-    
+
 
 }

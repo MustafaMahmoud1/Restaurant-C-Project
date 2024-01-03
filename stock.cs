@@ -1,53 +1,55 @@
-
-﻿using Newtonsoft.Json;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
-using System.Xml;
-
 namespace Restaurant_C__Project
 {
-    internal sealed class stock
+    public sealed class Stock
     {
-        public List<ingredients> IngredientsList = new List<ingredients>() {
-        new ingredients
-        {IngredientID= 1 ,IngredientName="tomato", IngredientQuantity=100, IngredientStatus=true},
-        new ingredients
-        {IngredientID= 2 ,IngredientName="pomato", IngredientQuantity=100, IngredientStatus=false},
-        new ingredients
-        {IngredientID= 3 ,IngredientName="cheese", IngredientQuantity=100, IngredientStatus=true},
-        new ingredients
-        {IngredientID= 4 ,IngredientName="flour", IngredientQuantity=100, IngredientStatus=true},
-        new ingredients
-        {IngredientID= 5 ,IngredientName="pasta", IngredientQuantity=100, IngredientStatus=true},
-        new ingredients
-        {IngredientID= 6 ,IngredientName="rice", IngredientQuantity=100, IngredientStatus=true},
-        new ingredients
-        {IngredientID= 7 ,IngredientName="chicken", IngredientQuantity=100, IngredientStatus=true},
-        new ingredients
-        {IngredientID= 8 ,IngredientName="meat", IngredientQuantity=100, IngredientStatus=true},
-        new ingredients
-        {IngredientID= 9 ,IngredientName="lemon", IngredientQuantity=100, IngredientStatus=true},
-        new ingredients
-        {IngredientID= 10 ,IngredientName="fish", IngredientQuantity=100, IngredientStatus=true},
-        };
+        private static Stock MyStock;
 
-        private stock() { }
-
-        private static stock MyStock;
-        public static stock ckeck()
+        private static List<ingredients> IngredientsList = new List<ingredients>();
+        private Stock() { }
+        public static Stock Get_Instance()
         {
             if (MyStock == null)
-                MyStock = new stock();
+                MyStock = new Stock();
             return MyStock;
         }
 
+
+
+        public static void LoadAllItemsFromJson(string jsonFilePath)
+        {
+            if (File.Exists(jsonFilePath))
+            {
+                string json = File.ReadAllText(jsonFilePath);
+                AllItems = JsonConvert.DeserializeObject<List<ingredients>>(json);
+            }
+        }
+        public static void SaveItemsToFile(string jsonFilePath)
+        {
+            string json = JsonConvert.SerializeObject(IngredientsList, Formatting.Indented);
+            File.WriteAllText(jsonFilePath, json);
+        }
+        public void ShowListOfIngredients()
+        {
+            foreach (var x in AllItems)
+            {
+                Console.WriteLine($"Ingredient ID        : {x.IngredientID}");
+                Console.WriteLine($"Ingredient Name      : {x.IngredientName}");
+                Console.WriteLine($"Ingredient Status    : {x.IngredientStatus}");
+                Console.WriteLine($"Ingredient Quantity  : {x.IngredientQuantity}");
+                Console.WriteLine("********************************************************");
+            }
+        }
         public void CheckAvailability(int CheckIngredientID)
         {
             bool condition = false;
-            foreach (var x in IngredientsList)
+            foreach (var x in AllItems)
             {
                 if (CheckIngredientID == x.IngredientID)
                 {
@@ -58,35 +60,32 @@ namespace Restaurant_C__Project
             }
             if (condition == false)
             {
-                Console.WriteLine("enter ingredient id and ingredient quantity");
+                Console.WriteLine("enter ingredient id , ingredient name and ingredient quantity");
                 int ingredientID = int.Parse(Console.ReadLine());
+               string ingredientname = Console.ReadLine();
                 int quantity = int.Parse(Console.ReadLine());
-                AddIngredient(ingredientID, true, quantity);
+                AddIngredient(ingredientID, ingredientname, quantity);
             }
         }
-        public void AddIngredient(int IngredientID, bool IngredientStatus, int IngredientQuantity)
+
+        public void AddIngredient(int IngredientID, string IngredientName, int IngredientQuantity)
         {
-            foreach (var x in IngredientsList)
+            bool IsIngredientInStock = false;
+            foreach (var x in AllItems)
             {
                 if (IngredientID == x.IngredientID)
-                {
-                    x.IngredientID = IngredientID;
-                    x.IngredientStatus = true;
-                    x.IngredientQuantity = IngredientQuantity;
-                }
+                    IsIngredientInStock = true;
+                Console.WriteLine("this inredient is already in the stock");
             }
-
-        }
-        public void ShowListOfIngredients(int IngredientID)
-        {
-            foreach (var x in IngredientsList)
+            if (IsIngredientInStock == false)
             {
-               Console.WriteLine($"Ingredient ID        : {x.IngrdientID}");
-               Console.WriteLine($"Ingredient Name      : {x.IngrdientName}");
-               Console.WriteLine($"Ingredient Status    : {x.IngrdientStatus}");
-               Console.WriteLine($"Ingredient Quantity  : {x.IngrdientQuantity}");
-               Console.WriteLine("********************************************************");
+                AllItems.Add(
+                    new ingredients {IngredientID = IngredientID, IngredientName = IngredientName,IngredientStatus = true,
+                        IngredientQuantity = IngredientQuantity
+                    });
             }
         }
+
+
     }
 }
