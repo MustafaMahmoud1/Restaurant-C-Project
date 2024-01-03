@@ -67,15 +67,18 @@ namespace Restaurant_C__Project
                             User user = new User(username, password, "customer");
                             Customer customer = new Customer(fullname, phone, address);
                             Console.WriteLine("You signed up successfully. The program will restart now, please sign in.");
+                            User.LoadAllUsersFromJson(@"D:\C# Projects\Restaurant C# Project\User.json");
+                            user.AddUser();
+                            User.SaveUsersToFile(@"D:\C# Projects\Restaurant C# Project\User.json");
                             goto loop;
                         // sign in proccess.
                         case 2:
-                            Console.WriteLine("Please enter your username & password");
-                            //write a function that check that the enterend username and password combination exist in user.json
-                            //if it does exist, return true, else return false
+                            Console.WriteLine("Please enter your username");
                             string usernametrial = Console.ReadLine();
+                            Console.WriteLine("Please enter your password");
                             string passwordtrial = Console.ReadLine();
-                            if (User.Signin(usernametrial, passwordtrial, "customer"))
+                            User.LoadAllUsersFromJson(@"D:\C# Projects\Restaurant C# Project\User.json");
+                            if (User.VerifyUser(usernametrial, passwordtrial, "customer"))
                             {
                                 Console.WriteLine("You signed in successfully.");
                             }
@@ -84,7 +87,6 @@ namespace Restaurant_C__Project
                                 Console.WriteLine("Invalid username or password.");
                                 goto loop;
                             }   
-                            break;
                             Console.WriteLine("please choose a service");
                             Console.WriteLine("1: order online now.");
                             Console.WriteLine("2: reserve a table.");
@@ -99,7 +101,7 @@ namespace Restaurant_C__Project
                                 break;
                                 case 2:
                                     //reserve a table
-                                customer.ShowTables();
+                                //customer.ShowTables();
 
                                 break;
                             }
