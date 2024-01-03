@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 namespace Restaurant_C__Project
 {
-    public  class stock
+    public sealed class Stock
     {
         public List<ingredients> IngredientsList = new List<ingredients>();
         //{
@@ -33,15 +33,15 @@ namespace Restaurant_C__Project
         //{IngredientID= 10 ,IngredientName="fish", IngredientQuantity=100, IngredientStatus=true},
         //};
 
-        //private stock() { }
+        private Stock() { }
 
-        //private static stock MyStock;
-        //public static stock ckeck()
-        //{
-        //    if (MyStock == null)
-        //        MyStock = new stock();
-        //    return MyStock;
-        //}
+        private static Stock MyStock;
+        public static Stock Get_Instance()
+        {
+            if (MyStock == null)
+                MyStock = new Stock();
+            return MyStock;
+        }
 
         //public void CheckAvailability(int CheckIngredientID)
         //{
