@@ -9,33 +9,10 @@ namespace Restaurant_C__Project
 {
     public sealed class Stock
     {
-        public List<ingredients> IngredientsList = new List<ingredients>();
-        //{
-        //new ingredients
-        //{IngredientID= 1 ,IngredientName="tomato", IngredientQuantity=100, IngredientStatus=true},
-        //new ingredients
-        //{IngredientID= 2 ,IngredientName="pomato", IngredientQuantity=100, IngredientStatus=false},
-        //new ingredients
-        //{IngredientID= 3 ,IngredientName="cheese", IngredientQuantity=100, IngredientStatus=true},
-        //new ingredients
-        //{IngredientID= 4 ,IngredientName="flour", IngredientQuantity=100, IngredientStatus=true},
-        //new ingredients
-        //{IngredientID= 5 ,IngredientName="pasta", IngredientQuantity=100, IngredientStatus=true},
-        //new ingredients
-        //{IngredientID= 6 ,IngredientName="rice", IngredientQuantity=100, IngredientStatus=true},
-        //new ingredients
-        //{IngredientID= 7 ,IngredientName="chicken", IngredientQuantity=100, IngredientStatus=true},
-        //new ingredients
-        //{IngredientID= 8 ,IngredientName="meat", IngredientQuantity=100, IngredientStatus=true},
-        //new ingredients
-        //{IngredientID= 9 ,IngredientName="lemon", IngredientQuantity=100, IngredientStatus=true},
-        //new ingredients
-        //{IngredientID= 10 ,IngredientName="fish", IngredientQuantity=100, IngredientStatus=true},
-        //};
-
-        private Stock() { }
-
         private static Stock MyStock;
+
+        private static List<ingredients> IngredientsList = new List<ingredients>();
+        private Stock() { }
         public static Stock Get_Instance()
         {
             if (MyStock == null)
@@ -69,7 +46,7 @@ namespace Restaurant_C__Project
             if (File.Exists(jsonFilePath))
             {
                 string json = File.ReadAllText(jsonFilePath);
-                IngredientsList = JsonConvert.DeserializeObject<List<Item>>(json);
+                IngredientsList = JsonConvert.DeserializeObject<List<ingredients>>(json);
             }
         }
         public static void SaveIngredientToFile(string jsonFilePath)
@@ -81,10 +58,10 @@ namespace Restaurant_C__Project
         {
             foreach (var x in IngredientsList)
             {
-                Console.WriteLine($"Ingredient ID        : {x.IngrdientID}");
-                Console.WriteLine($"Ingredient Name      : {x.IngrdientName}");
-                Console.WriteLine($"Ingredient Status    : {x.IngrdientStatus}");
-                Console.WriteLine($"Ingredient Quantity  : {x.IngrdientQuantity}");
+                Console.WriteLine($"Ingredient ID        : {x.IngredientID}");
+                Console.WriteLine($"Ingredient Name      : {x.IngredientName}");
+                Console.WriteLine($"Ingredient Status    : {x.IngredientStatus}");
+                Console.WriteLine($"Ingredient Quantity  : {x.IngredientQuantity}");
                 Console.WriteLine("********************************************************");
             }
         }
@@ -101,15 +78,12 @@ namespace Restaurant_C__Project
             if (IsIngredientInStock == false)
             {
                 IngredientsList.Add(
-                    new ingredients
-                    {
-                        x.IngredientID = IngredientID,
-                        x.IngredientName = IngredientName,
-                        x.IngredientStatus = true,
-                        x.IngredientQuantity = IngredientQuantity
+                    new ingredients {IngredientID = IngredientID, IngredientName = IngredientName,IngredientStatus = true,
+                        IngredientQuantity = IngredientQuantity
                     });
             }
         }
+
 
     }
 }

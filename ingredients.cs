@@ -23,28 +23,20 @@ namespace Restaurant_C__Project
         /// 
 
 
-        //public void deserializ()
+        //public ingredients() { }
+        //static List<ingredients> LoadIngredients(string filePath)
         //{
-        //    string json = System.IO.File.ReadAllText(@"C:\Users\abdelrahman shalaby\Desktop\ingredients.json");
-
-        //    ingredients Deserialized = JsonConvert.DeserializeObject<ingredients>(json);
-        //    Console.WriteLine(Deserialized.IngredientID);
-
-        //} 
-        public ingredients() { }
-        static List<ingredients> LoadIngredients(string filePath)
-        {
-            string jsonText = System.IO.File.ReadAllText(filePath);
-            return JsonConvert.DeserializeObject<List<ingredients>>(jsonText);
-        }
-        public void LoadIngredient()
-        {
-            List<ingredients> LoadIngredients = new List<ingredients>();
-            foreach (var item in LoadIngredients)
-            {
-                Console.WriteLine(LoadIngredients);
-            }
-        }
+        //    string jsonText = System.IO.File.ReadAllText(filePath);
+        //    return JsonConvert.DeserializeObject<List<ingredients>>(jsonText);
+        //}
+        //public void LoadIngredient()
+        //{
+        //    List<ingredients> LoadIngredients = new List<ingredients>();
+        //    foreach (var item in LoadIngredients)
+        //    {
+        //        Console.WriteLine(LoadIngredients);
+        //    }
+        //}
         public void RequestIngredients()
         {
             List<int> ReaquestIngredients = new List<int>();
@@ -54,15 +46,15 @@ namespace Restaurant_C__Project
                 Console.WriteLine(item);
             }
         }
-            //foreach (var x in Deserialized)
-            //{
-            //    Console.WriteLine(x.IngredientName);
-            //    Console.WriteLine(x.IngredientID);
-            //    Console.WriteLine(x.IngredientStatus);
-            //    Console.WriteLine(x.IngredientQuantity);
-            //}
-        }
+        //foreach (var x in Deserialized)
+        //{
+        //    Console.WriteLine(x.IngredientName);
+        //    Console.WriteLine(x.IngredientID);
+        //    Console.WriteLine(x.IngredientStatus);
+        //    Console.WriteLine(x.IngredientQuantity);
+        //}
+    }
 
-    
+
 
 }
