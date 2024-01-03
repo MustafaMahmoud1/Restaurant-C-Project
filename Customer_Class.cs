@@ -12,13 +12,17 @@ namespace Restaurant_C__Project
         public string FullName { get; set; }
         public string PhoneNumber { get; set; }
         public string Address { get; set; }
-        //public List<Order> ActiveOrders { get; set; }
-        //public List<Order> OrderHistory { get; set; }
-        //public List<Reservations> ActiveReservations { get; set; }
+        public string UserName { get; set; }
+
+        public string UserPassword { get; set; }
+        public List<Order> ActiveOrders { get; set; }
+        public List<Order> OrderHistory { get; set; }
+        public List<Reservations> ActiveReservations { get; set; }
         public int Balance { get; set; }
+        public static List<Customer> AllCustomer = new List<Customer> { };
         public Customer() { }
 
-        public Customer(string Fullname, string Phonenumber, string Address)
+        public Customer(string Fullname, string Phonenumber, string Address, string username, string password)
         {
             List<Order> ActiveOrders = new List<Order> { };
             List<Order> OrderHistory = new List<Order> { };
@@ -27,8 +31,8 @@ namespace Restaurant_C__Project
             FullName = Fullname;
             PhoneNumber = Phonenumber;
             this.Address = Address;
-            string json = JsonConvert.SerializeObject(this);
-            System.IO.File.WriteAllText(@"D:\C# Projects\Restaurant C# Project\Customer.json", json);
+            UserName = username;
+            UserPassword = password;
         }
         public void GetCustomerData ()
         {

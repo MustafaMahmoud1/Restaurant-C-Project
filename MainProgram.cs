@@ -98,20 +98,20 @@ namespace Restaurant_C__Project
                             Console.WriteLine("2: reserve a table.");
                             Console.WriteLine("3: Go back to main page.");
                             int servicechoice = int.Parse(Console.ReadLine());
-                            break;
                             switch (servicechoice)
                             {
                                 case 1:
-                                    //menu.ckeck().Showitemstocustomer();
-                                    //customer.CreateOrder();
-                                    //customer.ShowNotification("Order");
-                                break;
+                                    Menu.GetInstance().Showitemstocustomer();
+                                    customer.CreateOrder();
+                                    customer.ShowNotification("Order");
+                                    break;
                                 case 2:
                                     //reserve a table
                                 //customer.ShowTables();
 
                                 break;
                             }
+                            break;
                         //sign up/in go back to main page.
                         case 3:
                         goto loop;

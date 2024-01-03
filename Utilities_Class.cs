@@ -29,7 +29,7 @@ namespace Restaurant_C__Project
             Customer customer = new Customer(fullname, phone, address);
             User user = new User(username, password, "customer");
         }
-        public 
+        
         //public void Choice(string Message, int NumOfChoice, string ChoiceMessage )
 
 
