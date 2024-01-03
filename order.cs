@@ -7,14 +7,13 @@ using System.Threading.Tasks;
 
 namespace Restaurant_C__Project
 {
-    internal class order
+    internal class Order
     {
         public int OrderId { get; set; }
 
         public int OrderPrice { get; set; }
 
-        public List<int> ListItem { get; } = new List<int>();
-        public List<int>ItemData { get; } = new List<int>();
+        public List<OrderedItem> ListItem { get; } = new List<OrderedItem>();
         public Order()
         {
             OrderId = 0;
@@ -24,28 +23,11 @@ namespace Restaurant_C__Project
         //continue from here
         public void AddToOrder(OrderedItem ordereditem)
         {
-
-            OrderedItem.ItemID =int.Parse(Console.ReadLine());
-            int Quantity=int.Parse(Console.ReadLine());
-            int Price=int.Parse(Console.ReadLine());
-            ItemData.AddRange(new List<int> { ItemId, Quantity, Price});
-            ListItem.AddRange(new List<int> { OrderId});
-            foreach (var item in ListItem)
-            {
-                ListItem.Add(item);
-                foreach (var x in ItemData)
-                {
-                    ItemData.Add(x);
-                }
-                
-            }
+            ListItem.Add(ordereditem);
         }
-        public void RemoveFromOrder()
+        public void RemoveFromOrder(OrderedItem orderedItem)
         {
-            foreach (var item in ListItem)
-            {
-                ListItem.Remove(item);
-            }
+            ListItem.Remove(orderedItem);
         }
         public void DeleteOrder()
         {
@@ -54,22 +36,15 @@ namespace Restaurant_C__Project
         public void ShowOrder(int OrderId, int ItemID, int Quantity, int Price)
         {
             foreach (var item in ListItem)
-            {
-                foreach(var x in ItemData)
-                {
-                    Console.WriteLine(x);
-                }
+            { 
                 Console.WriteLine(item);
             }
         }
-        public void UpdateOrderPrice ()
+        public void UpdateOrderPrice (int price)
         {
 
             int TotalPrice = 0; 
-            foreach (var item in listitem)
-            {
-                TotalPrice = TotalPrice + item.Price;
-            }
+            TotalPrice = TotalPrice + price;
             OrderPrice = TotalPrice;
         }
     }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace Restaurant_C__Project
 {
@@ -18,16 +19,18 @@ namespace Restaurant_C__Project
             this.UserName = UserName;
             this.UserPassword = UserPassword;
             this.UserRole = UserRole;
+            string json = JsonConvert.SerializeObject(this);
+            System.IO.File.WriteAllText(@"C:\Users\HP\Desktop\Restaurant C# Project\Restaurant C# Project\user.json", json);
         }
-        public bool Signin (string username, string password, User user)
+          public static  bool Signin (string username, string password, string role)
         {
-            if (user.UserName == username && user.UserPassword == password) 
+            string json = System.IO.File.ReadAllText(@"C:\Users\HP\Desktop\Restaurant C# Project\Restaurant C# Project\user.json");
+            foreach (User user in JsonConvert.DeserializeObject<List<User>>(json))
             {
-                return true;
-            }
-            else 
-            { 
-                return false; 
+                if (user.UserName == username && user.UserPassword == password && user.UserRole == role)
+                {
+                    return true;
+                }
             }
         }
 

@@ -27,6 +27,8 @@ namespace Restaurant_C__Project
             FullName = Fullname;
             PhoneNumber = Phonenumber;
             this.Address = Address;
+            string json = JsonConvert.SerializeObject(this);
+            System.IO.File.WriteAllText(@"C:\Users\HP\Desktop\Restaurant C# Project\Restaurant C# Project\Customer.json", json);
         }
         public void GetCustomerData ()
         {
@@ -52,7 +54,7 @@ namespace Restaurant_C__Project
                 int QuantityInput = int.Parse(Console.ReadLine());
                 OrderedItem item = new OrderedItem(IdInput, QuantityInput);
                 order.AddToOrder(item);
-                order.UpdateOrderPrice();
+                order.UpdateOrderPrice(item.Price);
                 Console.WriteLine(@"Do you want to add more items?
                                     1: Yes, I'd like to add more items
                                     2: No, I want to procced with current order.");

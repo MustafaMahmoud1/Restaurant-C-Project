@@ -58,29 +58,32 @@ namespace Restaurant_C__Project
                             Console.WriteLine("Enter your Address");
                             string address = Console.ReadLine();
                             address = address.ToLower();
-                            List<string> customerdata = new List<string>()
-                            {
-                                username, password, fullname, phone, address
-                            };
+                            //List<string> customerdata = new List<string>()
+                            //{
+                            //    username, password, fullname, phone, address
+                            //};
 
-                            Utilities.GetInstance().signUpUser(fullname, phone, address, username, password);
+                            //Utilities.GetInstance().signUpUser(fullname, phone, address, username, password);
+                            User user = new User(username, password, "customer");
+                            Customer customer = new Customer(fullname, phone, address);
                             Console.WriteLine("You signed up successfully. The program will restart now, please sign in.");
                             goto loop;
                         // sign in proccess.
                         case 2:
                             Console.WriteLine("Please enter your username & password");
+                            //write a function that check that the enterend username and password combination exist in user.json
+                            //if it does exist, return true, else return false
                             string usernametrial = Console.ReadLine();
                             string passwordtrial = Console.ReadLine();
-                            // error in creating object
-                            User user = new User();
-
-
-                            bool enter = user.Signin(usernametrial, passwordtrial, user);
-                            if (enter == false)
+                            if (User.Signin(usernametrial, passwordtrial, "customer"))
                             {
-                                Console.WriteLine("username or password is wrong, please try again later.");
-                                goto loop;
+                                Console.WriteLine("You signed in successfully.");
                             }
+                            else
+                            {
+                                Console.WriteLine("Invalid username or password.");
+                                goto loop;
+                            }   
                             break;
                             Console.WriteLine("please choose a service");
                             Console.WriteLine("1: order online now.");
@@ -91,12 +94,18 @@ namespace Restaurant_C__Project
                             {
                                 case 1:
                                     menu.ckeck().Showitemstocustomer();
-                                    Customer customer = new Customer(fullname, phone, address);
-
-
+                                    customer.CreateOrder();
+                                    customer.ShowNotification("Order");
+                                break;
+                                case 2:
+                                    //reserve a table
+                                customer.ShowTables();
 
                                 break;
                             }
+                        //sign up/in go back to main page.
+                        case 3:
+                        goto loop;
                     }
 
 
