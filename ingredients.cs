@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Restaurant_C__Project
 {
-    internal class ingredients
+    public class ingredients
     {
 
         public string IngredientName { get; set; }

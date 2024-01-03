@@ -1,18 +1,13 @@
-
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
-using System.Text.Json.Serialization;
-//using System.Text.Json.Serialization;
-//using System.Text.Json.Serialization;
 using System.Threading.Tasks;
-using System.Xml;
-using Newtonsoft.Json;
-
 namespace Restaurant_C__Project
 {
-    internal  class stock
+    public  class stock
     {
         public List<ingredients> IngredientsList = new List<ingredients>();
         //{
@@ -68,12 +63,21 @@ namespace Restaurant_C__Project
         //        AddIngredient(ingredientID, true, quantity);
         //    }
         //}
- 
-            string filepath = "C:\\Users\\abdelrahman shalaby\\Desktop\\json files\\stock ingredient.json";
-            string IngredientJson = File.ReadAllText(filepath);
-            IngredientsList = JsonConverter.Deserialize << ingredients >> (IngredientJson);
 
-            public void ShowListOfIngredients()
+        public static void LoadAllIngredientsFromJson(string jsonFilePath)
+        {
+            if (File.Exists(jsonFilePath))
+            {
+                string json = File.ReadAllText(jsonFilePath);
+                IngredientsList = JsonConvert.DeserializeObject<List<Item>>(json);
+            }
+        }
+        public static void SaveIngredientToFile(string jsonFilePath)
+        {
+            string json = JsonConvert.SerializeObject(IngredientsList, Formatting.Indented);
+            File.WriteAllText(jsonFilePath, json);
+        }
+        public void ShowListOfIngredients()
         {
             foreach (var x in IngredientsList)
             {
@@ -105,11 +109,6 @@ namespace Restaurant_C__Project
                         x.IngredientQuantity = IngredientQuantity
                     });
             }
-        }
-        public void SaveIngredientToFile(filepath)
-        {
-            string json = JsonConverter.SerializeObject(IngredientsList, Formatting.Indented);
-            File.WriteAllText(filepath, json );
         }
 
     }
