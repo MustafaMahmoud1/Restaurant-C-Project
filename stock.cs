@@ -20,26 +20,7 @@ namespace Restaurant_C__Project
             return MyStock;
         }
 
-        //public void CheckAvailability(int CheckIngredientID)
-        //{
-        //    bool condition = false;
-        //    foreach (var x in IngredientsList)
-        //    {
-        //        if (CheckIngredientID == x.IngredientID)
-        //        {
-        //            condition = true;
-        //            //break;
-        //            Console.WriteLine($"{x.IngredientName} is available by {x.IngredientQuantity}");
-        //        }
-        //    }
-        //    if (condition == false)
-        //    {
-        //        Console.WriteLine("enter ingredient id and ingredient quantity");
-        //        int ingredientID = int.Parse(Console.ReadLine());
-        //        int quantity = int.Parse(Console.ReadLine());
-        //        AddIngredient(ingredientID, true, quantity);
-        //    }
-        //}
+
 
         public static void LoadAllIngredientsFromJson(string jsonFilePath)
         {
@@ -63,6 +44,27 @@ namespace Restaurant_C__Project
                 Console.WriteLine($"Ingredient Status    : {x.IngredientStatus}");
                 Console.WriteLine($"Ingredient Quantity  : {x.IngredientQuantity}");
                 Console.WriteLine("********************************************************");
+            }
+        }
+        public void CheckAvailability(int CheckIngredientID)
+        {
+            bool condition = false;
+            foreach (var x in IngredientsList)
+            {
+                if (CheckIngredientID == x.IngredientID)
+                {
+                    condition = true;
+                    //break;
+                    Console.WriteLine($"{x.IngredientName} is available by {x.IngredientQuantity}");
+                }
+            }
+            if (condition == false)
+            {
+                Console.WriteLine("enter ingredient id , ingredient name and ingredient quantity");
+                int ingredientID = int.Parse(Console.ReadLine());
+               string ingredientname = Console.ReadLine();
+                int quantity = int.Parse(Console.ReadLine());
+                AddIngredient(ingredientID, ingredientname, quantity);
             }
         }
 
