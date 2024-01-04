@@ -8,22 +8,22 @@ namespace Restaurant_C__Project
 {
     internal class OrderedItem
     {
-        public int ItemID {  get; set; } 
+        public int ItemID { get; set; }
 
-        public int Quantity {  get; set; }
+        public int Quantity { get; set; }
         public int Price { get; set; }
-        public List<int>ItemIdAndQuantities { get; set; }
+        public List<int> ItemIdAndQuantities { get; set; }
         public List<int> ItemPrice { get; set; }
-        public OrderedItem() { }
+        public ordereditem() { }
 
-        public OrderedItem(int itemID , int quantity)
+        public ordereditem(int itemID, int quantity)
         {
             this.ItemID = itemID;
             this.Quantity = quantity;
         }
-        public void CreateOrder (int ItemID, int Quantity)
+        public void CreateOrder(int ItemID, int Quantity)
         {
-            ItemIdAndQuantities.AddRange(new List<int> {ItemID,Quantity});
+            ItemIdAndQuantities.AddRange(new List<int> { ItemID, Quantity });
             foreach (var item in ItemIdAndQuantities)
             {
                 Console.WriteLine(item);
@@ -31,7 +31,7 @@ namespace Restaurant_C__Project
         }
         public void Printing(int ItemID, int Quantity, int Price)
         {
-            ItemPrice.AddRange(new List<int> { ItemID, Quantity,Price });
+            ItemPrice.AddRange(new List<int> { ItemID, Quantity, Price });
             int TotalPrice = 0;
             foreach (var item in ItemPrice)
             {
