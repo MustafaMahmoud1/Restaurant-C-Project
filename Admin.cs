@@ -11,10 +11,15 @@ namespace C__Project
 {
     internal sealed class Admin : Employee
     {
-        public Admin (int EmpId, int EmpSalary, string EmpName, string UserName, string UserPassword, string UserRole):base( EmpId, EmpSalary, EmpName, UserName, UserPassword, "Admin") { }
+        public Admin(int EmpId, int EmpSalary, string EmpName, string UserName, string UserPassword, string UserRole) : base(EmpId, EmpSalary, EmpName, UserName, UserPassword, "Admin") { }
         Customer customer = new Customer();
         order order = new order();
         reservations reservations = new reservations();
+        public Admin(int EmpId, int EmpSalary, string EmpName, string UserName, string UserPassword, string UserRole) : base(EmpId, EmpSalary, EmpName, UserName, UserPassword, "Admin") { }
+        //Customer customer = new Customer();
+        //order order = new order();
+        public static List<Customer> CustomerData = new List<Customer> { };
+        //reservations reservations = new reservations();
         ingredients ingredients = new ingredients();
         private Admin() { }
         private static Admin MyAdmin;
@@ -26,50 +31,66 @@ namespace C__Project
         }
 
         public void ShowCustomerInfo()
+        public void ShowCustomerInfo(string JsonFile)
         {
             customer.GetCustomerData();
+            if (File.Exists(JsonFile))
+            {
+                string json = File.ReadAllText(JsonFile);
+                CustomerData = JsonConvert.DeserializeObject<List<Customer>>(json);
+            }
+            public void UpdateMenu()
         }
 
-        public void UpdateMenu()
-        {
-            string NewItemName = Console.ReadLine();
-            int NewItemPrice = int.Parse(Console.ReadLine());
-            int NewItemID = int.Parse(Console.ReadLine());
-            string NewDescription = Console.ReadLine();
-            menu.ckeck().AddItem( NewItemName,  NewItemPrice,  NewItemID,  NewDescription);
-        }
-        public void ModifyOrder()
-        {
-            int OrderId=int.Parse(Console.ReadLine());
-            List< int > ItemData=new List< int >();
-            order.AddToOrder(OrderId, ItemData);
-            order.RemoveFromOrder();
-        }
+        /* public void UpdateMenu()
+         {
+             string NewItemName = Console.ReadLine();
+             int NewItemPrice = int.Parse(Console.ReadLine());
+             int NewItemID = int.Parse(Console.ReadLine());
+             string NewDescription = Console.ReadLine();
+             menu.ckeck().AddItem( NewItemName,  NewItemPrice,  NewItemID,  NewDescription);
+         }
+         public void ModifyOrder()
+         {
+             int OrderId=int.Parse(Console.ReadLine());
+             List< int > ItemData=new List< int >();
+             order.AddToOrder(OrderId, ItemData);
+             order.RemoveFromOrder();
+         }
+        */
+
         public void CancelOrder()
         {
             order.DeleteOrder();
+            //  order.DeleteOrder();
         }
         public void ModifyReservation()
         {
-            int ReserveId=int.Parse(Console.ReadLine());
+            int ReserveId = int.Parse(Console.ReadLine());
             reservations.AddToReservation(ReserveId);
             reservations.RemoveFromReservation();
+            // reservations.AddToReservation(ReserveId);
+            // reservations.RemoveFromReservation();
         }
         public void CancelReservation()
         {
             reservations.DeleteReservation();
+            // reservations.DeleteReservation();
         }
         public void SignUp()
         {
+            /*
             UserName = "RestaurantAdmin";
             UserPassword = "123MMB";
             UserRole = string.Empty;
             EmpName = string.Empty;
             EmpId= int.MaxValue;
+            */
         }
         public void GetIngredient()
         {
             ingredients.LoadIngredient();
         }
+
     }
 }

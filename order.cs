@@ -10,42 +10,83 @@ namespace Restaurant_C__Project
     internal class Order
     {
         public int OrderId { get; set; }
+        public double OrderPrice { get; set; }
 
-        public int OrderPrice { get; set; }
 
-        public List<OrderedItem> ListItem { get; } = new List<OrderedItem>();
+
+        public List<ordereditem> ListItem { get; } = new List<ordereditem>();
+        public List<Order> ItemData { get; } = new List<Order>();
+        public static List<Order> OrderList = new List<Order> { };
         public Order()
         {
             OrderId = 0;
             ListItem = null;
-          
+
         }
-        //continue from here
-        public void AddToOrder(OrderedItem ordereditem)
+        /* Public static void LoadAllOrderItemFromJson(string JsonFile)
+         {
+
+         }*/
+        //Done
+        public static void ShowOrdersList(string JsonFile)
         {
-            ListItem.Add(ordereditem);
+            string json = File.ReadAllText(JsonFile);
+            OrderList = JsonConvert.DeserializeObject<List<Order>>(json);
+
         }
-        public void RemoveFromOrder(OrderedItem orderedItem)
+        //Done successfuly
+
+        public void ModifyOrder(Order OrderWantoModify, ordereditem OrderDataToModify, Order OrderDataToModifydata)
         {
-            ListItem.Remove(orderedItem);
+            foreach (var ExistOrder in OrderList)
+            {
+                if (ExistOrder == OrderWantoModify)
+                {
+                    ExistOrder.OrderId = OrderDataToModifydata.OrderId;
+                    ExistOrder.OrderPrice = OrderDataToModifydata.OrderPrice;
+
+                    foreach (var Item in ExistOrder.ListItem)
+                    {
+                        Item.ItemID = OrderDataToModify.ItemID;
+                        Item.Price = OrderDataToModify.Price;
+                        Item.Quantity = OrderDataToModify.Quantity;
+
+                    }
+                }
+            }
+        }
+        //Done
+        public void AddToOrder()
+        {
+            OrderList.Add(this);
+        }
+        //Done
+        public void RemoveFromOrder(ordereditem item)
+        {
+
+            ListItem.Remove(item);
+
         }
         public void DeleteOrder()
         {
             ListItem.Clear();
         }
-        public void ShowOrder(int OrderId, int ItemID, int Quantity, int Price)
+        /* public void ShowOrder(int OrderId, int ItemID, int Quantity, int Price)
+         {
+             foreach (var item in ListItem)
+             {
+                 foreach(var x in ItemData)
+                 {
+                     Console.WriteLine(x);
+                 }
+                 Console.WriteLine(item);
+             }
+         }
+        */
+        public static void SaveOrderToJson(string JsonFile)
         {
-            foreach (var item in ListItem)
-            { 
-                Console.WriteLine(item);
-            }
-        }
-        public void UpdateOrderPrice (int price)
-        {
-
-            int TotalPrice = 0; 
-            TotalPrice = TotalPrice + price;
-            OrderPrice = TotalPrice;
+            string json = JsonConvert.SerializeObject(OrderList, Formatting.Indented);
+            File.WriteAllText(JsonFile, json);
         }
     }
        
