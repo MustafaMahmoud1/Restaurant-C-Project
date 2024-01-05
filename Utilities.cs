@@ -23,15 +23,5 @@ namespace Restaurant_C__Project
             }
             return util_instance;
         }
-
-        public void signUpUser(string fullname, string phone, string address, string username, string password)
-        {
-            Customer customer = new Customer(fullname, phone, address);
-            User user = new User(username, password, "customer");
-        }
-        
-        //public void Choice(string Message, int NumOfChoice, string ChoiceMessage )
-
-
-        }
     }
+}
