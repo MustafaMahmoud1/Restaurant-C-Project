@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace C__Project
+namespace Restaurant_C__Project
 {
     internal class Employee: User
     {

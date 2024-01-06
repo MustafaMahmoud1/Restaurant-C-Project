@@ -181,7 +181,7 @@ namespace Restaurant_C__Project
                             break;
                         case 2:
                             //Cashier code
-                            Employee cashier;
+                            Cashier cashier;
                             Console.WriteLine("please, sign in by your user name and password");
                             cashier.SignIn()
 
@@ -190,7 +190,7 @@ namespace Restaurant_C__Project
                             // Chef code
                             Chef chef;
                             Console.WriteLine("please, sign in by your user name and password");
-                            chef.SignIn()
+                            chef.SignIn();
                             chefWindow:
                             Console.WriteLine("choose what you want to do");
                             Console.WriteLine("1:show order list")
