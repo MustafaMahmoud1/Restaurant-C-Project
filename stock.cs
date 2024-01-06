@@ -11,9 +11,10 @@ namespace Restaurant_C__Project
 {
     internal sealed class Stock
     {
+        public List<Ingredient> AllItems = new List<Ingredient>();
         private static Stock MyStock;
+   
 
-        
         private Stock() { }
         public static Stock Get_Instance()
         {
@@ -34,7 +35,7 @@ namespace Restaurant_C__Project
         }
         public static void SaveItemsToFile(string jsonFilePath)
         {
-            string json = JsonConvert.SerializeObject(IngredientsList, Formatting.Indented);
+            string json = JsonConvert.SerializeObject(AllItems, Formatting.Indented);
             File.WriteAllText(jsonFilePath, json);
         }
         public void ShowListOfIngredients()
