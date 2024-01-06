@@ -11,7 +11,7 @@ namespace Restaurant_C__Project
 {
     internal sealed class Stock
     {
-        public List<Ingredient> AllItems = new List<Ingredient>();
+        public static List<Ingredient> AllItems = new List<Ingredient>();
         private static Stock MyStock;
    
 

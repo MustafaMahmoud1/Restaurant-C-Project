@@ -24,6 +24,13 @@ namespace Restaurant_C__Project
         public void CreateOrder(int ItemID, int Quantity)
         {
             ItemIdAndQuantities.AddRange(new List<int> { ItemID, Quantity });
+            //foreach (var item in ItemIdAndQuantities)
+            //{                                                  //i will show this list through another function [showOrderToWaiter()] to
+            //    Console.WriteLine(item);                        display the list once after taking all orders
+            //}
+        }
+        public void showOrderToWaiter()
+        {
             foreach (var item in ItemIdAndQuantities)
             {
                 Console.WriteLine(item);

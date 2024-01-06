@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using System.ComponentModel.Design;
 namespace Restaurant_C__Project
 {
     internal class Reservations
@@ -61,19 +62,26 @@ namespace Restaurant_C__Project
         ////////???????????????????????????????????
         public void ShowActiveReservatioList(int FromTime,int ToTime)
         {
+            bool isAvailable = false;
             foreach (var Item in Reservants)
             {
                 if (Item.ReserveTime in(FromTime,ToTime))
                 {
+                    isAvailable = true;
                     Console.WriteLine(Item);
                 }
             }
+            if(isAvailable==false)
+            {
+                Console.WriteLine("there is no tables available on this time");
+            }
+
            // Console.WriteLine(Reservants);
         }
         ////???????????????????????????
         public void ReserveTable(int TableNo, int ReserveTime)
         {
-            DinningTableList.AddRange(new List<int> {tableNo, ReserveTime});
+            DinningTableList.AddRange(new List<int> { TableNo, ReserveTime});
             foreach (var item in ReserveName)
             {
                 Console.WriteLine(item);

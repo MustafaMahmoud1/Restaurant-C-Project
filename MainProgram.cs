@@ -180,7 +180,7 @@ namespace Restaurant_C__Project
                             //admin code
                             break;
                         case 2:
-                            //Cashier code
+                            //Cashier code       still 
                             Cashier cashier;
                             Console.WriteLine("please, sign in by your user name and password");
                             cashier.SignIn()
@@ -220,7 +220,7 @@ namespace Restaurant_C__Project
                                     chef.RequestIngredient(ingID, ingQuant);
                                     break;
                                 default:
-                                    Console.WriteLine("Invalid Option. Please Start the chef window.");
+                                    Console.WriteLine("Invalid Option. Please retart the chef window.");
                                     goto chefWindow;
                                     break;
                             }
@@ -229,6 +229,55 @@ namespace Restaurant_C__Project
                             break;
                         case 4:
                             // waiter code
+                            Waiter waiter;
+                            Console.WriteLine("please, sign in by your user name and password");
+                            waiter.SignIn();
+                        waiterWindow:
+                            Console.WriteLine("choose what you want to do");
+                            Console.WriteLine("1:show active reservation")
+                            Console.WriteLine("2:create an order")
+                            Console.WriteLine("3:reserve a table")
+                            int waiterAction = int.Parse(Console.ReadLine());
+                            switch (waiterAction)
+                            {
+                                case 1:
+                                    //show active reservation
+                                    Console.WriteLine("please, enter start time of reservation");
+                                    int fromTime=int.Parse(Console.ReadLine());
+                                    Console.WriteLine("please, enter end time of reservation");
+                                    int toTime = int.Parse(Console.ReadLine());  //time format??
+                                    waiter.ShowReservationList(fromTime,toTime); 
+                                    break;
+                                 case 2:
+                                    //create an order
+                                    orderAgain:
+                                    waiter.OrderCreation();
+                                    Console.WriteLine("do you want to order another item ?");
+                                    Console.WriteLine("1:yes");
+                                    Console.WriteLine("2:no");
+                                    int orderProceed = int.Parse(Console.ReadLine());
+                                    switch (orderProceed)
+                                    {
+                                        case 1:
+                                            goto orderAgain;
+                                            break;
+                                        case 2:
+                                            Console.WriteLine("your order is : ");
+                                            waiter.showOrderToWaiter();
+                                        default:
+                                            Console.WriteLine("invalid input , go back to waiter window");
+                                            goto waiterWindow;
+                                    }
+                                    break;
+                                 case 3:
+                                    //reserve a table
+                                    waiter.TableReservation();  //all in waiter and reservation 
+                                    break;
+                                 default:
+                                    Console.WriteLine("Invalid Option. Please restart the waiter window.");
+                                    goto waiterWindow;
+                                    break;
+                            }
                             break;
                         default:
                             Console.WriteLine("Invalid Option. Please Start the employee window.");

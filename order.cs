@@ -14,7 +14,7 @@ namespace Restaurant_C__Project
 
 
 
-        public List<ordereditem> ListItem { get; } = new List<ordereditem>();
+        public List<OrderedItem> ListItem { get; } = new List<OrderedItem>();
         public List<Order> ItemData { get; } = new List<Order>();
         public static List<Order> OrderList = new List<Order> { };
         public Order()
