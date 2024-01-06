@@ -213,7 +213,11 @@ namespace Restaurant_C__Project
                                     chef.ShowStock();
                                     break;
                                 case 4:
-                                   // Request ingredient
+                                    // Request ingredient
+                                    Console.WriteLine("enter the ingredient ID and ingredient quantity you want to request");
+                                    int ingID = int.Parse(Console.ReadLine());
+                                    int ingQuant = int.Parse(Console.ReadLine());
+                                    chef.RequestIngredient(ingID, ingQuant);
                                     break;
                                 default:
                                     Console.WriteLine("Invalid Option. Please Start the chef window.");

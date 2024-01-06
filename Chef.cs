@@ -26,9 +26,9 @@ namespace Restaurant_C__Project
             Stock.Get_Instance().ShowListOfIngredients();
             
         }
-        public void RequestIngredient()
+        public void RequestIngredient(int ingredientId , int ingredientQuantity)
         {
-            ingredients.RequestIngredients();///where
+            Stock.Get_Instance().IngredientToChef(int ingredientId, int ingredientQuantity)///where
         }
 
 

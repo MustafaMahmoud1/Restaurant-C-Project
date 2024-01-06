@@ -1,17 +1,19 @@
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+
 namespace Restaurant_C__Project
 {
-    public sealed class Stock
+    internal sealed class Stock
     {
         private static Stock MyStock;
 
-        private static List<ingredients> IngredientsList = new List<ingredients>();
+        
         private Stock() { }
         public static Stock Get_Instance()
         {
@@ -27,7 +29,7 @@ namespace Restaurant_C__Project
             if (File.Exists(jsonFilePath))
             {
                 string json = File.ReadAllText(jsonFilePath);
-                AllItems = JsonConvert.DeserializeObject<List<ingredients>>(json);
+                AllItems = JsonConvert.DeserializeObject<List<Ingredient>>(json);
             }
         }
         public static void SaveItemsToFile(string jsonFilePath)
@@ -75,17 +77,37 @@ namespace Restaurant_C__Project
             {
                 if (IngredientID == x.IngredientID)
                     IsIngredientInStock = true;
-                Console.WriteLine("this inredient is already in the stock");
+                Console.WriteLine("this ingredient is already in the stock");
             }
             if (IsIngredientInStock == false)
             {
                 AllItems.Add(
-                    new ingredients {IngredientID = IngredientID, IngredientName = IngredientName,IngredientStatus = true,
+                    new Ingredient
+                    {
+                        IngredientID = IngredientID, IngredientName = IngredientName,IngredientStatus = true,
                         IngredientQuantity = IngredientQuantity
                     });
             }
         }
-
+      public void IngredientToChef(int ingredientId, int ingredientQuantity)
+        {
+            bool isAvailable=false;
+            foreach (var x in AllItems)
+            {
+                if (ingredientId == x.IngredientID && x.IngredientQuantity >= ingredientQuantity) {
+                    isAvailable = true;
+                    x.IngredientQuantity = (x.IngredientQuantity) - (1 * ingredientQuantity);
+                    Console.WriteLine($"ingredient with ID {ingredientId} transfered to chef by quantity {ingredientQuantity}");
+                }
+                else if (ingredientId == x.IngredientID && x.IngredientQuantity < ingredientQuantity)
+                {
+                    Console.WriteLine($"ingredient with ID {ingredientId} is not available by quantity {ingredientQuantity} in stock")
+                }
+            }
+            if(isAvailable == false) {
+                Console.WriteLine($"ingredient with ID {ingredientId} is not available in stock");
+            }
+        }
 
     }
 }

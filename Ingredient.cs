@@ -14,7 +14,16 @@ namespace Restaurant_C__Project
 
         public string IngredientName { get; set; }
         public int IngredientID { get; set; }
+        public bool IngredientStatus { get; set; }
         public int IngredientQuantity { get; set; }
+
+        public Ingredient()
+        {
+            this.IngredientName = "";
+            this.IngredientID = 0;
+            this.IngredientStatus = false;
+            this.IngredientQuantity = 0;
+        }
     }
 
 
