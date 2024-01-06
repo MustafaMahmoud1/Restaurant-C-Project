@@ -23,7 +23,7 @@ namespace Restaurant_C__Project
             ListItem = null;
 
         }
-        Public static void LoadAllOrderItemFromJson(string JsonFile)
+        public static void LoadAllOrderItemFromJson(string JsonFile)
         {
             string json = File.ReadAllText(JsonFile);
             OrderList = JsonConvert.DeserializeObject<List<Order>>(json);
