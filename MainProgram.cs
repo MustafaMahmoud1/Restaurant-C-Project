@@ -182,18 +182,51 @@ namespace Restaurant_C__Project
                         case 2:
                             //Cashier code
                             Employee cashier;
-                            Console.WriteLine("please, sign in by you user name and password");
+                            Console.WriteLine("please, sign in by your user name and password");
                             cashier.SignIn()
 
                             break;
                         case 3:
-                           // Chef code
+                            // Chef code
+                            Employee chef;
+                            Console.WriteLine("please, sign in by your user name and password");
+                            chef.SignIn()
+                            chefWindow:
+                            Console.WriteLine("choose what you want to do");
+                            Console.WriteLine("1:show order list")
+                            Console.WriteLine("2:serve an oder")
+                            Console.WriteLine("3:show stock")
+                            Console.WriteLine("4:request an ingredient")
+                            int chefAction = int.Parse(Console.ReadLine());
+                            switch (chefAction)
+                            {
+                                case 1:
+                                    //show order list
+                                    Order.ShowOrdersList("Order list json file here")
+                                    break;
+                                case 2:
+                                    //serve order
+
+                                    break;
+                                case 3:
+                                    //show stock
+                                    break;
+                                case 4:
+                                   // Request ingredient
+                                    break;
+                                default:
+                                    Console.WriteLine("Invalid Option. Please Start the chef window.");
+                                    goto chefWindow;
+                                    break;
+                            }
+
+
                             break;
                         case 4:
                             // waiter code
                             break;
                         default:
-                            Console.WriteLine("Invalid Option. Please Start the employee menu.");
+                            Console.WriteLine("Invalid Option. Please Start the employee window.");
                             goto Emploeerolepart;
                     }
                     break;

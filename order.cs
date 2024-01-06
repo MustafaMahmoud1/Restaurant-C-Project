@@ -23,17 +23,28 @@ namespace Restaurant_C__Project
             ListItem = null;
 
         }
-        /* Public static void LoadAllOrderItemFromJson(string JsonFile)
-         {
-
-         }*/
-        //Done
-        public static void ShowOrdersList(string JsonFile)
+        Public static void LoadAllOrderItemFromJson(string JsonFile)
         {
             string json = File.ReadAllText(JsonFile);
             OrderList = JsonConvert.DeserializeObject<List<Order>>(json);
-
         }
+        public static void ShowOrdersList()
+        {
+            foreach(var x in OrderList)
+            {
+                Console.WriteLine($"order ID : {x.OrderId}");
+                Console.WriteLine($"order ID : {x.OrderPrice}");
+            }
+            Console.WriteLine("*************************************");
+        }
+
+        //Done
+        //public static void ShowOrdersList(string JsonFile)
+        //{
+        //    string json = File.ReadAllText(JsonFile);
+        //    OrderList = JsonConvert.DeserializeObject<List<Order>>(json);
+
+        //}
         //Done successfuly
 
         public void ModifyOrder(Order OrderWantoModify, ordereditem OrderDataToModify, Order OrderDataToModifydata)

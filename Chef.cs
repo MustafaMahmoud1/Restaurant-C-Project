@@ -6,24 +6,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace C__Project
+namespace Restaurant_C__Project
 {
     internal class Chef : Employee
     {
         public Chef(int empId, int empSalary, string empName, string UserName, string UserPassword, string UserRole) : base(empId, empSalary, empName, UserName, UserPassword, UserRole) { }
         order order = new order();
         ingredients ingredients = new ingredients();
-        public void ShowOrderList()
+        public void ShowOrderList(string JsonFile)
         {
-            order.ShowOrder();
+            Order.ShowOrdersList(string JsonFile);
         }
         public void FinishOrder()
         {
-            order.RemoveFromOrder();
+            Order.RemoveFromOrder();
         }
         public void ShowStock()
         {
-            stock.ckeck().ShowListOfIngredients();
+            Stock.ckeck().ShowListOfIngredients();
             
         }
         public void RequestIngredient()
