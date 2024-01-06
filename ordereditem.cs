@@ -35,8 +35,8 @@ namespace Restaurant_C__Project
             int TotalPrice = 0;
             foreach (var item in ItemPrice)
             {
-                TotalPrice += Quantity * Price;
-                Console.WriteLine(item + "Total Price is " + TotalPrice);
+                TotalPrice += item.Quantity * item.Price;
+                Console.WriteLine(item + "Total Price is " + TotalPrice); 
             }
 
 

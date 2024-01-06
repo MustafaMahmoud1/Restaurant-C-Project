@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using C__Project;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Net;
 using System.Numerics;
@@ -165,7 +166,36 @@ namespace Restaurant_C__Project
 
                     break;
                 case 2:
-                    Console.WriteLine();
+                    Emploeerolepart:
+                    Console.WriteLine("choose your role");
+                    Console.WriteLine("1:Admin");
+                    Console.WriteLine("2:Cashier");
+                    Console.WriteLine("3:Chef");
+                    Console.WriteLine("4:Waiter");
+                    int Emploeerole = int.Parse(Console.ReadLine());
+                    Console.Clear();
+                    switch (Emploeerole)
+                    {
+                        case 1:
+                            //admin code
+                            break;
+                        case 2:
+                            //Cashier code
+                            Employee cashier;
+                            Console.WriteLine("please, sign in by you user name and password");
+                            cashier.SignIn()
+
+                            break;
+                        case 3:
+                           // Chef code
+                            break;
+                        case 4:
+                            // waiter code
+                            break;
+                        default:
+                            Console.WriteLine("Invalid Option. Please Start the employee menu.");
+                            goto Emploeerolepart;
+                    }
                     break;
                 default:
                     Console.WriteLine("Invalid Option. Please Start the program again.");
