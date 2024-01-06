@@ -188,7 +188,7 @@ namespace Restaurant_C__Project
                             break;
                         case 3:
                             // Chef code
-                            Employee chef;
+                            Chef chef;
                             Console.WriteLine("please, sign in by your user name and password");
                             chef.SignIn()
                             chefWindow:
@@ -202,7 +202,7 @@ namespace Restaurant_C__Project
                             {
                                 case 1:
                                     //show order list
-                                    Order.ShowOrdersList("Order list json file here")
+                                    chef.ShowOrderList("Order list json file here")
                                     break;
                                 case 2:
                                     //serve order
@@ -210,6 +210,7 @@ namespace Restaurant_C__Project
                                     break;
                                 case 3:
                                     //show stock
+                                    chef.ShowStock();
                                     break;
                                 case 4:
                                    // Request ingredient

@@ -1,4 +1,4 @@
-﻿using c__project;
+﻿
 using Restaurant_C__Project;
 using System;
 using System.Collections.Generic;
@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Restaurant_C__Project
 {
-    internal class Chef : Employee
+    public class Chef : Employee
     {
         public Chef(int empId, int empSalary, string empName, string UserName, string UserPassword, string UserRole) : base(empId, empSalary, empName, UserName, UserPassword, UserRole) { }
         order order = new order();
@@ -23,13 +23,15 @@ namespace Restaurant_C__Project
         }
         public void ShowStock()
         {
-            Stock.ckeck().ShowListOfIngredients();
+            Stock.Get_Instance().ShowListOfIngredients();
             
         }
         public void RequestIngredient()
         {
-            ingredients.RequestIngredients();
+            ingredients.RequestIngredients();///where
         }
+
+
 
 
     }
