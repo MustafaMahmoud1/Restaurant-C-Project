@@ -129,7 +129,54 @@ namespace Restaurant_C__Project
                                 case 2:
                                     //Bassant's code
 
-                                break;
+                                    Console.WriteLine("Welecome to Reservation Feature ");
+                                    Console.WriteLine("This All Tables In Our Restaurant");
+                                   
+                                    DiningTable.ShowTables();
+
+                                    Console.WriteLine("please enter your Name");
+
+                                    string ReservantName = (Console.ReadLine());
+                                    string ReservantPhone = "";
+                                    while (true)
+                                    {
+                                        Console.WriteLine("please enter your Phone ");
+                                        ReservantPhone = (Console.ReadLine());
+                                        if (ReservantPhone.Length == 11 && ReservantPhone.StartsWith("01") && ReservantPhone.All(char.IsDigit))
+                                        {
+                                            break;
+                                        }
+                                        else
+                                        {
+                                            Console.WriteLine("invalid phone number ,please try again");
+                                        }
+                                    }
+
+                                    Console.WriteLine("please enter TableNo");
+                                    int ReservantTableno = int.Parse(Console.ReadLine());
+                                    Console.WriteLine("please enter the ReserveDate");
+                                    int ReserveDate = int.Parse(Console.ReadLine());
+                                    Console.WriteLine("please enter Reserve Time");
+                                    int ReserveTime = int.Parse((Console.ReadLine()));
+
+
+                                    Reservations reservant = new Reservations(ReserveTime, ReserveDate, ReservantName, ReservantPhone, ReservantTableno);
+
+
+                                    bool x = reservant.CheckReservation(ReservantTableno, ReserveTime, ReserveDate);
+                                    Console.WriteLine(x);
+                                    if (x == true)
+                                    {
+                                        Reservations.LoadAllReserervisionFromJson(@"C:\Users\Mega Store\Source\Repos\Restaurant-C-Projecta\Reservations.json");
+                                        reservant.AddToReservation();
+
+                                        Reservations.SaveReservationToJson(@"C:\Users\Mega Store\Source\Repos\Restaurant-C-Projecta\Reservations.json");
+                                    }
+
+                                    Customer.ShowNotification("Reservation");
+
+
+                                    break;
                             }
                             break;
                         //sign up/in go back to main page.

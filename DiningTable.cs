@@ -45,14 +45,21 @@ namespace Restaurant_C__Project
         }
         public static void ShowTables()
         {
-            var json = System.IO.File.ReadAllText(@"C:\Users\HP\Desktop\Restaurant C# Project\Restaurant C# Project\DiningTable.json");
+            var json = System.IO.File.ReadAllText(@"C:\Users\Mega Store\Desktop\projectt\ConsoleApp20\ConsoleApp20\diningtable.json");
             var table = JsonConvert.DeserializeObject<List<DiningTable>>(json);
+            int counter = 1;
             foreach (var item in table)
             {
+
+                Console.WriteLine("the table number: " + counter);
                 Console.WriteLine(item.TableNo);
+                Console.WriteLine("Table Capicty :");
                 Console.WriteLine(item.TableCapicty);
                 Console.WriteLine(item.Type);
+                counter++;
+
             }
+
         }
         public static void AddingNewTable(int TableNo, int TableCapicty)
         {

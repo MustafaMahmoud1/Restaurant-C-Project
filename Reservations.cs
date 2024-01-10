@@ -8,7 +8,7 @@ using Newtonsoft.Json;
 using System.ComponentModel.Design;
 namespace Restaurant_C__Project
 {
-    internal class Reservations
+       public class Reservations
     {
         public int ReserveId { get; set; }
         public int ReserveTime { get; set; }
@@ -23,10 +23,15 @@ namespace Restaurant_C__Project
 
         public Reservations() { }
 
-        public Reservations(string ReservantName, string Reservantphone, int reservantTableno)
+        public Reservations(int ReserveTime, int ReserveDate, string ReservantName, string Reservantphone, int reservantTableno)
         {
             Random R = new Random();
             this.ReserveId = R.Next();
+            this.ReserveTime = ReserveTime;
+            this.ReserveDate = ReserveDate;
+            this.ReservantName = ReservantName;
+            this.ReservantPhone = Reservantphone;
+            this.ReservedTableNo = reservantTableno;
 
 
         }
@@ -40,7 +45,7 @@ namespace Restaurant_C__Project
             }
         }
         //done
-    public void AddToReservation()
+       public void AddToReservation()
         {
             Reservants.Add(this);
         }

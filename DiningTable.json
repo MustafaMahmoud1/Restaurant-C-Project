@@ -1,0 +1,20 @@
+[
+  {
+    "TableNo": 1,
+    "TableCapicty": 6,
+    "type": true
+
+  },
+  {
+    "TableNo": 2,
+    "TableCapicty": 5,
+    "type": true
+
+  },
+  {
+    "TableNo": 3,
+    "TableCapicty": 10,
+    "type": true
+
+  }
+]
