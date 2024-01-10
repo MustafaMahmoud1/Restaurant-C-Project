@@ -151,6 +151,20 @@ namespace Restaurant_C__Project
             string json = JsonConvert.SerializeObject(AllCustomer, Formatting.Indented);
             System.IO.File.WriteAllText(jsonFilePath, json);
         }
+        public static void ShowCustomers()
+        {
+            foreach (Customer customer in AllCustomer)
+            {
+                Console.WriteLine("Customer Name is: " + customer.FullName);
+                Console.WriteLine("Customer Phone Number is: " + customer.PhoneNumber);
+                Console.WriteLine("Customer Address is: " + customer.Address);
+                Console.WriteLine("Customer ID is: " + customer.CustomerId);
+                Console.WriteLine("Customer User Name is: " + customer.UserName);
+                Console.WriteLine("Customer Password is: " + customer.UserPassword);
+                Console.WriteLine("Customer Balance is: " + customer.Balance);
+            }
+
+        }
         //public static Customer FindCustomer(string username, string password)
         //{
         //    foreach (Customer customer in AllCustomer)

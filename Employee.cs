@@ -6,33 +6,62 @@ using System.Threading.Tasks;
 
 namespace Restaurant_C__Project
 {
-    internal class Employee: User
+    internal class Employee
     {
         public int EmpId { get; set; }
         public int EmpSalary { get; set; }
         public string EmpName { get; set; }
+        public string PhoneNumber { get; set; }
+        public string Adress { get; set; }
+        public string UserName { get; set; }
+        public string UserPassword { get; set; }
+        public string UserRole { get; set; }
         public Employee() { }
 
-        public Employee(int empId, int empSalary, string empName, string UserName, string UserPassword, string UserRole):base(UserName, UserPassword, UserRole)
+        public Employee(string EmpName, int EmpSalary, string PhoneNumber, string EmployeeAdress, string UserName, string UserPassword, string UserRole)
         {
-            EmpId = empId;
-            EmpSalary = empSalary;
-            EmpName = empName;
+            Random R = new Random();
+            this.EmpId = R.Next();
+            this.EmpSalary = EmpSalary;
+            this.EmpName = EmpName;
+            this.PhoneNumber = PhoneNumber;
+            this.Adress = EmployeeAdress;
+            this.UserName = UserName;
+            this.UserPassword = UserPassword;
+            this.UserRole = UserRole;
+
+        }
+        public Employee(string UserName, string UserPassword, string UserRole)
+        {
+            this.UserName = UserName;
+            this.UserPassword = UserPassword;
+            this.UserRole = UserRole;
+
         }
 
-        public override void SignIn()
-        {
-           string UserName = Console.ReadLine();
-           string UserPassword = Console.ReadLine();
-           string UserRole = "Employee";
-           // Console.WriteLine(UserRole);
-        }
+
         public virtual string EmployeeData()
         {
-            EmpName=this.EmpName;
-            EmpSalary=this.EmpSalary;
-            EmpId=this.EmpId;
+            EmpName = this.EmpName;
+            EmpSalary = this.EmpSalary;
+            EmpId = this.EmpId;
             return EmpName;
         }
+
+
+        //public override void SignIn()
+        //{
+        //   string UserName = Console.ReadLine();
+        //   string UserPassword = Console.ReadLine();
+        //   string UserRole = "Employee";
+        //   // Console.WriteLine(UserRole);
+        //}
+        //public virtual string EmployeeData()
+        //{
+        //    EmpName=this.EmpName;
+        //    EmpSalary=this.EmpSalary;
+        //    EmpId=this.EmpId;
+        //    return EmpName;
+        //}
     }
 }

@@ -24,7 +24,26 @@ namespace Restaurant_C__Project
             string json = JsonConvert.SerializeObject(table);
             System.IO.File.WriteAllText(@"C:\Users\HP\Desktop\Restaurant C# Project\Restaurant C# Project\DiningTable.json", json);
         }
-        public void ShowTables()
+        public static void LoadAlldiningtableFromJson(string jsonFilePath)
+        {
+            if (System.IO.File.Exists(jsonFilePath))
+            {
+                string json = System.IO.File.ReadAllText(jsonFilePath);
+                table = JsonConvert.DeserializeObject<List<DiningTable>>(json);
+            }
+        }
+
+        public void AddDiningTable()
+        {
+            table.Add(this);
+        }
+
+        public static void SaveDiningTableToFile(string jsonFilePath)
+        {
+            string json = JsonConvert.SerializeObject(table, Formatting.Indented);
+            System.IO.File.WriteAllText(jsonFilePath, json);
+        }
+        public static void ShowTables()
         {
             var json = System.IO.File.ReadAllText(@"C:\Users\HP\Desktop\Restaurant C# Project\Restaurant C# Project\DiningTable.json");
             var table = JsonConvert.DeserializeObject<List<DiningTable>>(json);
@@ -35,7 +54,11 @@ namespace Restaurant_C__Project
                 Console.WriteLine(item.Type);
             }
         }
-       
-        
+        public static void AddingNewTable(int TableNo, int TableCapicty)
+        {
+            table.Add(new DiningTable { TableNo = TableNo, TableCapicty = TableCapicty });
+        }
+
+
     }
 }
