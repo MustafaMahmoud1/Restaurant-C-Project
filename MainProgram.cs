@@ -327,15 +327,23 @@ namespace Restaurant_C__Project
                         case 2:
                             //Cashier code       still 
                             Cashier cashier;
-                            Console.WriteLine("please, sign in by your user name and password");
-                            cashier.SignIn();
+                            Console.WriteLine("please, sign in");
+                            Console.WriteLine("enter your user name");
+                            string cashierUsername = Console.ReadLine();
+                            Console.WriteLine("enter your password");
+                            string cashierPassword = Console.ReadLine();
+                            cashier.EmpSignIn(cashierUsername, cashierPassword,"cashier");
 
                             break;
                         case 3:
                             // Chef code
                             Chef chef;
-                            Console.WriteLine("please, sign in by your user name and password");
-                            chef.SignIn();
+                            Console.WriteLine("please, sign in");
+                            Console.WriteLine("enter your user name");
+                            string chefUsername = Console.ReadLine();
+                            Console.WriteLine("enter your password");
+                            string chefPassword = Console.ReadLine();
+                            chef.EmpSignIn(chefUsername, chefPassword, "chef");
                         chefWindow:
                             Console.WriteLine("choose what you want to do");
                             Console.WriteLine("1:show order list");
@@ -375,8 +383,12 @@ namespace Restaurant_C__Project
                         case 4:
                             // waiter code
                             Waiter waiter;
-                            Console.WriteLine("please, sign in by your user name and password");
-                            waiter.SignIn();
+                            Console.WriteLine("please, sign in");
+                            Console.WriteLine("enter your user name");
+                            string waiterUsername = Console.ReadLine();
+                            Console.WriteLine("enter your password");
+                            string waiterPassword = Console.ReadLine();
+                            chef.EmpSignIn(waiterUsername, waiterPassword, "waiter");
                         waiterWindow:
                             Console.WriteLine("choose what you want to do");
                             Console.WriteLine("1:show active reservation");
