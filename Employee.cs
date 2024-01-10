@@ -38,7 +38,23 @@ namespace Restaurant_C__Project
             this.UserRole = UserRole;
 
         }
+        //signin function
+        public static bool EmpSignIn(string UserName, string Password, string Roll)
+        {
+            bool check = false;
+            Admin.ShowUsersEmpData(@"C:\\Users\\M&M\\Source\\Repos\\Restaurant-C-Project\\User.json");
+foreach (var user in Admin.UserEmp)
+            {
+                if (user.UserName == UserName && user.UserPassword == UserPassword && user.UserRole == Roll)
+                {
+                    check = true;
 
+                }
+                else
+                    check = false;
+            }
+            return check;
+        }
 
         public virtual string EmployeeData()
         {
@@ -49,19 +65,5 @@ namespace Restaurant_C__Project
         }
 
 
-        //public override void SignIn()
-        //{
-        //   string UserName = Console.ReadLine();
-        //   string UserPassword = Console.ReadLine();
-        //   string UserRole = "Employee";
-        //   // Console.WriteLine(UserRole);
-        //}
-        //public virtual string EmployeeData()
-        //{
-        //    EmpName=this.EmpName;
-        //    EmpSalary=this.EmpSalary;
-        //    EmpId=this.EmpId;
-        //    return EmpName;
-        //}
     }
 }
