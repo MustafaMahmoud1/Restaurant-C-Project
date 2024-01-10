@@ -129,91 +129,81 @@ namespace Restaurant_C__Project
                                 case 2:
                                     //Bassant's code
 
-                                    Console.WriteLine("Welecome to Reservation Feature ");
-                                    Console.WriteLine("This All Tables In Our Restaurant");
-                                   
+                                    DiningTable.LoadAlldiningtableFromJson(@"D:\C# Projects\Restaurant C# Project\DiningTable.json");
+                                    Reservations.LoadAllReserervisionFromJson(@"D:\C# Projects\Restaurant C# Project\Reservations.json");
                                     DiningTable.ShowTables();
-
-                                    Console.WriteLine("please enter your Name");
-
-                                    string ReservantName = (Console.ReadLine());
-                                    string ReservantPhone = "";
-                                    while (true)
+                                    Console.WriteLine("Please enter the table number you want to reserve.");
+                                    string tablenumber = Console.ReadLine();
+                                    Console.WriteLine("Please enter the month you want to reserve in. (JAN/FEB/MAR..etc)");
+                                    string month = Console.ReadLine();
+                                    Console.WriteLine("Please enter the day you want to reserve in. (SAT/SUN/MON..etc)");
+                                    string day = Console.ReadLine();
+                                    Console.WriteLine("Please enter the hour you want to reserve in. (0-23)");
+                                    int hour = int.Parse(Console.ReadLine());
+                                    string reservedate = month + day + hour;
+                                    bool tableavailable = true;
+                                    foreach (var x in Reservations.Reservants)
                                     {
-                                        Console.WriteLine("please enter your Phone ");
-                                        ReservantPhone = (Console.ReadLine());
-                                        if (ReservantPhone.Length == 11 && ReservantPhone.StartsWith("01") && ReservantPhone.All(char.IsDigit))
+                                        if (tablenumber == x.ReservedTableNo)
                                         {
-                                            break;
-                                        }
-                                        else
-                                        {
-                                            Console.WriteLine("invalid phone number ,please try again");
+                                            if (x.ReserveDate == reservedate)
+                                            {
+                                                tableavailable = false;
+                                                break;
+                                            }
+                                            else if (x.ReserveDate == month + day + (hour + 1))
+                                            {
+                                                tableavailable = false;
+                                                break;
+                                            }
+                                            else if (x.ReserveDate == month + day + (hour + 2))
+                                            {
+                                                tableavailable = false;
+                                                break;
+                                            }
+                                            else if (x.ReserveDate == month + day + (hour - 1))
+                                            {
+                                                tableavailable = false;
+                                                break;
+                                            }
+                                            else if (x.ReserveDate == month + day + (hour - 2))
+                                            {
+                                                tableavailable = false;
+                                                break;
+                                            }
                                         }
                                     }
-
-                                    Console.WriteLine("please enter TableNo");
-                                    int ReservantTableno = int.Parse(Console.ReadLine());
-                                    Console.WriteLine("please enter the ReserveDate");
-                                    int ReserveDate = int.Parse(Console.ReadLine());
-                                    Console.WriteLine("please enter Reserve Time");
-                                    int ReserveTime = int.Parse((Console.ReadLine()));
-
-
-                                    Reservations reservant = new Reservations(ReserveTime, ReserveDate, ReservantName, ReservantPhone, ReservantTableno);
-
-
-                                    bool x = reservant.CheckReservation(ReservantTableno, ReserveTime, ReserveDate);
-                                    Console.WriteLine(x);
-                                    if (x == true)
+                                    if (tableavailable == true)
                                     {
-                                        Reservations.LoadAllReserervisionFromJson(@"C:\Users\Mega Store\Source\Repos\Restaurant-C-Projecta\Reservations.json");
-                                        reservant.AddToReservation();
-
-                                        Reservations.SaveReservationToJson(@"C:\Users\Mega Store\Source\Repos\Restaurant-C-Projecta\Reservations.json");
+                                        Reservations reservation = new Reservations(reservedate, tablenumber, customer);
+                                        reservation.AddToReservation();
+                                        Reservations.SaveReservationToJson(@"D:\C# Projects\Restaurant C# Project\Reservations.json");
+                                        Customer.ShowNotification("Reservation");
                                     }
-
-                                    Customer.ShowNotification("Reservation");
-
-
-                                    break;
+                                    else
+                                    {
+                                        Console.WriteLine("Sorry, the table is not available at this time.");
+                                        Console.WriteLine("1: Reserve another table.");
+                                        Console.WriteLine("2: Cancel the reservation.");
+                                        int choice = int.Parse(Console.ReadLine());
+                                        switch (choice)
+                                        {
+                                            case 1:
+                                                goto case 2;
+                                            case 2:
+                                                break;
+                                        }
+                                    }
+                                    goto serviceloop;
+                                //sign up/in go back to main page.
+                                case 3:
+                                    goto loop;
                             }
                             break;
-                        //sign up/in go back to main page.
-                        case 3:
-                        goto loop;
-                    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            }
                     break;
                 case 2:
-                    Emploeerolepart:
+                Employeerolepart:
                     Console.WriteLine("choose your role");
                     Console.WriteLine("1:Admin");
                     Console.WriteLine("2:Cashier");
@@ -229,8 +219,8 @@ namespace Restaurant_C__Project
                             string username = Console.ReadLine();
                             Console.WriteLine("Enter your Password ");
                             string password = Console.ReadLine();
-                            Admin.VerifyCustomer(username, password);
-                            if (Admin.VerifyCustomer != null)
+                            Admin admin = Admin.VerifyAdmin(username, password);
+                            if (Admin.VerifyAdmin != null)
                             {
                             adminloop:
                                 Console.WriteLine("Choose from options");
@@ -242,7 +232,7 @@ namespace Restaurant_C__Project
                                 Console.WriteLine("6- Add Ingredient to Stock");
                                 Console.WriteLine("7- Show All Tables");
                                 Console.WriteLine("8- Add Table");
-                                Console.WriteLine("9- Show All Reservats");
+                                Console.WriteLine("9- Show All Reservations");
                                 Console.WriteLine("10- Show All Orders");
                                 Console.WriteLine("11- Show All Customers");
                                 Console.WriteLine("12- Go Back to Main Page");
@@ -266,19 +256,15 @@ namespace Restaurant_C__Project
                                         Console.WriteLine("Please Enter Employee Roll ");
                                         string EmployeeRoll = Console.ReadLine();
                                         Admin.LoadAllEmployeesFromJsonFile(@"C:\Users\M&M\source\repos\resturant\Employee.json");
-                                        Admin.LoadAllEmplUsersFromJsonFile(@"C:\Users\M&M\source\repos\resturant\User.json");
                                         Admin.SignUp(EmployeeName, EmployeeSalary, EmployeePhone, EmployeeAdress,
                                             UserName, Password, EmployeeRoll);
-                                        Admin.SaveAllEmplUsersToJsonFile(@"C:\Users\M&M\source\repos\resturant\User.json");
                                         Admin.SaveAllEmployeesToJsonFile(@"C:\Users\M&M\source\repos\resturant\Employee.json");
                                         goto adminloop;
                                     case 2:
                                         Console.WriteLine("All Employees: ");
                                         Admin.LoadAllEmployeesFromJsonFile(@"D:\ITI\new\c#\c# project1\FINAL\Employee.json");
-                                        Admin.LoadAllEmplUsersFromJsonFile(@"D:\ITI\new\c#\c# project1\FINAL\User.json");
                                         Admin.SaveAllEmployeesToJsonFile(@"D:\ITI\new\c#\c# project1\FINAL\Employee.json");
-                                        Admin.SaveAllEmplUsersToJsonFile(@"D:\ITI\new\c#\c# project1\FINAL\User.json");
-                                        Admin.ckeck().ShowAllEmployees();
+                                        admin.ShowAllEmployees();
                                         goto adminloop;
                                     case 3:
                                         Menu.LoadAllItemsFromJson(@"D:\ITI\new\c#\c# project1\FINAL\Menu.json");
@@ -286,18 +272,18 @@ namespace Restaurant_C__Project
                                         int NewItemPrice = int.Parse(Console.ReadLine());
                                         int NewItemID = int.Parse(Console.ReadLine());
                                         string NewDescription = Console.ReadLine();
-                                        Admin.ckeck().AddItemToMenu(NewItemName, NewItemPrice, NewItemID, NewDescription);
+                                        admin.AddItemToMenu(NewItemName, NewItemPrice, NewItemID, NewDescription);
                                         Menu.SaveItemsToFile(@"D:\ITI\new\c#\c# project1\FINAL\Menu.json");
                                         goto adminloop;
                                     case 4:
                                         Menu.LoadAllItemsFromJson(@"D:\ITI\new\c#\c# project1\FINAL\Menu.json");
                                         Menu.SaveItemsToFile(@"D:\ITI\new\c#\c# project1\FINAL\Menu.json");
-                                        Admin.ckeck().ShowAllItemsInMenu();
+                                        admin.ShowAllItemsInMenu();
                                         goto adminloop;
                                     case 5:
                                         Stock.LoadAllItemsFromJson(@"D:\ITI\new\c#\c# project1\FINAL\stock ingredient.json");
                                         Stock.SaveItemsToFile(@"D:\ITI\new\c#\c# project1\FINAL\stock ingredient.json");
-                                        Admin.ckeck().ShowEveryThingInStock();
+                                        admin.ShowEveryThingInStock();
                                         goto adminloop;
                                     case 6:
                                         Stock.LoadAllItemsFromJson(@"D:\ITI\new\c#\c# project1\FINAL\stock ingredient.json");
@@ -305,40 +291,39 @@ namespace Restaurant_C__Project
                                         int IngredientID = int.Parse(Console.ReadLine());
                                         string IngredientName = Console.ReadLine();
                                         int IngredientQuantity = int.Parse(Console.ReadLine());
-                                        Admin.ckeck().AddIngresientToStock(IngredientID, IngredientName, IngredientQuantity);
+                                        admin.AddIngresientToStock(IngredientID, IngredientName, IngredientQuantity);
                                         goto adminloop;
                                     case 7:
                                         DiningTable.LoadAlldiningtableFromJson(@"D:\ITI\new\c#\c# project1\FINAL\DiningTable.json");
                                         DiningTable.SaveDiningTableToFile(@"D:\ITI\new\c#\c# project1\FINAL\DiningTable.json");
-                                        Admin.ckeck().ShowAllTables();
+                                        admin.ShowAllTables();
                                         goto adminloop;
                                     case 8:
                                         DiningTable.LoadAlldiningtableFromJson(@"D:\ITI\new\c#\c# project1\FINAL\DiningTable.json");
                                         int TableNo = int.Parse(Console.ReadLine());
                                         int TableCapicty = int.Parse(Console.ReadLine());
-                                        Admin.ckeck().AddTables(TableNo, TableCapicty);
+                                        admin.AddTables(TableNo, TableCapicty);
                                         DiningTable.SaveDiningTableToFile(@"D:\ITI\new\c#\c# project1\FINAL\DiningTable.json");
                                         goto adminloop;
                                     case 9:
                                         Reservations.LoadAllReserervisionFromJson(@"D:\ITI\new\c#\c# project1\FINAL\Reservations.json");
                                         Reservations.SaveReservationToJson(@"D:\ITI\new\c#\c# project1\FINAL\Reservations.json");
-                                        Admin.ckeck().ShowAllReservations();
+                                        admin.ShowAllReservations();
                                         goto adminloop;
                                     case 10:
-                                        Order order = new Order();
-                                        order.ShowOrdersList(@"D:\ITI\new\c#\c# project1\menna\Order.Json");
-                                        order.SaveOrderToJson(@"D:\ITI\new\c#\c# project1\menna\Order.Json");
+                                        Order.ShowOrdersList(@"D:\ITI\new\c#\c# project1\menna\Order.Json");
+                                        Order.SaveOrderToJson(@"D:\ITI\new\c#\c# project1\menna\Order.Json");
                                         goto adminloop;
                                     case 11:
                                         Customer.LoadAllCustomersFromJson(@"D:\ITI\new\c#\c# project1\FINAL\Customer.json");
                                         Customer.SaveCustomersToFile(@"D:\ITI\new\c#\c# project1\FINAL\Customer.json");
-                                        Admin.ckeck().ShowAllCustomers();
+                                        admin.ShowAllCustomers();
                                         goto adminloop;
                                     case 12:
                                         goto adminloop;
                                 }
                             }
-                        break;     
+                            break;
                         case 2:
                             //Cashier code       still 
                             Cashier cashier;
@@ -362,7 +347,7 @@ namespace Restaurant_C__Project
                             {
                                 case 1:
                                     //show order list
-                                    chef.ShowOrderList("Order list json file here"); 
+                                    chef.ShowOrderList("Order list json file here");
                                     break;
                                 case 2:
                                     //serve order  
@@ -403,14 +388,14 @@ namespace Restaurant_C__Project
                                 case 1:
                                     //show active reservation
                                     Console.WriteLine("please, enter start time of reservation");
-                                    int fromTime=int.Parse(Console.ReadLine());
+                                    int fromTime = int.Parse(Console.ReadLine());
                                     Console.WriteLine("please, enter end time of reservation");
                                     int toTime = int.Parse(Console.ReadLine());  //time format??
-                                    waiter.ShowReservationList(fromTime,toTime); 
+                                    waiter.ShowReservationList(fromTime, toTime);
                                     break;
-                                 case 2:
-                                    //create an order
-                                    orderAgain:
+                                case 2:
+                                //create an order
+                                orderAgain:
                                     waiter.OrderCreation();
                                     Console.WriteLine("do you want to order another item ?");
                                     Console.WriteLine("1:yes");
@@ -430,11 +415,11 @@ namespace Restaurant_C__Project
                                             goto waiterWindow;
                                     }
                                     break;
-                                 case 3:
+                                case 3:
                                     //reserve a table
                                     waiter.TableReservation();  //all in waiter and reservation 
                                     break;
-                                 default:
+                                default:
                                     Console.WriteLine("Invalid Option. Please restart the waiter window.");
                                     goto waiterWindow;
                                     break;
@@ -442,7 +427,7 @@ namespace Restaurant_C__Project
                             break;
                         default:
                             Console.WriteLine("Invalid Option. Please Start the employee window.");
-                            goto Emploeerolepart;
+                            goto Employeerolepart;
                     }
                     break;
                 default:

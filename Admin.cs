@@ -6,29 +6,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace C__Project
+namespace Restaurant_C__Project
 {
     internal sealed class Admin : Employee
-    {
-        public Admin(int EmpId, int EmpSalary, string EmpName, string UserName, string UserPassword, string UserRole) : base(EmpId, EmpSalary, EmpName, UserName, UserPassword, "Admin") { }
-        //Customer customer = new Customer();
-        //order order = new order();
-        //reservations reservations = new reservations();
-        //public Admin(int EmpId, int EmpSalary, string EmpName, string UserName, string UserPassword, string UserRole) : base(EmpId, EmpSalary, EmpName, UserName, UserPassword, "Admin") { }
-        //Customer customer = new Customer();
-        //order order = new order();
-        //public static List<Customer> CustomerData = new List<Customer> { };
-        //reservations reservations = new reservations();
-        //ingredients ingredients = new ingredients();
-        public static List<Employee> Employees = new List<Employee> { };
-        public static List<Employee> UserEmp = new List<Employee> { };
-
-        private Admin() { }
+    {   
+        
         private static Admin MyAdmin;
-        public static Admin ckeck()
+        
+        public static List<Employee> Employees = new List<Employee> { };
+        
+        private Admin(string AdminName, int AdminSalary, string AdminPhone, string AdminAdress, string AdminUsername, string AdminPassword, string UserRole) : base(AdminName, AdminSalary,AdminPhone, AdminAdress, AdminUsername, AdminPassword, "Admin") 
+        { }
+
+        public static Admin AddNewAdmin(string AdminName, int AdminSalary, string AdminPhone, string AdminAdress, string AdminUsername, string AdminPassword, string UserRole)
         {
             if (MyAdmin == null)
-                MyAdmin = new Admin();
+                MyAdmin = new Admin( AdminName, AdminSalary, AdminPhone, AdminAdress, AdminUsername, AdminPassword, UserRole);
             return MyAdmin;
         }
         public static void LoadAllEmployeesFromJsonFile(string jsonFilepath)
@@ -39,26 +32,25 @@ namespace C__Project
                 Employees = JsonConvert.DeserializeObject<List<Employee>>(Json);
             }
         }
-        public static void LoadAllEmplUsersFromJsonFile(string JsonFilepath)
-        {
-            if (System.IO.File.Exists(JsonFilepath))
-            {
-                string Json = File.ReadAllText(JsonFilepath);
-                UserEmp = JsonConvert.DeserializeObject<List<Employee>>(Json);
-            }
-        }
+        //public static void LoadAllEmplUsersFromJsonFile(string JsonFilepath)
+        //{
+        //    if (System.IO.File.Exists(JsonFilepath))
+        //    {
+        //        string Json = File.ReadAllText(JsonFilepath);
+        //        UserEmp = JsonConvert.DeserializeObject<List<Employee>>(Json);
+        //    }
+        //}
         public static void SaveAllEmployeesToJsonFile(string jsonFilepath)
         {
             string Json = JsonConvert.SerializeObject(Employees, Formatting.Indented);
             System.IO.File.WriteAllText(jsonFilepath, Json);
         }
-        public static void SaveAllEmplUsersToJsonFile(string jsonFilepath)
-        {
-            string Json = JsonConvert.SerializeObject(UserEmp, Formatting.Indented);
-            System.IO.File.WriteAllText(jsonFilepath, Json);
-        }
-        public static void SignUp(string EmployeeName, int EmployeeSalary
-           , string EmployeePhone, string EmployeeAdress, string UserName, string UserPassword, string EmployeeRoll)
+        //public static void SaveAllEmplUsersToJsonFile(string jsonFilepath)
+        //{
+        //    string Json = JsonConvert.SerializeObject(UserEmp, Formatting.Indented);
+        //    System.IO.File.WriteAllText(jsonFilepath, Json);
+        //}
+        public static void SignUp(string EmployeeName, int EmployeeSalary, string EmployeePhone, string EmployeeAdress, string UserName, string UserPassword, string EmployeeRoll)
         {
 
 
@@ -70,8 +62,8 @@ namespace C__Project
                 {
                     Employee Emp = new Employee(EmployeeName, EmployeeSalary, EmployeePhone, EmployeeAdress, UserName, UserPassword, EmployeeRoll);
                     Employees.Add(Emp);
-                    Employee User = new Employee(UserName, UserPassword, EmployeeRoll);
-                    UserEmp.Add(User);
+                    //Employee User = new Employee(UserName, UserPassword, EmployeeRoll);
+                    //UserEmp.Add(User);
 
                 }
                 else { Console.WriteLine("there is a wrong sign up becouse you do not enter all requirements"); }
@@ -92,12 +84,12 @@ namespace C__Project
                 Console.WriteLine("Employee Phone Number is: " + item.PhoneNumber);
                 Console.WriteLine("Employee Address is: " + item.Adress);
             }
-            foreach (var y in UserEmp)
-            {
-                Console.WriteLine("User Name is: " + y.UserName);
-                Console.WriteLine("User Password is: " + y.UserPassword);
-                Console.WriteLine("User Role is: " + y.UserRole);
-            }
+            //foreach (var y in UserEmp)
+            //{
+            //    Console.WriteLine("User Name is: " + y.UserName);
+            //    Console.WriteLine("User Password is: " + y.UserPassword);
+            //    Console.WriteLine("User Role is: " + y.UserRole);
+            //}
         }
         public void AddItemToMenu(string NewItemName, int NewItemPrice, int NewItemID, string NewDescription)
         {
@@ -131,13 +123,13 @@ namespace C__Project
         {
             Customer.ShowCustomers();
         }
-        public static Admin VerifyCustomer(string username, string password)
+        public static Admin VerifyAdmin(string username, string password)
         {
-            foreach (Admin admin in UserEmp)
+            foreach (Employee admin in Employees)
             {
                 if (admin.UserName == username && admin.UserPassword == password && admin.UserRole == "Admin")
                 {
-                    return admin;
+                    return (Admin)admin;
                 }
             }
             return null;

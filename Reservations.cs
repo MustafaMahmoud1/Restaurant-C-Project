@@ -11,27 +11,23 @@ namespace Restaurant_C__Project
        public class Reservations
     {
         public int ReserveId { get; set; }
-        public int ReserveTime { get; set; }
-
-        public int ReserveDate { get; set; }
-        public string ReservantName { get; set; }
-        public string ReservantPhone { get; set; }
-        public int ReservedTableNo { get; set; }
+        //public int ReserveTime { get; set; }
+        public string ReserveDate { get; set; }  //concat of month + day + hour
+        public Customer Customer { get; set; }
+        public string ReservedTableNo { get; set; }
 
         public static List<Reservations> Reservants { get; set; } = new List<Reservations>();
         public List<DiningTable> DinningTableList { get; set; } = new List<DiningTable>();
 
         public Reservations() { }
 
-        public Reservations(int ReserveTime, int ReserveDate, string ReservantName, string Reservantphone, int reservantTableno)
+        public Reservations( string ReserveDate, string reservantTableno, Customer customer)
         {
             Random R = new Random();
             this.ReserveId = R.Next();
-            this.ReserveTime = ReserveTime;
             this.ReserveDate = ReserveDate;
-            this.ReservantName = ReservantName;
-            this.ReservantPhone = Reservantphone;
             this.ReservedTableNo = reservantTableno;
+            Customer = customer;
 
 
         }
@@ -71,30 +67,29 @@ namespace Restaurant_C__Project
             string json = JsonConvert.SerializeObject(Reservants, Formatting.Indented);
             File.WriteAllText(JsonFile, json);
         }
-        public bool CheckReservation(int TableNo, int ReserveTime, int ReserveDate)
+        public static bool CheckReservation(int TableNo, string ReserveMonth, string ReserveDay, string ReserveTime)
         {
             bool boolean = false;
             foreach (var Item in Reservants)
             {
-                if (Item.ReservedTableNo == TableNo && Item.ReserveDate == ReserveDate)
+                if (Item.ReservedTableNo == TableNo && Item.ReserveDate == ReserveMonth + ReserveDay + )
                 {
 
 
 
-                    for (int i = 0; i <= 3; i++)
-                    {
-                        if (Item.ReserveTime + i == ReserveTime)
-                        {
-                            Console.WriteLine("this table is not available");
-                            boolean = false;
-                        }
-                        else if (Item.ReserveTime - i == ReserveTime)
-                        {
-                            Console.WriteLine("this table is not available");
-                            boolean = false;
-                        }
-
-                    }
+                    //for (int i = 0; i <= 2; i++)
+                    //{
+                    //    if (Item.ReserveDate.Substring(6,2) + i)
+                    //    {
+                    //        Console.WriteLine("this table is not available");
+                    //        boolean = false;
+                    //    }
+                    //    else if (Item.ReserveTime - i == ReserveTime)
+                    //    {
+                    //        Console.WriteLine("this table is not available");
+                    //        boolean = false;
+                    //    }
+                    //}
 
                 }
 
@@ -114,8 +109,8 @@ namespace Restaurant_C__Project
         {
             foreach (var item in Reservants)
             {
-                Console.WriteLine("Reservant Name is: " + item.ReservantName);
-                Console.WriteLine("Reservant Phone is: " + item.ReservantPhone);
+                Console.WriteLine("Reservant Name is: " + item.Customer.FullName);
+                Console.WriteLine("Reservant Phone is: " + item.Customer.FullName);
                 Console.WriteLine("Reservation ID is: " + item.ReserveId);
                 Console.WriteLine("Reservation Date is: " + item.ReserveDate);
                 Console.WriteLine("Reservation Time is: " + item.ReserveTime);

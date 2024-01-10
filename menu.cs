@@ -53,7 +53,7 @@ namespace Restaurant_C__Project
             }
         }
 
-        public void Showitemstocustomer()
+        public void ShowItemstoCustomer()
         {
             foreach (var MenuItems in AllItems)
             {

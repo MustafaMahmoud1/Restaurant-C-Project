@@ -4,11 +4,11 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-Newtonsoft.Json;
+using Newtonsoft.Json;
 
 namespace Restaurant_C__Project
 {
-    internal class Order
+    public class Order
     {
         public static List<Order> ActiveOderList = new List<Order>();
 
@@ -22,7 +22,7 @@ namespace Restaurant_C__Project
 
         public string CustomerId { get; set; }
 
-        public List<OrderItem> ListItem { get; } = new List<OrderItem>();
+        public List<OrderedItem> ListItem { get; } = new List<OrderedItem>();
         public Order()
         {
             OrderId = 0;
@@ -32,7 +32,7 @@ namespace Restaurant_C__Project
 
 
         //Parametarize constructor
-        public Order(List<OrderItem> Items)
+        public Order(List<OrderedItem> Items)
         {
             Random R = new Random();
             OrderId = R.Next();

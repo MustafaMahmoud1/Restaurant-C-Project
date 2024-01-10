@@ -7,7 +7,7 @@ using Newtonsoft.Json;
 
 namespace Restaurant_C__Project
 {
-    internal class DiningTable 
+    public class DiningTable 
     {
         public int TableNo { get; set; }
         public int TableCapicty { get; set; }
@@ -45,18 +45,21 @@ namespace Restaurant_C__Project
         }
         public static void ShowTables()
         {
-            var json = System.IO.File.ReadAllText(@"C:\Users\Mega Store\Desktop\projectt\ConsoleApp20\ConsoleApp20\diningtable.json");
+            var json = System.IO.File.ReadAllText(@"D:\C# Projects\Restaurant C# Project\DiningTable.json");
             var table = JsonConvert.DeserializeObject<List<DiningTable>>(json);
-            int counter = 1;
             foreach (var item in table)
             {
 
-                Console.WriteLine("the table number: " + counter);
-                Console.WriteLine(item.TableNo);
-                Console.WriteLine("Table Capicty :");
-                Console.WriteLine(item.TableCapicty);
-                Console.WriteLine(item.Type);
-                counter++;
+                Console.WriteLine("the table number: " + item.TableNo);
+                Console.WriteLine("Table Capicty :" + item.TableCapicty);
+                if (item.Type == true)
+                {
+                    Console.WriteLine("Smoking");
+                }
+                else
+                {
+                    Console.WriteLine("Non-Smoking");
+                }
 
             }
 
