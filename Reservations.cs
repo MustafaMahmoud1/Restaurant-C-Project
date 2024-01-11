@@ -134,33 +134,40 @@ namespace Restaurant_C__Project
         //    Reservants.Clear();
         //}
         //////////???????????????????????????????????
-        ////public void ShowActiveReservatioList(int FromTime,int ToTime)
-        ////{
-        ////    bool isAvailable = false;
-        ////    foreach (var Item in Reservants)
-        ////    {
-        ////        if (Item.ReserveTime in(FromTime,ToTime))
-        ////        {
-        ////            isAvailable = true;
-        ////            Console.WriteLine(Item);
-        ////        }
-        ////    }
-        ////    if(isAvailable==false)
-        ////    {
-        ////        Console.WriteLine("there is no tables available on this time");
-        ////    }
-
-        ////   // Console.WriteLine(Reservants);
-        ////}
-        //////???????????????????????????
-        //public void ReserveTable(int TableNo, int ReserveTime)
+        //public void ShowActiveReservatioList(int FromTime, int ToTime)
         //{
-        //    DinningTableList.AddRange(new List<int> { TableNo, ReserveTime });
-        //    foreach (var item in Reservants)
+        //ShowActiveReservatioListAgain:
+        //    DiningTable dinTable;
+        //    dinTable ShowTables();
+        //    Console.WriteLine("please, enter start time of reservation");
+        //    int fromTime = int.Parse(Console.ReadLine());
+        //    Console.WriteLine("please, enter end time of reservation");
+        //    int toTime = int.Parse(Console.ReadLine());
+        //    bool isAvailable = false;
+        //    foreach (var Item in Reservants)
         //    {
-        //        Console.WriteLine(item);
+        //        if (Item.ReserveTime in(FromTime, ToTime))
+        //        {
+        //            isAvailable = true;
+        //            Console.WriteLine(Item);
+        //        }
         //    }
+        //    if (isAvailable == false)
+        //    {
+        //        Console.WriteLine("there is no tables available on this time");
+        //        goto ShowActiveReservatioListAgain;
+        //    }
+
         //}
+        //////???????????????????????????
+        public void ReserveTable(int TableNo, int ReserveTime)
+        {
+            DinningTableList.AddRange(new List<int> { TableNo, ReserveTime });
+            foreach (var item in Reservants)
+            {
+                Console.WriteLine(item);
+            }
+        }
         //////////////////////////////////////////////////////
         /////done
 

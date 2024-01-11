@@ -19,7 +19,7 @@ namespace Restaurant_C__Project
         }
         public void FinishOrder()
         {
-            Order.RemoveFromOrder();
+            Order.RemoveFromOrder();  
         }
         public void ShowStock()
         {

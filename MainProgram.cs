@@ -355,7 +355,7 @@ namespace Restaurant_C__Project
                             {
                                 case 1:
                                     //show order list
-                                    chef.ShowOrderList("Order list json file here");
+                                    chef.ShowOrderList(@"C: \Users\abdelrahman shalaby\Source\Repos\MustafaMahmoud1\Restaurant - C - Project\Order.json");
                                     break;
                                 case 2:
                                     //serve order  
@@ -399,15 +399,14 @@ namespace Restaurant_C__Project
                             {
                                 case 1:
                                     //show active reservation
-                                    Console.WriteLine("please, enter start time of reservation");
-                                    int fromTime = int.Parse(Console.ReadLine());
-                                    Console.WriteLine("please, enter end time of reservation");
-                                    int toTime = int.Parse(Console.ReadLine());  //time format??
-                                    waiter.ShowReservationList(fromTime, toTime);
+                                    waiter.LoadAllReserervisionFromJson(@"C: \Users\abdelrahman shalaby\Source\Repos\MustafaMahmoud1\Restaurant - C - Project\Reservations.json");
+                                    waiter.ShowReservations();
                                     break;
                                 case 2:
                                 //create an order
                                 orderAgain:
+                                    Menu.GetInstance().LoadAllItemsFromJson(@"C: \Users\abdelrahman shalaby\Source\Repos\MustafaMahmoud1\Restaurant - C - Project\Menu.json");
+                                    Menu.GetInstance().ShowItemstoCustomer();
                                     waiter.OrderCreation();
                                     Console.WriteLine("do you want to order another item ?");
                                     Console.WriteLine("1:yes");
@@ -419,8 +418,9 @@ namespace Restaurant_C__Project
                                             goto orderAgain;
                                             break;
                                         case 2:
-                                            Console.WriteLine("your order is : ");
-                                            waiter.showOrderToWaiter();
+                                            Order orDer = new Order();
+                                            Console.WriteLine("your order is : ");    //انا تايه 
+                                            orDer.ShowWaitingOrderList(@"C:\\Users\\M&M\\Source\\Repos\\Restaurant-C-Project\\WaitingOrders.json");
                                             break;
                                         default:
                                             Console.WriteLine("invalid input , go back to waiter window");
@@ -429,7 +429,9 @@ namespace Restaurant_C__Project
                                     break;
                                 case 3:
                                     //reserve a table
-                                    waiter.TableReservation();  //all in waiter and reservation 
+                                    DiningTable dinTable = new DiningTable();
+                                    dinTable.ShowTables();
+                                    waiter.TableReservation();  //all in waiter and reservation   انا تايه 2 
                                     break;
                                 default:
                                     Console.WriteLine("Invalid Option. Please restart the waiter window.");

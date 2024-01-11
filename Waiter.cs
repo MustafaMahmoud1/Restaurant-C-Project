@@ -12,11 +12,11 @@ namespace Restaurant_C__Project
     public class Waiter : Employee
     {
         public Waiter(int empId, int empSalary, string empName, string UserName, string UserPassword, string UserRole) : base(empId, empSalary, empName, UserName, UserPassword, UserRole) { }
-        Reservations reserve = new reservations();
-        OrderedItem orderitem = new ordereditem();
+        Reservations reserve = new Reservations();
+        OrderedItem orderitem = new OrderedItem();
         public void ShowReservationList(int FromTime, int ToTime)     //done in main
         {
-            reserve.ShowActiveReservatioList(FromTime, ToTime);
+            reserve.ShowActiveReservatioList(FromTime, ToTime);  //commented in reservation 
         }
         public void OrderCreation()
         {
