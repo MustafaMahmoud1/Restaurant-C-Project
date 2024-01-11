@@ -326,7 +326,7 @@ namespace Restaurant_C__Project
                             break;
                         case 2:
                             //Cashier code       still 
-                            Cashier cashier;
+                            Cashier cashier=new Cashier();
                             Console.WriteLine("please, sign in");
                             Console.WriteLine("enter your user name");
                             string cashierUsername = Console.ReadLine();
@@ -337,7 +337,7 @@ namespace Restaurant_C__Project
                             break;
                         case 3:
                             // Chef code
-                            Chef chef;
+                            Chef chef=new Chef();
                             Console.WriteLine("please, sign in");
                             Console.WriteLine("enter your user name");
                             string chefUsername = Console.ReadLine();
@@ -382,13 +382,13 @@ namespace Restaurant_C__Project
                             break;
                         case 4:
                             // waiter code
-                            Waiter waiter;
+                            Waiter waiter=new Waiter();
                             Console.WriteLine("please, sign in");
                             Console.WriteLine("enter your user name");
                             string waiterUsername = Console.ReadLine();
                             Console.WriteLine("enter your password");
                             string waiterPassword = Console.ReadLine();
-                            chef.EmpSignIn(waiterUsername, waiterPassword, "waiter");
+                            waiter.EmpSignIn(waiterUsername, waiterPassword, "waiter");
                         waiterWindow:
                             Console.WriteLine("choose what you want to do");
                             Console.WriteLine("1:show active reservation");
