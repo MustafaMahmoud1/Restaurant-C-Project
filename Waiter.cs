@@ -18,13 +18,14 @@ namespace Restaurant_C__Project
         {
             reserve.ShowActiveReservatioList(FromTime, ToTime);  //commented in reservation 
         }
-        public void OrderCreation()
+        public static void OrderCreation()
         {
-            Console.WriteLine("enter the item ID you want to order");
-            int ItemID = int.Parse(Console.ReadLine());
-            Console.WriteLine("enter the item quantity you want to order");
-            int Quantity = int.Parse(Console.ReadLine());
-            orderitem.CreateOrder(ItemID, Quantity);
+            //Console.WriteLine("enter the item ID you want to order");
+            //int ItemID = int.Parse(Console.ReadLine());
+            //Console.WriteLine("enter the item quantity you want to order");
+            //int Quantity = int.Parse(Console.ReadLine());
+            //orderitem.CreateOrder(ItemID, Quantity);
+            Order.CreateOrder();
         }
         public void showOrderToWaiter()
         {

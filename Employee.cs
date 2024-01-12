@@ -42,16 +42,18 @@ namespace Restaurant_C__Project
         public static bool EmpSignIn(string UserName, string Password, string Roll)
         {
             bool check = false;
-            Admin.ShowUsersEmpData(@"C:\\Users\\M&M\\Source\\Repos\\Restaurant-C-Project\\User.json");
-foreach (var user in Admin.UserEmp)
-            {
+            Admin.LoadAllEmployeesFromJsonFile(@"C:\\Users\\M&M\\Source\\Repos\\Restaurant-C-Project\\User.json");
+                foreach (var user in Admin.Employees)
+                    {
                 if (user.UserName == UserName && user.UserPassword == UserPassword && user.UserRole == Roll)
                 {
                     check = true;
 
                 }
                 else
+                {
                     check = false;
+                }
             }
             return check;
         }

@@ -326,47 +326,87 @@ namespace Restaurant_C__Project
                             break;
                         case 2:
                             //Cashier code       still 
-                            Cashier cashier=new Cashier();
                             Console.WriteLine("please, sign in");
                             Console.WriteLine("enter your user name");
                             string cashierUsername = Console.ReadLine();
                             Console.WriteLine("enter your password");
                             string cashierPassword = Console.ReadLine();
-                            cashier.EmpSignIn(cashierUsername, cashierPassword,"cashier");
-
+                            bool signinCond = Employee.EmpSignIn(cashierUsername, cashierPassword, "cashier");
+                            if (signinCond)
+                            {
+                                Console.WriteLine("signing in done successfully");
+                                Console.WriteLine("*----------------------------------------*");
+                            }
+                            else
+                            {
+                                Console.WriteLine("invalid username or password , please try to sign in again");
+                                goto Employeerolepart;
+                            }
+                            Console.WriteLine("1:print invoice");
+                            Console.WriteLine("2:go back to employee menu");
+                            int cashierInput = int.Parse(Console.ReadLine());
+                            switch (cashierInput) 
+                            {
+                                case 1:
+                                Order.ShowOrdersList(@"C:\Users\abdelrahman shalaby\Source\Repos\MustafaMahmoud1\Restaurant-C-Project\Order.json");
+                                Console.WriteLine("enter order Id you want to print it's invoice");
+                                int IDToInvoice = int.Parse(Console.ReadLine());
+                                OrderedItem.Printing(IDToInvoice);
+                                    break;
+                                case 2: 
+                                goto Employeerolepart;
+                                    break;
+                            }
                             break;
                         case 3:
                             // Chef code
-                            Chef chef=new Chef();
                             Console.WriteLine("please, sign in");
                             Console.WriteLine("enter your user name");
                             string chefUsername = Console.ReadLine();
                             Console.WriteLine("enter your password");
                             string chefPassword = Console.ReadLine();
-                            chef.EmpSignIn(chefUsername, chefPassword, "chef");
+                            bool signinCond = Employee.EmpSignIn(chefUsername, chefPassword, "chef");
+                            if (signinCond)
+                            {
+                                Console.WriteLine("signing in done successfully");
+                                Console.WriteLine("*----------------------------------------*");
+                            }
+                            else
+                            {
+                                Console.WriteLine("invalid username or password , please try to sign in again");
+                                goto Employeerolepart;
+                            }
                         chefWindow:
                             Console.WriteLine("choose what you want to do");
                             Console.WriteLine("1:show order list");
                             Console.WriteLine("2:show stock");
                             Console.WriteLine("3:request an ingredient");
+                            Console.WriteLine("4:delete order from active order list");
                             int chefAction = int.Parse(Console.ReadLine());
                             switch (chefAction)
                             {
                                 case 1:
                                     //show order list
-                                    chef.ShowOrderList(@"C: \Users\abdelrahman shalaby\Source\Repos\MustafaMahmoud1\Restaurant - C - Project\Order.json");
+                                    Order.ShowOrderList(@"C: \Users\abdelrahman shalaby\Source\Repos\MustafaMahmoud1\Restaurant - C - Project\Order.json");
                                     break;
                                 case 2:
                                     //show stock
-                                    chef.ShowStock();
+                                    Stock.Get_Instance().LoadAllItemsFromJson(@"C:\Users\abdelrahman shalaby\Source\Repos\MustafaMahmoud1\Restaurant-C-Project\stock ingredient.json");
+                                    Stock.Get_Instance().ShowListOfIngredients();
                                     break;
                                 case 3:
                                     // Request ingredient
                                     Console.WriteLine("enter the ingredient ID and ingredient quantity you want to request");
                                     int ingID = int.Parse(Console.ReadLine());
                                     int ingQuant = int.Parse(Console.ReadLine());
-                                    chef.RequestIngredient(ingID, ingQuant);
+                                    Stock.Get_Instance().IngredientToChef(ingID, ingQuant);
                                     break;
+                                case 4:
+                                    Order.ShowActiveOrdersList();
+                                    Order.LoadAllActiveOrder();
+                                    Console.WriteLine("enter the order ID you want to remove");
+                                    int orderIDToRemove = int.Parse(Console.ReadLine());
+                                    Order.RemoveFromActiveList(orderIDToRemove);
                                 default:
                                     Console.WriteLine("Invalid Option. Please retart the chef window.");
                                     goto chefWindow;
@@ -377,13 +417,23 @@ namespace Restaurant_C__Project
                             break;
                         case 4:
                             // waiter code
-                            Waiter waiter=new Waiter();
+       
                             Console.WriteLine("please, sign in");
                             Console.WriteLine("enter your user name");
                             string waiterUsername = Console.ReadLine();
                             Console.WriteLine("enter your password");
                             string waiterPassword = Console.ReadLine();
-                            waiter.EmpSignIn(waiterUsername, waiterPassword, "waiter");
+                            bool signinCond = Employee.EmpSignIn(waiterUsername, waiterPassword, "waiter");
+                            if (signinCond)
+                            {
+                                Console.WriteLine("signing in done successfully");
+                                Console.WriteLine("*----------------------------------------*");
+                            }
+                            else
+                            {
+                                Console.WriteLine("invalid username or password , please try to sign in again");
+                                goto Employeerolepart;
+                            }
                         waiterWindow:
                             Console.WriteLine("choose what you want to do");
                             Console.WriteLine("1:show active reservation");
@@ -400,9 +450,7 @@ namespace Restaurant_C__Project
                                 case 2:
                                 //create an order
                                 orderAgain:
-                                    Menu.GetInstance().LoadAllItemsFromJson(@"C: \Users\abdelrahman shalaby\Source\Repos\MustafaMahmoud1\Restaurant - C - Project\Menu.json");
-                                    Menu.GetInstance().ShowItemstoCustomer();
-                                    waiter.OrderCreation();
+                                    Waiter.OrderCreation();
                                     Console.WriteLine("do you want to order another item ?");
                                     Console.WriteLine("1:yes");
                                     Console.WriteLine("2:no");
@@ -414,8 +462,9 @@ namespace Restaurant_C__Project
                                             break;
                                         case 2:
                                             Order orDer = new Order();
-                                            Console.WriteLine("your order is : ");    //انا تايه 
-                                            orDer.ShowWaitingOrderList(@"C:\\Users\\M&M\\Source\\Repos\\Restaurant-C-Project\\WaitingOrders.json");
+                                            Console.WriteLine("your order is : ");   
+                                            Order.ShowActiveOrdersList(@"C:\\Users\\M&M\\Source\\Repos\\Restaurant-C-Project\\ActiveOrder.json"); //to load
+                                            Order.LoadAllActiveOrder(); //to show
                                             break;
                                         default:
                                             Console.WriteLine("invalid input , go back to waiter window");

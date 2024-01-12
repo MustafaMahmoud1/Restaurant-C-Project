@@ -38,7 +38,7 @@ namespace Restaurant_C__Project
             string json = JsonConvert.SerializeObject(AllItems, Formatting.Indented);
             File.WriteAllText(jsonFilePath, json);
         }
-        public void ShowListOfIngredients()
+        public static void ShowListOfIngredients()
         {
             foreach (var x in AllItems)
             {
@@ -49,7 +49,7 @@ namespace Restaurant_C__Project
                 Console.WriteLine("********************************************************");
             }
         }
-        public void CheckAvailability(int CheckIngredientID)
+        public static void CheckAvailability(int CheckIngredientID)
         {
             bool condition = false;
             foreach (var x in AllItems)
@@ -71,7 +71,7 @@ namespace Restaurant_C__Project
             }
         }
 
-        public void AddIngredient(int IngredientID, string IngredientName, int IngredientQuantity)
+        public static void AddIngredient(int IngredientID, string IngredientName, int IngredientQuantity)
         {
             bool IsIngredientInStock = false;
             foreach (var x in AllItems)
@@ -90,7 +90,7 @@ namespace Restaurant_C__Project
                     });
             }
         }
-      public void IngredientToChef(int ingredientId, int ingredientQuantity)
+      public static void IngredientToChef(int ingredientId, int ingredientQuantity)
         {
             bool isAvailable=false;
             foreach (var x in AllItems)

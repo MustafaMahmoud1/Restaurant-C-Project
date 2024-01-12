@@ -17,9 +17,9 @@ namespace Restaurant_C__Project
         {
             Order.ShowOrdersList(string JsonFile);
         }
-        public void FinishOrder()
+        public void FinishOrder(int OrderIdToDelete)
         {
-            Order.RemoveFromOrder();  
+            Order.DeleteOrderFromOrderList(OrderIdToDelete);  
         }
         public void ShowStock()
         {

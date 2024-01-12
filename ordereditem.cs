@@ -36,17 +36,22 @@ namespace Restaurant_C__Project
                 Console.WriteLine(item);
             }
         }
-        public void Printing(int ItemID, int Quantity, int Price)
+        public static void Printing(int orID)
         {
-            ItemPrice.AddRange(new List<int> { ItemID, Quantity, Price });
-            int TotalPrice = 0;
-            foreach (var item in ItemPrice)
+            WebRequest request = WebRequest.Create(@"C:\Users\abdelrahman shalaby\Source\Repos\MustafaMahmoud1\Restaurant-C-Project\Order.json");
+            WebResponse response = request.GetResponse();
+            using Stream datastream = response.GetResponseStream();
+            StreamReader reader = new StreamReader(datastream);
+            string responsefromserver = reader.ReadToEnd();
+            OrderList = JsonConvert.DeserializeObject<List<Order>>(responsefromserver);
+
+            foreach (Order x in OrderList)
             {
-                TotalPrice += item.Quantity * item.Price;
-                Console.WriteLine(item + "Total Price is " + TotalPrice); 
+                if (x.OrderId == orID)
+                    Console.WriteLine(x.OrderPrice);
+                else
+                    Console.WriteLine("sorry, this order is not found");
             }
-
-
         }
     }
 }

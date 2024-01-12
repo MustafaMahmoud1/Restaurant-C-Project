@@ -46,7 +46,7 @@ namespace Restaurant_C__Project
             OrderPrice = TotalPrice;
         }
         //function to create order
-        public void CreateOrder()
+        public static void CreateOrder()
         {
             Menu.GetInstance().LoadAllItemsFromJson(@"C:\\Users\\M&M\\Source\\Repos\\Restaurant-C-Project\\Menu.json");
             Menu.GetInstance().Showitemstocustomer();
@@ -148,35 +148,35 @@ namespace Restaurant_C__Project
 
         }
 
-        public void RemoveItemFromOrder(int OrderId, int ItemId)
+        public static void RemoveItemFromOrder(int OrderId, int ItemId)      
         {
             foreach (Order x in OrderList)
             {
-                if (x.OrderId != OrderId)
+                if (x.OrderId == OrderId)
                 {
-                    continue;
-                }
-                foreach (OrderItem y in x.ListItem)
-                {
-                    if (y.ItemId == ItemId)
+                    foreach (OrderItem y in x.ListItem)
                     {
-                        ListItem.Remove(y);
-                        Console.WriteLine("sucssesfully removed");
-                        x.OrderPrice -= y.Price * y.Quantity;
-                        Console.WriteLine(x.OrderPrice);
+                        if (y.ItemId == ItemId)
+                        {
+                            ListItem.Remove(y);
+                            Console.WriteLine("sucssesfully removed");
+                            x.OrderPrice -= y.Price * y.Quantity;
+                            Console.WriteLine(x.OrderPrice);
+                        }
                     }
                 }
+                
             }
         }
 
 
-        public void ClearOrderList()
+        public static void ClearOrderList()
         {
             OrderList.Clear();
             Console.WriteLine("All Orders removed sucssesfully");
         }
         //Delete Order From Order List
-        public void DeleteOrderFromOrderList(int OrderIdToDelete)
+        public static void DeleteOrderFromOrderList(int OrderIdToDelete)
         {
             foreach (Order Order in OrderList)
             {
@@ -250,7 +250,7 @@ namespace Restaurant_C__Project
                         }
                         //ActiveOderList[ActiveOderList.Count - 1] = WaitingOrderList[0];
 
-                        Console.WriteLine("Rmoved done succseefully");
+                        Console.WriteLine("Remove done succseefully");
                     }
 
 
