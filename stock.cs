@@ -102,7 +102,7 @@ namespace Restaurant_C__Project
                 }
                 else if (ingredientId == x.IngredientID && x.IngredientQuantity < ingredientQuantity)
                 {
-                    Console.WriteLine($"ingredient with ID {ingredientId} is not available by quantity {ingredientQuantity} in stock")
+                    Console.WriteLine($"ingredient with ID {ingredientId} is not available by quantity {ingredientQuantity} in stock");
                 }
             }
             if(isAvailable == false) {

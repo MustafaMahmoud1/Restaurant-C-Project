@@ -68,39 +68,39 @@ namespace Restaurant_C__Project
             string json = JsonConvert.SerializeObject(Reservants, Formatting.Indented);
             File.WriteAllText(JsonFile, json);
         }
-        public static bool CheckReservation(int TableNo, string ReserveMonth, string ReserveDay, string ReserveTime)
-        {
-            bool boolean = false;
-            foreach (var Item in Reservants)
-            {
-                if (Item.ReservedTableNo == TableNo && Item.ReserveDate == ReserveMonth + ReserveDay + )
-                {
+        //public static bool CheckReservation(int TableNo, string ReserveMonth, string ReserveDay, string ReserveTime)
+        //{
+        //    bool boolean = false;
+        //    foreach (var Item in Reservants)
+        //    {
+        //        if (Item.ReservedTableNo == TableNo && Item.ReserveDate == ReserveMonth + ReserveDay + )
+        //        {
 
 
 
-                    //for (int i = 0; i <= 2; i++)
-                    //{
-                    //    if (Item.ReserveDate.Substring(6,2) + i)
-                    //    {
-                    //        Console.WriteLine("this table is not available");
-                    //        boolean = false;
-                    //    }
-                    //    else if (Item.ReserveTime - i == ReserveTime)
-                    //    {
-                    //        Console.WriteLine("this table is not available");
-                    //        boolean = false;
-                    //    }
-                    //}
+        //            //for (int i = 0; i <= 2; i++)
+        //            //{
+        //            //    if (Item.ReserveDate.Substring(6,2) + i)
+        //            //    {
+        //            //        Console.WriteLine("this table is not available");
+        //            //        boolean = false;
+        //            //    }
+        //            //    else if (Item.ReserveTime - i == ReserveTime)
+        //            //    {
+        //            //        Console.WriteLine("this table is not available");
+        //            //        boolean = false;
+        //            //    }
+        //            //}
 
-                }
+        //        }
 
-                else { boolean = true; }
+        //        else { boolean = true; }
 
 
 
-            }
-            return boolean;
-        }
+        //    }
+        //    return boolean;
+        //}
         public static void SaveOrderToJson(string JsonFile)
         {
             string json = JsonConvert.SerializeObject(Reservants, Formatting.Indented);

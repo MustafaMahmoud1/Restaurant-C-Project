@@ -13,23 +13,23 @@ namespace Restaurant_C__Project
         public Chef(int empId, int empSalary, string empName, string UserName, string UserPassword, string UserRole) : base(empId, empSalary, empName, UserName, UserPassword, UserRole) { }
         order order = new order();
         ingredients ingredients = new ingredients();
-        public void ShowOrderList(string JsonFile)
-        {
-            Order.ShowOrdersList(string JsonFile);
-        }
-        public void FinishOrder(int OrderIdToDelete)
-        {
-            Order.DeleteOrderFromOrderList(OrderIdToDelete);  
-        }
-        public void ShowStock()
-        {
-            Stock.Get_Instance().ShowListOfIngredients();
+        //public void ShowOrderList(string JsonFile)
+        //{
+        //    Order.ShowOrdersList(JsonFile);
+        //}
+        //public void FinishOrder(int OrderIdToDelete)
+        //{
+        //    Order.DeleteOrderFromOrderList(OrderIdToDelete);  
+        //}
+        //public void ShowStock()
+        //{
+        //    Stock.Get_Instance().ShowListOfIngredients();
             
-        }
-        public void RequestIngredient(int ingredientId , int ingredientQuantity)
-        {
-            Stock.Get_Instance().IngredientToChef(int ingredientId, int ingredientQuantity)///where
-        }
+        //}
+        //public void RequestIngredient(int ingredientId , int ingredientQuantity)
+        //{
+        //    Stock.Get_Instance().IngredientToChef(int ingredientId, int ingredientQuantity)///where
+        //}
 
 
 

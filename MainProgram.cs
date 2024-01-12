@@ -1,4 +1,4 @@
-﻿using C__Project;
+﻿using Restaurant_C__Project;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Net;
