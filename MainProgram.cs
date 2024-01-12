@@ -347,9 +347,8 @@ namespace Restaurant_C__Project
                         chefWindow:
                             Console.WriteLine("choose what you want to do");
                             Console.WriteLine("1:show order list");
-                            Console.WriteLine("2:serve an oder");
-                            Console.WriteLine("3:show stock");
-                            Console.WriteLine("4:request an ingredient");
+                            Console.WriteLine("2:show stock");
+                            Console.WriteLine("3:request an ingredient");
                             int chefAction = int.Parse(Console.ReadLine());
                             switch (chefAction)
                             {
@@ -358,14 +357,10 @@ namespace Restaurant_C__Project
                                     chef.ShowOrderList(@"C: \Users\abdelrahman shalaby\Source\Repos\MustafaMahmoud1\Restaurant - C - Project\Order.json");
                                     break;
                                 case 2:
-                                    //serve order  
-                                    // still
-                                    break;
-                                case 3:
                                     //show stock
                                     chef.ShowStock();
                                     break;
-                                case 4:
+                                case 3:
                                     // Request ingredient
                                     Console.WriteLine("enter the ingredient ID and ingredient quantity you want to request");
                                     int ingID = int.Parse(Console.ReadLine());
