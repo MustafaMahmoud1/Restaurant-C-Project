@@ -11,8 +11,7 @@ namespace Restaurant_C__Project
     public class Chef : Employee
     {
         public Chef(int empId, int empSalary, string empName, string UserName, string UserPassword, string UserRole) : base(empId, empSalary, empName, UserName, UserPassword, UserRole) { }
-        order order = new order();
-        ingredients ingredients = new ingredients();
+     
         //public void ShowOrderList(string JsonFile)
         //{
         //    Order.ShowOrdersList(JsonFile);

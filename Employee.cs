@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Restaurant_C__Project
 {
-    internal class Employee
+    public class Employee
     {
         public int EmpId { get; set; }
         public int EmpSalary { get; set; }

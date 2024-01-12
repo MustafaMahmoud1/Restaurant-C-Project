@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Restaurant_C__Project
 {
-    internal class OrderedItem
+    public class OrderedItem
     {
         public int ItemID { get; set; }
 
@@ -14,9 +14,9 @@ namespace Restaurant_C__Project
         public int Price { get; set; }
         public List<int> ItemIdAndQuantities { get; set; }
         public List<int> ItemPrice { get; set; }
-        public ordereditem() { }
+        public void ordereditem() { }
 
-        public ordereditem(int itemID, int quantity)
+        public void ordereditem(int itemID, int quantity)
         {
             this.ItemID = itemID;
             this.Quantity = quantity;
