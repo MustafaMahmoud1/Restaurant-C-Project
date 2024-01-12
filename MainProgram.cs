@@ -325,7 +325,7 @@ namespace Restaurant_C__Project
                             }
                             break;
                         case 2:
-                            //Cashier code       still 
+                            //Cashier code     
                             Console.WriteLine("please, sign in");
                             Console.WriteLine("enter your user name");
                             string cashierUsername = Console.ReadLine();
@@ -342,6 +342,7 @@ namespace Restaurant_C__Project
                                 Console.WriteLine("invalid username or password , please try to sign in again");
                                 goto Employeerolepart;
                             }
+                            Console.WriteLine("choose what you want to do");
                             Console.WriteLine("1:print invoice");
                             Console.WriteLine("2:go back to employee menu");
                             int cashierInput = int.Parse(Console.ReadLine());
@@ -444,8 +445,8 @@ namespace Restaurant_C__Project
                             {
                                 case 1:
                                     //show active reservation
-                                    waiter.LoadAllReserervisionFromJson(@"C: \Users\abdelrahman shalaby\Source\Repos\MustafaMahmoud1\Restaurant - C - Project\Reservations.json");
-                                    waiter.ShowReservations();
+                                    Reservations.LoadAllReserervisionFromJson(@"C:\Users\abdelrahman shalaby\Source\Repos\MustafaMahmoud1\Restaurant-C-Project\Reservations.json");
+                                    Reservations.ShowReservations();
                                     break;
                                 case 2:
                                 //create an order
@@ -472,10 +473,20 @@ namespace Restaurant_C__Project
                                     }
                                     break;
                                 case 3:
-                                    //reserve a table
-                                    DiningTable dinTable = new DiningTable();
-                                    dinTable.ShowTables();
-                                    waiter.TableReservation();  //all in waiter and reservation   انا تايه 2 
+                                    //Add a table                         
+                                    DiningTable.ShowTables();
+                                    Console.WriteLine("enter table number you want to add");
+                                    int tableNoToAdd = int.Parse(Console.ReadLine());
+                                    Console.WriteLine("enter table capacity you want to add");
+                                    int tableCapToAdd = int.Parse(Console.ReadLine());
+                                    Console.WriteLine("enter table type you want to add");
+                                    Console.WriteLine("if smoking enter 'true'");
+                                    Console.WriteLine("if non-smoking enter 'false'");
+                                    string tableTypeToAdd = Console.ReadLine();
+                                    DiningTable.LoadAlldiningtableFromJson(@"C: \Users\abdelrahman shalaby\Source\Repos\MustafaMahmoud1\Restaurant - C - Project\DiningTable.cs");
+                                    DiningTable.AddingNewTable(tableNoToAdd, tableCapToAdd ,tableTypeToAdd );
+                                    DiningTable.SaveDiningTableToFile(@"C: \Users\abdelrahman shalaby\Source\Repos\MustafaMahmoud1\Restaurant - C - Project\DiningTable.cs");
+                                    DiningTable.ShowTables();
                                     break;
                                 default:
                                     Console.WriteLine("Invalid Option. Please restart the waiter window.");

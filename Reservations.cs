@@ -15,6 +15,7 @@ namespace Restaurant_C__Project
         public string ReserveDate { get; set; }  //concat of month + day + hour
         public Customer Customer { get; set; }
         public string ReservedTableNo { get; set; }
+        public int CustomerId { get; set; }
 
         public static List<Reservations> Reservants { get; set; } = new List<Reservations>();
         public List<DiningTable> DinningTableList { get; set; } = new List<DiningTable>();
@@ -109,11 +110,12 @@ namespace Restaurant_C__Project
         {
             foreach (var item in Reservants)
             {
-                Console.WriteLine("Reservant Name is: " + item.Customer.FullName);
-                Console.WriteLine("Reservant Phone is: " + item.Customer.FullName);
+                //Console.WriteLine("Reservant Name is: " + item.Customer.FullName);
+                //Console.WriteLine("Reservant Phone is: " + item.Customer.PhoneNumber);
                 Console.WriteLine("Reservation ID is: " + item.ReserveId);
-                Console.WriteLine("Reservation Date is: " + item.ReserveDate);
+                //Console.WriteLine("Reservation Date is: " + item.ReserveDate);
                 Console.WriteLine("Reservation Time is: " + item.ReserveTime);
+                Console.WriteLine("Customer ID is: " + item.CustomerId);
                 Console.WriteLine("Reservation Table Number is: " + item.ReservedTableNo);
                 Console.WriteLine("*************************************************************");
             }
@@ -160,13 +162,13 @@ namespace Restaurant_C__Project
 
         //}
         //////???????????????????????????
-        public void ReserveTable(int TableNo, int ReserveTime)
+        public static void ReserveTable(int TableNo, string ReserveDate)
         {
-            DinningTableList.AddRange(new List<int> { TableNo, ReserveTime });
-            foreach (var item in Reservants)
-            {
-                Console.WriteLine(item);
-            }
+            DinningTableList.AddRange(new List<int> { TableNo, ReserveDate });
+            //foreach (var item in Reservants)
+            //{
+            //    Console.WriteLine(item);
+            //}
         }
         //////////////////////////////////////////////////////
         /////done
