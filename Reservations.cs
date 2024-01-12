@@ -162,14 +162,14 @@ namespace Restaurant_C__Project
 
         //}
         //////???????????????????????????
-        public static void ReserveTable(int TableNo, string ReserveDate)
-        {
-            DinningTableList.AddRange(new List<int> { TableNo, ReserveDate });
-            //foreach (var item in Reservants)
-            //{
-            //    Console.WriteLine(item);
-            //}
-        }
+        //public static void ReserveTable(int TableNo, string ReserveDate)
+        //{
+        //    DinningTableList.AddRange(new List<int> { TableNo, ReserveDate });
+        //    //foreach (var item in Reservants)
+        //    //{
+        //    //    Console.WriteLine(item);
+        //    //}
+        //}
         //////////////////////////////////////////////////////
         /////done
 
