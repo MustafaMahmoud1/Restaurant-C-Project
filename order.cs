@@ -48,31 +48,31 @@ namespace Restaurant_C__Project
         //        }
         //    }
         //    Order order = new Order(ListItem);
-        //    ShowOrdersList(@"C:\\Users\\M&M\\Source\\Repos\\Restaurant-C-Project\\Order.json");
-        //    ShowActiveOrdersList(@"C:\\Users\\M&M\\Source\\Repos\\Restaurant-C-Project\\ActiveOrder.json");
+        //    ShowOrdersList(@"D:\C# Projects\Restaurant C# Project\Order.json");
+        //    ShowActiveOrdersList(@"D:\C# Projects\Restaurant C# Project\ActiveOrder.json");
         //    AddToOrderList(order);
         //    Console.WriteLine("Order Created Successfully");
-        //    SaveOrderToJson(@"C:\\Users\\M&M\\Source\\Repos\\Restaurant-C-Project\\Order.json");
-        //    SaveActiveOrderToJson(@"C:\\Users\\M&M\\Source\\Repos\\Restaurant-C-Project\\ActiveOrder.json");
+        //    SaveOrderToJson(@"D:\C# Projects\Restaurant C# Project\Order.json");
+        //    SaveActiveOrderToJson(@"D:\C# Projects\Restaurant C# Project\ActiveOrder.json");
         //}
 
         public static void AddToOrderList(Order order)
         {
             if (ActiveOderList.Count < 10)
             {
-                LoadAllOrders(@"C:\\Users\\M&M\\Source\\Repos\\Restaurant-C-Project\\Order.json");
-                LoadAllActiveOrders(@"C:\\Users\\M&M\\Source\\Repos\\Restaurant-C-Project\\ActiveOrder.json");
+                LoadAllOrders(@"D:\C# Projects\Restaurant C# Project\Order.json");
+                LoadAllActiveOrders(@"D:\C# Projects\Restaurant C# Project\ActiveOrder.json");
                 OrderList.Add(order);
                 ActiveOderList.Add(order);
-                SaveOrderToJson(@"C:\\Users\\M&M\\Source\\Repos\\Restaurant-C-Project\\Order.json");
-                SaveActiveOrderToJson(@"C:\\Users\\M&M\\Source\\Repos\\Restaurant-C-Project\\ActiveOrder.json");
+                SaveOrderToJson(@"D:\C# Projects\Restaurant C# Project\Order.json");
+                SaveActiveOrderToJson(@"D:\C# Projects\Restaurant C# Project\ActiveOrder.json");
                 return;
             }
             else
             {
-                LoadAllWaitingOrders(@"C:\\Users\\M&M\\Source\\Repos\\Restaurant-C-Project\\WaitingOrders.json");
+                LoadAllWaitingOrders(@"D:\C# Projects\Restaurant C# Project\WaitingOrders.json");
                 WaitingOrderList.Add(order);
-                SaveOrderToWaitingJson(@"C:\\Users\\M&M\\Source\\Repos\\Restaurant-C-Project\\WaitingOrders.json");
+                SaveOrderToWaitingJson(@"D:\C# Projects\Restaurant C# Project\WaitingOrders.json");
             }
 
         }
@@ -197,24 +197,24 @@ namespace Restaurant_C__Project
         //Remove Order from active orders then take waiting orders if exist
         public static void FinishAnOrder(int OrderId)
         {
-            LoadAllActiveOrders(@"C:\\Users\\M&M\\Source\\Repos\\Restaurant-C-Project\\ActiveOrder.json");
-            LoadAllOrders(@"C:\\Users\\M&M\\Source\\Repos\\Restaurant-C-Project\\Order.json");
+            LoadAllActiveOrders(@"D:\C# Projects\Restaurant C# Project\ActiveOrder.json");
+            LoadAllOrders(@"D:\C# Projects\Restaurant C# Project\Order.json");
             foreach (Order order in ActiveOderList)
             {
                 if (order.OrderId == OrderId)
                 {
                     ActiveOderList.Remove(order);
                     OrderList.Remove(order);
-                    LoadAllWaitingOrders(@"C:\\Users\\M&M\\Source\\Repos\\Restaurant-C-Project\\WaitingOrders.json");
+                    LoadAllWaitingOrders(@"D:\C# Projects\Restaurant C# Project\WaitingOrders.json");
                     if (WaitingOrderList.Count != 0)
                     {
                         ActiveOderList.Add(WaitingOrderList[0]);
                         OrderList.Add(WaitingOrderList[0]);
                         WaitingOrderList.Remove(WaitingOrderList[0]);
                     }
-                    SaveActiveOrderToJson(@"C:\\Users\\M&M\\Source\\Repos\\Restaurant-C-Project\\ActiveOrder.json");
-                    SaveOrderToJson(@"C:\\Users\\M&M\\Source\\Repos\\Restaurant-C-Project\\Order.json");
-                    SaveOrderToWaitingJson(@"C:\\Users\\M&M\\Source\\Repos\\Restaurant-C-Project\\WaitingOrders.json");
+                    SaveActiveOrderToJson(@"D:\C# Projects\Restaurant C# Project\ActiveOrder.json");
+                    SaveOrderToJson(@"D:\C# Projects\Restaurant C# Project\Order.json");
+                    SaveOrderToWaitingJson(@"D:\C# Projects\Restaurant C# Project\WaitingOrders.json");
                     return;
                 }
 
