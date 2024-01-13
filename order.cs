@@ -39,7 +39,7 @@ namespace Restaurant_C__Project
             //OrderId = OrderId;
             ListItem = Items;
             double TotalPrice = 0.0;
-            foreach (OrderItem x in ListItem)
+            foreach (Order OrderItem x in ListItem)
             {
                 TotalPrice += (double)(x.Quantity * x.Price);
             }
@@ -48,13 +48,13 @@ namespace Restaurant_C__Project
         //function to create order
         public static void CreateOrder()
         {
-            Menu.GetInstance().LoadAllItemsFromJson(@"C:\\Users\\M&M\\Source\\Repos\\Restaurant-C-Project\\Menu.json");
+            Menu.GetInstance().LoadAllItemsFromJson(@"C:\Users\abdelrahman shalaby\Source\Repos\MustafaMahmoud1\Restaurant-C-Project\Menu.json");
             Menu.GetInstance().Showitemstocustomer();
             Console.WriteLine("Please chosse Item Id");
             int Item = int.Parse(Console.ReadLine());
             Console.WriteLine("Please Inter The Quentity");
             int Quentity = int.Parse(Console.ReadLine());
-            foreach (Item item in Menu.AllItems)
+            foreach (Item item in Menu.GetInstance().AllItems)
             {
                 if (item.ItemID == Item)
                 {

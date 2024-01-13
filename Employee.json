@@ -1,1 +1,32 @@
-﻿[]
+﻿[
+  {
+    "EmpId": 1,
+    "EmpSalary": 50000,
+    "EmpName": "John Doe",
+    "PhoneNumber": "+1234567890",
+    "Address": "123 Main Street, Cityville",
+    "UserName": "john_doe",
+    "UserPassword": "password123",
+    "UserRole": "chef"
+  },
+  {
+    "EmpId": 2,
+    "EmpSalary": 60000,
+    "EmpName": "Jane Smith",
+    "PhoneNumber": "+9876543210",
+    "Address": "456 Oak Avenue, Townsville",
+    "UserName": "jane_smith",
+    "UserPassword": "securepass",
+    "UserRole": "waiter"
+  },
+  {
+    "EmpId": 3,
+    "EmpSalary": 70000,
+    "EmpName": "Bob Johnson",
+    "PhoneNumber": "+1112233445",
+    "Address": "789 Pine Road, Villagetown",
+    "UserName": "bob_j",
+    "UserPassword": "pass1234",
+    "UserRole": "cashier"
+  }
+]

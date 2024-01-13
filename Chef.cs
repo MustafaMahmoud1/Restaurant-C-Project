@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace Restaurant_C__Project
 {
-    public class Chef : Employee
+    public class Chef 
     {
-        public Chef(int empId, int empSalary, string empName, string UserName, string UserPassword, string UserRole) : base(empId, empSalary, empName, UserName, UserPassword, UserRole) { }
+        public Chef(int empId, int empSalary, string empName, string UserName, string UserPassword, string UserRole)  { }
      
         //public void ShowOrderList(string JsonFile)
         //{

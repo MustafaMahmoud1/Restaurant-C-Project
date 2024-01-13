@@ -10,6 +10,7 @@ namespace Restaurant_C__Project
     internal class Recipe
     {
         public List<ItemIngredient> recipe { get; set; }
+        public List<ItemIngredient> AllItems { get; set; }
 
         public static void LoadAllItemsFromJson(string jsonFilePath)
         {

@@ -66,7 +66,7 @@ namespace Restaurant_C__Project
         }
         public static void AddingNewTable(int TableNo, int TableCapicty , bool type)
         {
-            table.Add(new DiningTable { TableNo = TableNo, TableCapicty = TableCapicty , type = type });
+            table.Add(new DiningTable { TableNo = TableNo, TableCapicty = TableCapicty , Type = type });
         }
 
 

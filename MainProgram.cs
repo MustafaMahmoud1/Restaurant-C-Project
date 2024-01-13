@@ -331,8 +331,8 @@ namespace Restaurant_C__Project
                             string cashierUsername = Console.ReadLine();
                             Console.WriteLine("enter your password");
                             string cashierPassword = Console.ReadLine();
-                            bool signinCond = Employee.EmpSignIn(cashierUsername, cashierPassword, "cashier");
-                            if (signinCond)
+                            bool CashiersigninCond = Employee.EmpSignIn(cashierUsername, cashierPassword, "cashier");
+                            if (CashiersigninCond)
                             {
                                 Console.WriteLine("signing in done successfully");
                                 Console.WriteLine("*----------------------------------------*");
@@ -366,8 +366,8 @@ namespace Restaurant_C__Project
                             string chefUsername = Console.ReadLine();
                             Console.WriteLine("enter your password");
                             string chefPassword = Console.ReadLine();
-                            bool signinCond = Employee.EmpSignIn(chefUsername, chefPassword, "chef");
-                            if (signinCond)
+                            bool ChefsigninCond = Employee.EmpSignIn(chefUsername, chefPassword, "chef");
+                            if (ChefsigninCond)
                             {
                                 Console.WriteLine("signing in done successfully");
                                 Console.WriteLine("*----------------------------------------*");
@@ -388,7 +388,7 @@ namespace Restaurant_C__Project
                             {
                                 case 1:
                                     //show order list
-                                    Order.ShowOrderList(@"C: \Users\abdelrahman shalaby\Source\Repos\MustafaMahmoud1\Restaurant - C - Project\Order.json");
+                                    Order.ShowOrdersList(@"C: \Users\abdelrahman shalaby\Source\Repos\MustafaMahmoud1\Restaurant - C - Project\Order.json");
                                     break;
                                 case 2:
                                     //show stock
@@ -403,11 +403,12 @@ namespace Restaurant_C__Project
                                     Stock.Get_Instance().IngredientToChef(ingID, ingQuant);
                                     break;
                                 case 4:
-                                    Order.ShowActiveOrdersList();
+                                    Order.ShowActiveOrdersList(@"C:\Users\abdelrahman shalaby\Source\Repos\MustafaMahmoud1\Restaurant-C-Project\ActiveOrder.json");
                                     Order.LoadAllActiveOrder();
                                     Console.WriteLine("enter the order ID you want to remove");
                                     int orderIDToRemove = int.Parse(Console.ReadLine());
                                     Order.RemoveFromActiveList(orderIDToRemove);
+                                    break;
                                 default:
                                     Console.WriteLine("Invalid Option. Please retart the chef window.");
                                     goto chefWindow;
@@ -424,8 +425,8 @@ namespace Restaurant_C__Project
                             string waiterUsername = Console.ReadLine();
                             Console.WriteLine("enter your password");
                             string waiterPassword = Console.ReadLine();
-                            bool signinCond = Employee.EmpSignIn(waiterUsername, waiterPassword, "waiter");
-                            if (signinCond)
+                            bool WaitersigninCond = Employee.EmpSignIn(waiterUsername, waiterPassword, "waiter");
+                            if (WaitersigninCond)
                             {
                                 Console.WriteLine("signing in done successfully");
                                 Console.WriteLine("*----------------------------------------*");
@@ -482,7 +483,7 @@ namespace Restaurant_C__Project
                                     Console.WriteLine("enter table type you want to add");
                                     Console.WriteLine("if smoking enter 'true'");
                                     Console.WriteLine("if non-smoking enter 'false'");
-                                    string tableTypeToAdd = Console.ReadLine();
+                                    bool tableTypeToAdd = Console.ReadLine();
                                     DiningTable.LoadAlldiningtableFromJson(@"C: \Users\abdelrahman shalaby\Source\Repos\MustafaMahmoud1\Restaurant - C - Project\DiningTable.cs");
                                     DiningTable.AddingNewTable(tableNoToAdd, tableCapToAdd ,tableTypeToAdd );
                                     DiningTable.SaveDiningTableToFile(@"C: \Users\abdelrahman shalaby\Source\Repos\MustafaMahmoud1\Restaurant - C - Project\DiningTable.cs");
