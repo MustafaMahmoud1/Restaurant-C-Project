@@ -36,14 +36,11 @@ namespace Restaurant_C__Project
                 Console.WriteLine(item);
             }
         }
+  
         public static void Printing(int orID)
         {
-            WebRequest request = WebRequest.Create(@"C:\Users\abdelrahman shalaby\Source\Repos\MustafaMahmoud1\Restaurant-C-Project\Order.json");
-            WebResponse response = request.GetResponse();
-            using Stream datastream = response.GetResponseStream();
-            StreamReader reader = new StreamReader(datastream);
-            string responsefromserver = reader.ReadToEnd();
-            OrderList = JsonConvert.DeserializeObject<List<Order>>(responsefromserver);
+            string json = File.ReadAllText(@"C:\Users\abdelrahman shalaby\Source\Repos\MustafaMahmoud1\Restaurant-C-Project\Order.json");
+            OrderList = JsonConvert.DeserializeObject<List<Order>>(json);
 
             foreach (Order x in OrderList)
             {
