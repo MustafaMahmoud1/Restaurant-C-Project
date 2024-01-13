@@ -95,9 +95,7 @@ namespace Restaurant_C__Project
                     totalorderprice += x.Price;
                 }
                 Order order = new Order(totalorderprice, CustomerId, items);
-                Order.LoadOrderFromJson(orderjsonpath);
                 order.AddToOrderList();
-                Order.SaveOrderToJson(orderjsonpath);
                 Customer.ShowNotification("Order");
             }
         }

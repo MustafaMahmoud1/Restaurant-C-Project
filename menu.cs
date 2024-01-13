@@ -82,5 +82,16 @@ namespace Restaurant_C__Project
                 }
             }
         }
+        public int GetItemPrice(int ItemID)
+        {
+            foreach (var x in AllItems)
+            {
+                if (x.ItemID == ItemID)
+                {
+                    return x.ItemPrice;
+                }
+            }
+            return 0;
+        }
     }
 }

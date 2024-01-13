@@ -21,7 +21,7 @@ namespace Restaurant_C__Project
         public string CustomerId { get; set; }
 
         public List<OrderedItem> ListItem { get; set; } = new List<OrderedItem>();
-        public Order(int orderPrice, string customerid, List<OrderedItem> items)
+        public Order(double orderPrice, string customerid, List<OrderedItem> items)
         {
             Random rnd = new Random();
             OrderId = rnd.Next(1, 10000000);
@@ -56,7 +56,7 @@ namespace Restaurant_C__Project
         //    SaveActiveOrderToJson(@"D:\C# Projects\Restaurant C# Project\ActiveOrder.json");
         //}
 
-        public static void AddToOrderList(Order order)
+        public void AddToOrderList()
         {
             if (ActiveOderList.Count < 10)
             {

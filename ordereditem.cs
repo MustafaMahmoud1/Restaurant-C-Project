@@ -14,12 +14,12 @@ namespace Restaurant_C__Project
         public int Price { get; set; }
         public List<int> ItemIdAndQuantities { get; set; }
         public List<int> ItemPrice { get; set; }
-        public void ordereditem() { }
 
-        public void ordereditem(int itemID, int quantity)
+        public OrderedItem(int itemID, int quantity, int totalprice)
         {
             this.ItemID = itemID;
             this.Quantity = quantity;
+            this.Price = totalprice;
         }
         public void CreateOrder(int ItemID, int Quantity)
         {
