@@ -110,14 +110,14 @@ namespace Restaurant_C__Project
         {
             foreach (var item in Reservants)
             {
-                //Console.WriteLine("Reservant Name is: " + item.Customer.FullName);
-                //Console.WriteLine("Reservant Phone is: " + item.Customer.PhoneNumber);
-                Console.WriteLine("Reservation ID is: " + item.ReserveId);
-                //Console.WriteLine("Reservation Date is: " + item.ReserveDate);
-                Console.WriteLine("Reservation Time is: " + item.ReserveTime);
-                Console.WriteLine("Customer ID is: " + item.CustomerId);
-                Console.WriteLine("Reservation Table Number is: " + item.ReservedTableNo);
-                Console.WriteLine("*************************************************************");
+                Console.WriteLine("Reservation ID: " + item.ReserveId);
+                Console.WriteLine("Reservation Month: " + item.ReserveDate.Substring(0, 3));
+                Console.WriteLine("Reservation Day: " + item.ReserveDate.Substring(3, 3));
+                Console.WriteLine("Reservation Time: " + item.ReserveDate.Substring(6, 2));
+                Console.WriteLine("Reservation Table No: " + item.ReservedTableNo);
+                Console.WriteLine("Customer ID: " + item.Customer.CustomerId);
+                Console.WriteLine("Customer Name: " + item.Customer.FullName);
+                Console.WriteLine("Customer Phone: " + item.Customer.PhoneNumber);
             }
         }
         //public void RemoveFromReservation(Reservations Reservant)
