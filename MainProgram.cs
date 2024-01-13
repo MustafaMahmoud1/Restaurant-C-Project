@@ -311,8 +311,8 @@ namespace Restaurant_C__Project
                                         admin.ShowAllReservations();
                                         goto adminloop;
                                     case 10:
-                                        Order.ShowOrdersList(@"D:\ITI\new\c#\c# project1\menna\Order.Json");
-                                        Order.SaveOrderToJson(@"D:\ITI\new\c#\c# project1\menna\Order.Json");
+                                        Order.LoadAllOrders(@"D:\C# Projects\Restaurant C# Project\Order.json");
+                                        Order.ShowOrdersList();
                                         goto adminloop;
                                     case 11:
                                         Customer.LoadAllCustomersFromJson(@"D:\ITI\new\c#\c# project1\FINAL\Customer.json");
@@ -349,7 +349,7 @@ namespace Restaurant_C__Project
                             switch (cashierInput) 
                             {
                                 case 1:
-                                Order.ShowOrdersList(@"C:\Users\abdelrahman shalaby\Source\Repos\MustafaMahmoud1\Restaurant-C-Project\Order.json");
+                                Order.ShowOrdersList();
                                 Console.WriteLine("enter order Id you want to print it's invoice");
                                 int IDToInvoice = int.Parse(Console.ReadLine());
                                 OrderedItem.Printing(IDToInvoice);

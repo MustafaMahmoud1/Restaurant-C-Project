@@ -37,18 +37,18 @@ namespace Restaurant_C__Project
             }
         }
   
-        public static void Printing(int orID)
-        {
-            string json = File.ReadAllText(@"C:\Users\abdelrahman shalaby\Source\Repos\MustafaMahmoud1\Restaurant-C-Project\Order.json");
-            OrderList = JsonConvert.DeserializeObject<List<Order>>(json);
+        //public static void Printing(int orID)
+        //{
+        //    string json = File.ReadAllText(@"C:\Users\abdelrahman shalaby\Source\Repos\MustafaMahmoud1\Restaurant-C-Project\Order.json");
+        //    OrderList = JsonConvert.DeserializeObject<List<Order>>(json);
 
-            foreach (Order x in OrderList)
-            {
-                if (x.OrderId == orID)
-                    Console.WriteLine(x.OrderPrice);
-                else
-                    Console.WriteLine("sorry, this order is not found");
-            }
-        }
+        //    foreach (Order x in OrderList)
+        //    {
+        //        if (x.OrderId == orID)
+        //            Console.WriteLine(x.OrderPrice);
+        //        else
+        //            Console.WriteLine("sorry, this order is not found");
+        //    }
+        //}
     }
 }
