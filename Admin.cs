@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Restaurant_C__Project
 {
-    internal sealed class Admin : Employee
+    public sealed class Admin : Employee
     {   
         
         private static Admin MyAdmin;
@@ -111,9 +111,12 @@ namespace Restaurant_C__Project
         {
             DiningTable.ShowTables();
         }
-        public void AddTables(int TableNo, int TableCapicty)
+        public void AddTables(int TableNo, int TableCapicty, bool type)
         {
-            DiningTable.AddingNewTable(TableNo, TableCapicty);
+            DiningTable.LoadAlldiningtableFromJson(@"C:\Users\HP\Desktop\Restaurant C# Project\Restaurant C# Project\DiningTable.json");
+            DiningTable diningTable = new DiningTable(TableNo, TableCapicty, type);
+            diningTable.AddDiningTable();
+            DiningTable.SaveDiningTableToFile(@"C:\Users\HP\Desktop\Restaurant C# Project\Restaurant C# Project\DiningTable.json");
         }
         public void ShowAllReservations()
         {

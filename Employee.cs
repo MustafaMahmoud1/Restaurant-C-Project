@@ -31,13 +31,7 @@ namespace Restaurant_C__Project
             this.UserRole = UserRole;
 
         }
-        public Employee(string UserName, string UserPassword, string UserRole)
-        {
-            this.UserName = UserName;
-            this.UserPassword = UserPassword;
-            this.UserRole = UserRole;
-
-        }
+        
         //signin function
         public static bool EmpSignIn(string UserName, string Password, string Roll)
         {
