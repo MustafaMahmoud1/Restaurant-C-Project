@@ -62,8 +62,8 @@ namespace Restaurant_C__Project
             {
                 LoadAllOrders(@"D:\C# Projects\Restaurant C# Project\Order.json");
                 LoadAllActiveOrders(@"D:\C# Projects\Restaurant C# Project\ActiveOrder.json");
-                OrderList.Add(order);
-                ActiveOderList.Add(order);
+                OrderList.Add(this);
+                ActiveOderList.Add(this);
                 SaveOrderToJson(@"D:\C# Projects\Restaurant C# Project\Order.json");
                 SaveActiveOrderToJson(@"D:\C# Projects\Restaurant C# Project\ActiveOrder.json");
                 return;
@@ -71,7 +71,7 @@ namespace Restaurant_C__Project
             else
             {
                 LoadAllWaitingOrders(@"D:\C# Projects\Restaurant C# Project\WaitingOrders.json");
-                WaitingOrderList.Add(order);
+                WaitingOrderList.Add(this);
                 SaveOrderToWaitingJson(@"D:\C# Projects\Restaurant C# Project\WaitingOrders.json");
             }
 
