@@ -93,5 +93,16 @@ namespace Restaurant_C__Project
             }
             return 0;
         }
+        public string GetItemName(int ItemID)
+        {
+            foreach (var x in AllItems)
+            {
+                if (x.ItemID == ItemID)
+                {
+                    return x.ItemName;
+                }
+            }
+            return null;
+        }
     }
 }

@@ -302,7 +302,8 @@ namespace Restaurant_C__Project
                                         DiningTable.LoadAlldiningtableFromJson(@"D:\ITI\new\c#\c# project1\FINAL\DiningTable.json");
                                         int TableNo = int.Parse(Console.ReadLine());
                                         int TableCapicty = int.Parse(Console.ReadLine());
-                                        admin.AddTables(TableNo, TableCapicty);
+                                        bool type = bool.Parse(Console.ReadLine());
+                                        admin.AddTables(TableNo, TableCapicty, type);
                                         DiningTable.SaveDiningTableToFile(@"D:\ITI\new\c#\c# project1\FINAL\DiningTable.json");
                                         goto adminloop;
                                     case 9:

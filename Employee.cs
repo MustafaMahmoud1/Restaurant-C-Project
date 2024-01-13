@@ -39,7 +39,7 @@ namespace Restaurant_C__Project
             Admin.LoadAllEmployeesFromJsonFile(@"C:\Users\abdelrahman shalaby\Source\Repos\MustafaMahmoud1\Restaurant-C-Project\Employee.json");
                 foreach (var user in Admin.Employees)
                     {
-                if (user.UserName == UserName && user.UserPassword == UserPassword && user.UserRole == Roll)
+                if (user.UserName == UserName && user.UserPassword == Password && user.UserRole == Roll)
                 {
                     check = true;
 
