@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace Restaurant_C__Project
 {
@@ -36,19 +37,19 @@ namespace Restaurant_C__Project
                 Console.WriteLine(item);
             }
         }
-  
-        //public static void Printing(int orID)
-        //{
-        //    string json = File.ReadAllText(@"C:\Users\abdelrahman shalaby\Source\Repos\MustafaMahmoud1\Restaurant-C-Project\Order.json");
-        //    OrderList = JsonConvert.DeserializeObject<List<Order>>(json);
 
-        //    foreach (Order x in OrderList)
-        //    {
-        //        if (x.OrderId == orID)
-        //            Console.WriteLine(x.OrderPrice);
-        //        else
-        //            Console.WriteLine("sorry, this order is not found");
-        //    }
-        //}
+        public static void Printing(int orID)
+        {
+            string json = File.ReadAllText(@"C:\Users\abdelrahman shalaby\Source\Repos\MustafaMahmoud1\Restaurant-C-Project\Order.json");
+            OrderList = JsonConvert.DeserializeObject<List<Order>>(json);
+
+            foreach (Order x in OrderList)
+            {
+                if (x.OrderId == orID)
+                    Console.WriteLine(x.OrderPrice);
+                else
+                    Console.WriteLine("sorry, this order is not found");
+            }
+        }
     }
 }

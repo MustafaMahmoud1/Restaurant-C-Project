@@ -403,11 +403,11 @@ namespace Restaurant_C__Project
                                     Stock.Get_Instance().IngredientToChef(ingID, ingQuant);
                                     break;
                                 case 4:
-                                    Order.ShowActiveOrdersList(@"C:\Users\abdelrahman shalaby\Source\Repos\MustafaMahmoud1\Restaurant-C-Project\ActiveOrder.json");
-                                    Order.LoadAllActiveOrder();
+                                    Order.LoadAllActiveOrders(@"C:\Users\abdelrahman shalaby\Source\Repos\MustafaMahmoud1\Restaurant-C-Project\ActiveOrder.json");
+                                    Order.ShowActiveOrdersList();
                                     Console.WriteLine("enter the order ID you want to remove");
                                     int orderIDToRemove = int.Parse(Console.ReadLine());
-                                    Order.RemoveFromActiveList(orderIDToRemove);
+                                    Order.FinishAnOrder(orderIDToRemove);
                                     break;
                                 default:
                                     Console.WriteLine("Invalid Option. Please retart the chef window.");
@@ -463,10 +463,9 @@ namespace Restaurant_C__Project
                                             goto orderAgain;
                                             break;
                                         case 2:
-                                            Order orDer = new Order();
                                             Console.WriteLine("your order is : ");   
-                                            Order.ShowActiveOrdersList(@"C:\\Users\\M&M\\Source\\Repos\\Restaurant-C-Project\\ActiveOrder.json"); //to load
-                                            Order.LoadAllActiveOrder(); //to show
+                                            Order.LoadAllActiveOrders(@"C:\\Users\\M&M\\Source\\Repos\\Restaurant-C-Project\\ActiveOrder.json");
+                                            Order.ShowActiveOrdersList();
                                             break;
                                         default:
                                             Console.WriteLine("invalid input , go back to waiter window");
