@@ -7,12 +7,16 @@
       {
         "ItemID": 2042235,
         "Quantity": 3,
-        "Price": 660
+        "Price": 660,
+        "ItemIdAndQuantities": null,
+        "ItemPrice": null
       },
       {
         "ItemID": 204235,
         "Quantity": 7,
-        "Price": 140
+        "Price": 140,
+        "ItemIdAndQuantities": null,
+        "ItemPrice": null
       }
     ]
   },
@@ -24,7 +28,9 @@
       {
         "ItemID": 204235,
         "Quantity": 2,
-        "Price": 40
+        "Price": 40,
+        "ItemIdAndQuantities": null,
+        "ItemPrice": null
       }
     ]
   },
@@ -36,7 +42,23 @@
       {
         "ItemID": 204235,
         "Quantity": 2,
-        "Price": 40
+        "Price": 40,
+        "ItemIdAndQuantities": null,
+        "ItemPrice": null
+      }
+    ]
+  },
+  {
+    "OrderId": 71227,
+    "OrderPrice": 900.0,
+    "CustomerId": "mustafa12312345",
+    "ListItem": [
+      {
+        "ItemID": 204285,
+        "Quantity": 3,
+        "Price": 900,
+        "ItemIdAndQuantities": null,
+        "ItemPrice": null
       }
     ]
   }

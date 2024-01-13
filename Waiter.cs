@@ -9,24 +9,30 @@ using static System.Runtime.InteropServices.Marshalling.IIUnknownCacheStrategy;
 
 namespace Restaurant_C__Project
 {
-    public class Waiter
+    public class Waiter : Employee
     {
-        public Waiter(int empId, int empSalary, string empName, string UserName, string UserPassword, string UserRole) { }
-        Reservations reserve = new Reservations();
-        OrderedItem orderitem = new OrderedItem();
-        //public void ShowReservationList(int FromTime, int ToTime)     //done in main
+        public Waiter(string EmpName, int EmpSalary, string PhoneNumber, string EmployeeAdress, string UserName, string UserPassword, string UserRole) : base(EmpName, EmpSalary, PhoneNumber, EmployeeAdress, UserName, UserPassword, UserRole)
+        {
+
+        }
+        //show reservations of the day
+
+        //public Waiter(int empId, int empSalary, string empName, string UserName, string UserPassword, string UserRole) { }
+        //Reservations reserve = new Reservations();
+        //OrderedItem orderitem = new OrderedItem();
+        ////public void ShowReservationList(int FromTime, int ToTime)     //done in main
+        ////{
+        ////    reserve.ShowActiveReservatioList(FromTime, ToTime);  //commented in reservation 
+        ////}
+        //public static void OrderCreation()
         //{
-        //    reserve.ShowActiveReservatioList(FromTime, ToTime);  //commented in reservation 
+        //    Order.CreateOrder();
         //}
-        public static void OrderCreation()
-        {
-            Order.CreateOrder();
-        }
-        public void showOrderToWaiter()
-        {
-            OrderedItem orderedItem = new OrderedItem();
-            orderedItem.showOrderToWaiter();
-        }
+        //public void showOrderToWaiter()
+        //{
+        //    OrderedItem orderedItem = new OrderedItem();
+        //    orderedItem.showOrderToWaiter();
+        //}
         //public void TableReservation()
         //{
         //    Console.WriteLine("enter table number you want to reserve");

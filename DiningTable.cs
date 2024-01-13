@@ -20,9 +20,6 @@ namespace Restaurant_C__Project
             this.TableNo = TableNo;
             this.TableCapicty = TableCapicty;
             this.Type = Type;
-            table.Add(this);
-            string json = JsonConvert.SerializeObject(table);
-            System.IO.File.WriteAllText(@"C:\Users\HP\Desktop\Restaurant C# Project\Restaurant C# Project\DiningTable.json", json);
         }
         public static void LoadAlldiningtableFromJson(string jsonFilePath)
         {

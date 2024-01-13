@@ -3,6 +3,7 @@ using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Net;
 using System.Numerics;
+using static System.Runtime.InteropServices.Marshalling.IIUnknownCacheStrategy;
 
 namespace Restaurant_C__Project
 {
@@ -125,10 +126,8 @@ namespace Restaurant_C__Project
                                     customer.CreateOrder(@"D:\C# Projects\Restaurant C# Project\Orders.json");
                                     Customer.SaveCustomersToFile(@"D:\C# Projects\Restaurant C# Project\Customer.json");
                                     Customer.ShowNotification("Order");
-                                    goto serviceloop;
+                                    break;
                                 case 2:
-                                    //Bassant's code
-
                                     DiningTable.LoadAlldiningtableFromJson(@"D:\C# Projects\Restaurant C# Project\DiningTable.json");
                                     Reservations.LoadAllReserervisionFromJson(@"D:\C# Projects\Restaurant C# Project\Reservations.json");
                                     DiningTable.ShowTables();
@@ -138,7 +137,7 @@ namespace Restaurant_C__Project
                                     string month = Console.ReadLine();
                                     Console.WriteLine("Please enter the day you want to reserve in. (SAT/SUN/MON..etc)");
                                     string day = Console.ReadLine();
-                                    Console.WriteLine("Please enter the hour you want to reserve in. (0-23)");
+                                    Console.WriteLine("Please enter the hour you want to reserve in. (00-23)");
                                     int hour = int.Parse(Console.ReadLine());
                                     string reservedate = month + day + hour;
                                     bool tableavailable = true;
@@ -194,7 +193,7 @@ namespace Restaurant_C__Project
                                                 break;
                                         }
                                     }
-                                    goto serviceloop;
+                                    break;
                                 //sign up/in go back to main page.
                                 case 3:
                                     goto loop;
@@ -353,7 +352,7 @@ namespace Restaurant_C__Project
                                 Order.ShowOrdersList();
                                 Console.WriteLine("enter order Id you want to print it's invoice");
                                 int IDToInvoice = int.Parse(Console.ReadLine());
-                                OrderedItem.Printing(IDToInvoice);
+                                Cashier.PrintInvoice(IDToInvoice);
                                     break;
                                 case 2: 
                                 goto Employeerolepart;
@@ -388,12 +387,12 @@ namespace Restaurant_C__Project
                             switch (chefAction)
                             {
                                 case 1:
-                                    //show order list
-                                    Order.ShowOrdersList(@"C: \Users\abdelrahman shalaby\Source\Repos\MustafaMahmoud1\Restaurant - C - Project\Order.json");
+                                    Order.LoadAllActiveOrders(@"C:\Users\abdelrahman shalaby\Source\Repos\MustafaMahmoud1\Restaurant-C-Project\ActiveOrder.json");
+                                    Order.ShowActiveOrdersList();
                                     break;
                                 case 2:
                                     //show stock
-                                    Stock.Get_Instance().LoadAllItemsFromJson(@"C:\Users\abdelrahman shalaby\Source\Repos\MustafaMahmoud1\Restaurant-C-Project\stock ingredient.json");
+                                    Stock.LoadAllItemsFromJson(@"C:\Users\abdelrahman shalaby\Source\Repos\MustafaMahmoud1\Restaurant-C-Project\stock ingredient.json");
                                     Stock.Get_Instance().ShowListOfIngredients();
                                     break;
                                 case 3:
@@ -453,7 +452,7 @@ namespace Restaurant_C__Project
                                 case 2:
                                 //create an order
                                 orderAgain:
-                                    Waiter.OrderCreation();
+                                    //Waiter.OrderCreation();
                                     Console.WriteLine("do you want to order another item ?");
                                     Console.WriteLine("1:yes");
                                     Console.WriteLine("2:no");
@@ -483,10 +482,11 @@ namespace Restaurant_C__Project
                                     Console.WriteLine("enter table type you want to add");
                                     Console.WriteLine("if smoking enter 'true'");
                                     Console.WriteLine("if non-smoking enter 'false'");
-                                    bool tableTypeToAdd = Console.ReadLine();
-                                    DiningTable.LoadAlldiningtableFromJson(@"C: \Users\abdelrahman shalaby\Source\Repos\MustafaMahmoud1\Restaurant - C - Project\DiningTable.cs");
-                                    DiningTable.AddingNewTable(tableNoToAdd, tableCapToAdd ,tableTypeToAdd );
-                                    DiningTable.SaveDiningTableToFile(@"C: \Users\abdelrahman shalaby\Source\Repos\MustafaMahmoud1\Restaurant - C - Project\DiningTable.cs");
+                                    bool tableTypeToAdd = bool.Parse(Console.ReadLine());
+                                    DiningTable.LoadAlldiningtableFromJson(@"C:\Users\HP\Desktop\Restaurant C# Project\Restaurant C# Project\DiningTable.json");
+                                    DiningTable diningTable = new DiningTable(tableNoToAdd, tableCapToAdd, tableTypeToAdd);
+                                    diningTable.AddDiningTable();
+                                    DiningTable.SaveDiningTableToFile(@"C:\Users\HP\Desktop\Restaurant C# Project\Restaurant C# Project\DiningTable.json");
                                     DiningTable.ShowTables();
                                     break;
                                 default:

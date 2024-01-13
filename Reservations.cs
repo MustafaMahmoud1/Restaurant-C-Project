@@ -15,10 +15,8 @@ namespace Restaurant_C__Project
         public string ReserveDate { get; set; }  //concat of month + day + hour
         public Customer Customer { get; set; }
         public string ReservedTableNo { get; set; }
-        public int CustomerId { get; set; }
 
         public static List<Reservations> Reservants { get; set; } = new List<Reservations>();
-        public List<DiningTable> DinningTableList { get; set; } = new List<DiningTable>();
 
         public Reservations() { }
 

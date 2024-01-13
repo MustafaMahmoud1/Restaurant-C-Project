@@ -101,9 +101,12 @@ namespace Restaurant_C__Project
         }
         public void addToBalance()
         {
+            Customer.LoadAllCustomersFromJson(@"D:\C# Projects\Restaurant C# Project\Customer.json");
             Console.WriteLine($"Hi {FullName}, your account balance is currently at {Balance}. Consider adding more funds to avoid any issues.");
+            Console.WriteLine("How much would you like to add?");
             int addedbalance = int.Parse(Console.ReadLine());
             Balance = Balance + addedbalance;
+            Customer.SaveCustomersToFile(@"D:\C# Projects\Restaurant C# Project\Customer.json");
             Console.WriteLine($"Success! an amount of {addedbalance} has been added to your account.");
         }
         public static void ShowNotification(string service)
