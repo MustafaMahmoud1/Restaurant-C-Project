@@ -116,6 +116,7 @@ namespace Restaurant_C__Project
                 Console.WriteLine("Customer ID: " + item.Customer.CustomerId);
                 Console.WriteLine("Customer Name: " + item.Customer.FullName);
                 Console.WriteLine("Customer Phone: " + item.Customer.PhoneNumber);
+                Console.WriteLine("****************************************************************8");
             }
         }
         //public void RemoveFromReservation(Reservations Reservant)

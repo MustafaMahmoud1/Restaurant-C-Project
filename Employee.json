@@ -1,10 +1,10 @@
-﻿[
+[
   {
     "EmpId": 1,
     "EmpSalary": 50000,
     "EmpName": "John Doe",
     "PhoneNumber": "+1234567890",
-    "Address": "123 Main Street, Cityville",
+    "Adress": null,
     "UserName": "john_doe",
     "UserPassword": "password123",
     "UserRole": "chef"
@@ -14,7 +14,7 @@
     "EmpSalary": 60000,
     "EmpName": "Jane Smith",
     "PhoneNumber": "+9876543210",
-    "Address": "456 Oak Avenue, Townsville",
+    "Adress": null,
     "UserName": "jane_smith",
     "UserPassword": "securepass",
     "UserRole": "waiter"
@@ -24,9 +24,19 @@
     "EmpSalary": 70000,
     "EmpName": "Bob Johnson",
     "PhoneNumber": "+1112233445",
-    "Address": "789 Pine Road, Villagetown",
+    "Adress": null,
     "UserName": "bob_j",
     "UserPassword": "pass1234",
     "UserRole": "cashier"
+  },
+  {
+    "EmpId": 1935272032,
+    "EmpSalary": 3000,
+    "EmpName": "mustafa",
+    "PhoneNumber": "01211111111",
+    "Adress": "alex",
+    "UserName": "mustaf",
+    "UserPassword": "1234",
+    "UserRole": "chef"
   }
 ]

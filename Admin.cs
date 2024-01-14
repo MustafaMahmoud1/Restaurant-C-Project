@@ -74,7 +74,7 @@ namespace Restaurant_C__Project
 
             }
         }
-        public void ShowAllEmployees()
+        public static void ShowAllEmployees()
         {
             foreach (var item in Employees)
             {
@@ -91,51 +91,49 @@ namespace Restaurant_C__Project
             //    Console.WriteLine("User Role is: " + y.UserRole);
             //}
         }
-        public void AddItemToMenu(string NewItemName, int NewItemPrice, int NewItemID, string NewDescription)
-        {
-            Menu.GetInstance().AddItem(NewItemName, NewItemPrice, NewItemID, NewDescription);
-        }
-        public void ShowAllItemsInMenu()
+        //public static void AddItemToMenu(string NewItemName, int NewItemPrice, int NewItemID, string NewDescription)
+        //{
+        //    Menu.GetInstance().AddItem(NewItemName, NewItemPrice, NewItemID, NewDescription);
+        //}
+        public static void ShowAllItemsInMenu()
         {
             Menu.GetInstance().ShowItems();
         }
-        public void ShowEveryThingInStock()
+        public static void ShowEveryThingInStock()
         {
             Stock.Get_Instance().ShowListOfIngredients();
         }
-        public void AddIngresientToStock(int IngredientID, string IngredientName, int IngredientQuantity)
+        public static void AddIngresientToStock(int IngredientID, string IngredientName, int IngredientQuantity, bool availability)
         {
-            Stock.Get_Instance().AddIngredient(IngredientID, IngredientName, IngredientQuantity);
+            Stock.Get_Instance().AddIngredient(IngredientID, IngredientName, IngredientQuantity, availability);
         }
-        public void ShowAllTables()
+        public static void ShowAllTables()
         {
             DiningTable.ShowTables();
         }
-        public void AddTables(int TableNo, int TableCapicty, bool type)
+        public static void AddTables(int TableNo, int TableCapicty, bool type)
         {
-            DiningTable.LoadAlldiningtableFromJson(@"C:\Users\HP\Desktop\Restaurant C# Project\Restaurant C# Project\DiningTable.json");
+            DiningTable.LoadAlldiningtableFromJson(@"D:\C# Projects\Restaurant C# Project\DiningTable.json");
             DiningTable diningTable = new DiningTable(TableNo, TableCapicty, type);
             diningTable.AddDiningTable();
-            DiningTable.SaveDiningTableToFile(@"C:\Users\HP\Desktop\Restaurant C# Project\Restaurant C# Project\DiningTable.json");
+            DiningTable.SaveDiningTableToFile(@"D:\C# Projects\Restaurant C# Project\DiningTable.json");
         }
-        public void ShowAllReservations()
+        public static void ShowAllReservations()
         {
             Reservations.ShowReservations();
         }
-        public void ShowAllCustomers()
+        public static void ShowAllCustomers()
         {
             Customer.ShowCustomers();
         }
-        public static Admin VerifyAdmin(string username, string password)
+        public static bool VerifyAdmin(string username, string password)
         {
-            foreach (Employee admin in Employees)
+            if (username == "Martina" && password == "1234")
             {
-                if (admin.UserName == username && admin.UserPassword == password && admin.UserRole == "Admin")
-                {
-                    return (Admin)admin;
-                }
+                return true;
             }
-            return null;
+            else
+            return false;
         }
 
 

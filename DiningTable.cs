@@ -57,7 +57,7 @@ namespace Restaurant_C__Project
                 {
                     Console.WriteLine("Non-Smoking");
                 }
-
+                Console.WriteLine("*************************************************************************");
             }
 
         }

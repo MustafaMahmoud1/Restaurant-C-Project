@@ -34,5 +34,14 @@
     "UserName": "mustafa123",
     "UserPassword": "12345",
     "Balance": 0
+  },
+  {
+    "CustomerId": "mustafa ahmed123",
+    "FullName": "mustafa ",
+    "PhoneNumber": "01211111111",
+    "Address": "alex",
+    "UserName": "mustafa ahmed",
+    "UserPassword": "123",
+    "Balance": 0
   }
 ]

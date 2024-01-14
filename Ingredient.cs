@@ -12,8 +12,9 @@ namespace Restaurant_C__Project
     public class Ingredient
     {
 
-        public string IngredientName { get; set; }
+
         public int IngredientID { get; set; }
+        public string IngredientName { get; set; }
         public bool IngredientStatus { get; set; }
         public int IngredientQuantity { get; set; }
 

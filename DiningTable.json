@@ -2,19 +2,21 @@
   {
     "TableNo": 1,
     "TableCapicty": 6,
-    "type": true
-
+    "Type": true
   },
   {
     "TableNo": 2,
     "TableCapicty": 5,
-    "type": true
-
+    "Type": true
   },
   {
     "TableNo": 3,
     "TableCapicty": 10,
-    "type": true
-
+    "Type": true
+  },
+  {
+    "TableNo": 9,
+    "TableCapicty": 5,
+    "Type": true
   }
 ]

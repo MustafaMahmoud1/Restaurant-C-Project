@@ -163,6 +163,7 @@ namespace Restaurant_C__Project
                 Console.WriteLine("Customer User Name is: " + customer.UserName);
                 Console.WriteLine("Customer Password is: " + customer.UserPassword);
                 Console.WriteLine("Customer Balance is: " + customer.Balance);
+                Console.WriteLine("********************************************************");
             }
 
         }

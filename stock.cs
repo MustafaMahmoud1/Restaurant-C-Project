@@ -67,11 +67,12 @@ namespace Restaurant_C__Project
                 int ingredientID = int.Parse(Console.ReadLine());
                string ingredientname = Console.ReadLine();
                 int quantity = int.Parse(Console.ReadLine());
-                AddIngredient(ingredientID, ingredientname, quantity);
+                bool availability = bool.Parse(Console.ReadLine());
+                AddIngredient(ingredientID, ingredientname, quantity, availability);
             }
         }
 
-        public void AddIngredient(int IngredientID, string IngredientName, int IngredientQuantity)
+        public void AddIngredient(int IngredientID, string IngredientName, int IngredientQuantity, bool availability)
         {
             bool IsIngredientInStock = false;
             foreach (var x in AllItems)

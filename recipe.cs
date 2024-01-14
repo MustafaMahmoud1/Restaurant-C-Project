@@ -26,11 +26,11 @@ namespace Restaurant_C__Project
             File.WriteAllText(jsonFilePath, json);
         }
 
-        public void AddItemIngredint(int id, string quantity)
-        {
-            AllItems.Add(new ItemIngredient
-            { IngredientID = id, ItemIngredientQuantity = quantity });
-        }
+        //public void AddItemIngredint(int id, string quantity)
+        //{
+        //    AllItems.Add(new ItemIngredient
+        //    { IngredientID = id, ItemIngredientQuantity = quantity });
+        //}
         public void RemoveItemIngredient(int deletedItemIngredient)
         {
             foreach (var x in AllItems)

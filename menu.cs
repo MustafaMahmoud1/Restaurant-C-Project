@@ -66,10 +66,10 @@ namespace Restaurant_C__Project
             }
         }
 
-        public void AddItem(string NewItemName, int NewItemPrice, int NewItemID, string NewDescription)
+        public void AddItem(string NewItemName, int NewItemPrice, int NewItemID, string NewDescription, string Newcategory, List<ItemIngredient> Newrecipe)
         {
             AllItems.Add(new Item
-            { ItemName = NewItemName, ItemPrice = NewItemPrice, ItemID = NewItemID, description = NewDescription });
+            { ItemName = NewItemName, ItemPrice = NewItemPrice, ItemID = NewItemID, description = NewDescription, category = Newcategory, recipe = Newrecipe});
         }
 
         public void RemoveItem(int deleteItemID)

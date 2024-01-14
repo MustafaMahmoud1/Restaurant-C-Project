@@ -1,34 +1,44 @@
-{
-  "ingredients": [
-    {
-      "IngredientID": 1,
-      "IngredientName": "Flour",
-      "IngredientStatus": "Available",
-      "IngredientQuantity": 500
-    },
-    {
-      "IngredientID": 2,
-      "IngredientName": "Tomatoes",
-      "IngredientStatus": "Available",
-      "IngredientQuantity": 200
-    },
-    {
-      "IngredientID": 3,
-      "IngredientName": "Cheese",
-      "IngredientStatus": "Low",
-      "IngredientQuantity": 150
-    },
-    {
-      "IngredientID": 4,
-      "IngredientName": "Chicken",
-      "IngredientStatus": "Available",
-      "IngredientQuantity": 300
-    },
-    {
-      "IngredientID": 5,
-      "IngredientName": "Lettuce",
-      "IngredientStatus": "Available",
-      "IngredientQuantity": 100
-    }
-  ]
-}
+[
+  {
+    "IngredientID": 1,
+    "IngredientName": "Flour",
+    "IngredientStatus": true,
+    "IngredientQuantity": 500
+  },
+  {
+    "IngredientID": 2,
+    "IngredientName": "Tomatoes",
+    "IngredientStatus": true,
+    "IngredientQuantity": 200
+  },
+  {
+    "IngredientID": 3,
+    "IngredientName": "Cheese",
+    "IngredientStatus": false,
+    "IngredientQuantity": 150
+  },
+  {
+    "IngredientID": 4,
+    "IngredientName": "Chicken",
+    "IngredientStatus": true,
+    "IngredientQuantity": 300
+  },
+  {
+    "IngredientID": 5,
+    "IngredientName": "Lettuce",
+    "IngredientStatus": true,
+    "IngredientQuantity": 100
+  },
+  {
+    "IngredientID": 12334,
+    "IngredientName": "tomato",
+    "IngredientStatus": true,
+    "IngredientQuantity": 3
+  },
+  {
+    "IngredientID": 12554,
+    "IngredientName": "salsa",
+    "IngredientStatus": true,
+    "IngredientQuantity": 100
+  }
+]

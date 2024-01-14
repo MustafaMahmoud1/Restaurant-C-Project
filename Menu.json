@@ -7,16 +7,16 @@
     "category": "Italian",
     "recipe": [
       {
-        "IngredientName": "pasta noodles",
-        "Quantity": 1
+        "IngredientID": 0,
+        "ItemIngredientQuantity": "5"
       },
       {
-        "IngredientName": "tomato sauce",
-        "Quantity": 1
+        "IngredientID": 0,
+        "ItemIngredientQuantity": "5"
       },
       {
-        "IngredientName": "cheese",
-        "Quantity": 0.5
+        "IngredientID": 0,
+        "ItemIngredientQuantity": "5"
       }
     ]
   },
@@ -28,20 +28,20 @@
     "category": "Italian",
     "recipe": [
       {
-        "IngredientName": "pizza dough",
-        "Quantity": 1
+        "IngredientID": 0,
+        "ItemIngredientQuantity": "5"
       },
       {
-        "IngredientName": "tomatoes",
-        "Quantity": 0.5
+        "IngredientID": 0,
+        "ItemIngredientQuantity": "5"
       },
       {
-        "IngredientName": "mozzarella cheese",
-        "Quantity": 0.75
+        "IngredientID": 0,
+        "ItemIngredientQuantity": "5"
       },
       {
-        "IngredientName": "pepperoni",
-        "Quantity": 0.5
+        "IngredientID": 0,
+        "ItemIngredientQuantity": "5"
       }
     ]
   },
@@ -53,24 +53,24 @@
     "category": "American",
     "recipe": [
       {
-        "IngredientName": "beef patty",
-        "Quantity": 1
+        "IngredientID": 0,
+        "ItemIngredientQuantity": "5"
       },
       {
-        "IngredientName": "lettuce",
-        "Quantity": 0.25
+        "IngredientID": 0,
+        "ItemIngredientQuantity": "5"
       },
       {
-        "IngredientName": "tomato",
-        "Quantity": 0.5
+        "IngredientID": 0,
+        "ItemIngredientQuantity": "5"
       },
       {
-        "IngredientName": "cheese",
-        "Quantity": 0.5
+        "IngredientID": 0,
+        "ItemIngredientQuantity": "5"
       },
       {
-        "IngredientName": "burger bun",
-        "Quantity": 1
+        "IngredientID": 0,
+        "ItemIngredientQuantity": "5"
       }
     ]
   },
@@ -82,24 +82,24 @@
     "category": "Healthy",
     "recipe": [
       {
-        "IngredientName": "mixed greens",
-        "Quantity": 1
+        "IngredientID": 0,
+        "ItemIngredientQuantity": "5"
       },
       {
-        "IngredientName": "cherry tomatoes",
-        "Quantity": 0.5
+        "IngredientID": 0,
+        "ItemIngredientQuantity": "5"
       },
       {
-        "IngredientName": "cucumber",
-        "Quantity": 0.5
+        "IngredientID": 0,
+        "ItemIngredientQuantity": "5"
       },
       {
-        "IngredientName": "olive oil",
-        "Quantity": 0.25
+        "IngredientID": 0,
+        "ItemIngredientQuantity": "5"
       },
       {
-        "IngredientName": "balsamic vinegar",
-        "Quantity": 0.25
+        "IngredientID": 0,
+        "ItemIngredientQuantity": "5"
       }
     ]
   },
@@ -111,24 +111,24 @@
     "category": "Japanese",
     "recipe": [
       {
-        "IngredientName": "sushi rice",
-        "Quantity": 1
+        "IngredientID": 0,
+        "ItemIngredientQuantity": "5"
       },
       {
-        "IngredientName": "nori seaweed",
-        "Quantity": 5
+        "IngredientID": 0,
+        "ItemIngredientQuantity": "5"
       },
       {
-        "IngredientName": "raw fish",
-        "Quantity": 0.5
+        "IngredientID": 0,
+        "ItemIngredientQuantity": "5"
       },
       {
-        "IngredientName": "avocado",
-        "Quantity": 0.25
+        "IngredientID": 0,
+        "ItemIngredientQuantity": "5"
       },
       {
-        "IngredientName": "soy sauce",
-        "Quantity": 0.1
+        "IngredientID": 0,
+        "ItemIngredientQuantity": "5"
       }
     ]
   },
@@ -140,20 +140,20 @@
     "category": "Beverage",
     "recipe": [
       {
-        "IngredientName": "banana",
-        "Quantity": 1
+        "IngredientID": 0,
+        "ItemIngredientQuantity": "5"
       },
       {
-        "IngredientName": "strawberries",
-        "Quantity": 0.5
+        "IngredientID": 0,
+        "ItemIngredientQuantity": "5"
       },
       {
-        "IngredientName": "yogurt",
-        "Quantity": 0.25
+        "IngredientID": 0,
+        "ItemIngredientQuantity": "5"
       },
       {
-        "IngredientName": "orange juice",
-        "Quantity": 0.5
+        "IngredientID": 0,
+        "ItemIngredientQuantity": "5"
       }
     ]
   },
@@ -165,24 +165,41 @@
     "category": "Main Course",
     "recipe": [
       {
-        "IngredientName": "ribeye steak",
-        "Quantity": 1
+        "IngredientID": 0,
+        "ItemIngredientQuantity": "5"
       },
       {
-        "IngredientName": "salt",
-        "Quantity": 0.1
+        "IngredientID": 0,
+        "ItemIngredientQuantity": "5"
       },
       {
-        "IngredientName": "black pepper",
-        "Quantity": 0.05
+        "IngredientID": 0,
+        "ItemIngredientQuantity": "5"
       },
       {
-        "IngredientName": "olive oil",
-        "Quantity": 0.25
+        "IngredientID": 0,
+        "ItemIngredientQuantity": "5"
       },
       {
-        "IngredientName": "garlic",
-        "Quantity": 0.1
+        "IngredientID": 0,
+        "ItemIngredientQuantity": "5"
+      }
+    ]
+  },
+  {
+    "ItemName": "burger",
+    "ItemPrice": 300,
+    "ItemID": 1222,
+    "description": "burger",
+    "category": "food",
+    "recipe": [
+      {
+        "IngredientID": 123,
+        "ItemIngredientQuantity": "3"
+      },
+      {
+        "IngredientID": 1234,
+        "ItemIngredientQuantity": "4"
       }
     ]
   }

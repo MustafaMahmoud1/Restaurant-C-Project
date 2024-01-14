@@ -218,8 +218,8 @@ namespace Restaurant_C__Project
                             string username = Console.ReadLine();
                             Console.WriteLine("Enter your Password ");
                             string password = Console.ReadLine();
-                            Admin admin = Admin.VerifyAdmin(username, password);
-                            if (Admin.VerifyAdmin != null)
+                            bool log = Admin.VerifyAdmin(username, password);
+                            if (log)
                             {
                             adminloop:
                                 Console.WriteLine("Choose from options");
@@ -254,74 +254,108 @@ namespace Restaurant_C__Project
                                         string Password = Console.ReadLine();
                                         Console.WriteLine("Please Enter Employee Roll ");
                                         string EmployeeRoll = Console.ReadLine();
-                                        Admin.LoadAllEmployeesFromJsonFile(@"C:\Users\M&M\source\repos\resturant\Employee.json");
+                                        Admin.LoadAllEmployeesFromJsonFile(@"D:\C# Projects\Restaurant C# Project\Employee.json");
                                         Admin.SignUp(EmployeeName, EmployeeSalary, EmployeePhone, EmployeeAdress,
                                             UserName, Password, EmployeeRoll);
-                                        Admin.SaveAllEmployeesToJsonFile(@"C:\Users\M&M\source\repos\resturant\Employee.json");
+                                        Admin.SaveAllEmployeesToJsonFile(@"D:\C# Projects\Restaurant C# Project\Employee.json");
                                         goto adminloop;
                                     case 2:
                                         Console.WriteLine("All Employees: ");
-                                        Admin.LoadAllEmployeesFromJsonFile(@"D:\ITI\new\c#\c# project1\FINAL\Employee.json");
-                                        Admin.SaveAllEmployeesToJsonFile(@"D:\ITI\new\c#\c# project1\FINAL\Employee.json");
-                                        admin.ShowAllEmployees();
+                                        Admin.LoadAllEmployeesFromJsonFile(@"D:\C# Projects\Restaurant C# Project\Employee.json");
+                                        Admin.SaveAllEmployeesToJsonFile(@"D:\C# Projects\Restaurant C# Project\Employee.json");
+                                        Admin.ShowAllEmployees();
                                         goto adminloop;
                                     case 3:
-                                        Menu.LoadAllItemsFromJson(@"D:\ITI\new\c#\c# project1\FINAL\Menu.json");
+                                        Menu.LoadAllItemsFromJson(@"D:\C# Projects\Restaurant C# Project\Menu.json");
+                                        Console.WriteLine("Enter new item name.");
                                         string NewItemName = Console.ReadLine();
+                                        Console.WriteLine("Enter new item price.");
                                         int NewItemPrice = int.Parse(Console.ReadLine());
+                                        Console.WriteLine("Enter new item ID.");
                                         int NewItemID = int.Parse(Console.ReadLine());
+                                        Console.WriteLine("Enter new item description.");
                                         string NewDescription = Console.ReadLine();
-                                        admin.AddItemToMenu(NewItemName, NewItemPrice, NewItemID, NewDescription);
-                                        Menu.SaveItemsToFile(@"D:\ITI\new\c#\c# project1\FINAL\Menu.json");
+                                        Console.WriteLine("Enter new item category.");
+                                        string category = Console.ReadLine();
+                                        Console.WriteLine("Enter ingredients. When done enter null");
+                                        List<ItemIngredient> recipe = new List<ItemIngredient>();
+                                        while (true)
+                                        {
+                                            Console.WriteLine("Enter Ingredient id");
+                                            int ingid = int.Parse(Console.ReadLine());
+                                            Console.WriteLine("Enter ingredient quantity");
+                                            string ingquantity = Console.ReadLine();
+                                            ItemIngredient itemIngredient = new ItemIngredient(ingid,ingquantity);
+                                            recipe.Add(itemIngredient);
+                                            Console.WriteLine("Add more ingredients? 1- Yes, I want to add more items 2- No, Don't add more items");
+                                            string answer = Console.ReadLine();
+                                            if (answer == "2")
+                                            {
+                                                break;
+                                            }
+                                        }
+                                        Menu.GetInstance().AddItem(NewItemName, NewItemPrice, NewItemID, NewDescription, category, recipe);
+                                        Menu.SaveItemsToFile(@"D:\C# Projects\Restaurant C# Project\Menu.json");
                                         goto adminloop;
                                     case 4:
-                                        Menu.LoadAllItemsFromJson(@"D:\ITI\new\c#\c# project1\FINAL\Menu.json");
-                                        Menu.SaveItemsToFile(@"D:\ITI\new\c#\c# project1\FINAL\Menu.json");
-                                        admin.ShowAllItemsInMenu();
+                                        Menu.LoadAllItemsFromJson(@"D:\C# Projects\Restaurant C# Project\Menu.json");
+                                        Menu.SaveItemsToFile(@"D:\C# Projects\Restaurant C# Project\Menu.json");
+                                        Admin.ShowAllItemsInMenu();
                                         goto adminloop;
                                     case 5:
-                                        Stock.LoadAllItemsFromJson(@"D:\ITI\new\c#\c# project1\FINAL\stock ingredient.json");
-                                        Stock.SaveItemsToFile(@"D:\ITI\new\c#\c# project1\FINAL\stock ingredient.json");
-                                        admin.ShowEveryThingInStock();
+                                        Stock.LoadAllItemsFromJson(@"D:\C# Projects\Restaurant C# Project\stock ingredient.json");
+                                        Stock.SaveItemsToFile(@"D:\C# Projects\Restaurant C# Project\stock ingredient.json");
+                                        Admin.ShowEveryThingInStock();
                                         goto adminloop;
                                     case 6:
-                                        Stock.LoadAllItemsFromJson(@"D:\ITI\new\c#\c# project1\FINAL\stock ingredient.json");
-                                        Stock.SaveItemsToFile(@"D:\ITI\new\c#\c# project1\FINAL\stock ingredient.json");
+                                        Stock.LoadAllItemsFromJson(@"D:\C# Projects\Restaurant C# Project\stock ingredient.json");
+                                        Console.WriteLine("Enter ingredient ID.");
                                         int IngredientID = int.Parse(Console.ReadLine());
+                                        Console.WriteLine("Enter Ingregient Name.");
                                         string IngredientName = Console.ReadLine();
+                                        Console.WriteLine("Enter Ingredient quantity");
                                         int IngredientQuantity = int.Parse(Console.ReadLine());
-                                        admin.AddIngresientToStock(IngredientID, IngredientName, IngredientQuantity);
+                                        Console.WriteLine("Enter availability status: true for available, faslse for unavailable");
+                                        bool availability = bool.Parse(Console.ReadLine());
+                                        Stock.Get_Instance().AddIngredient(IngredientID, IngredientName, IngredientQuantity, availability);
+                                        Stock.SaveItemsToFile(@"D:\C# Projects\Restaurant C# Project\stock ingredient.json");
                                         goto adminloop;
                                     case 7:
-                                        DiningTable.LoadAlldiningtableFromJson(@"D:\ITI\new\c#\c# project1\FINAL\DiningTable.json");
-                                        DiningTable.SaveDiningTableToFile(@"D:\ITI\new\c#\c# project1\FINAL\DiningTable.json");
-                                        admin.ShowAllTables();
+                                        DiningTable.LoadAlldiningtableFromJson(@"D:\C# Projects\Restaurant C# Project\DiningTable.json");
+                                        DiningTable.SaveDiningTableToFile(@"D:\C# Projects\Restaurant C# Project\DiningTable.json");
+                                        Admin.ShowAllTables();
                                         goto adminloop;
                                     case 8:
-                                        DiningTable.LoadAlldiningtableFromJson(@"D:\ITI\new\c#\c# project1\FINAL\DiningTable.json");
+                                        DiningTable.LoadAlldiningtableFromJson(@"D:\C# Projects\Restaurant C# Project\DiningTable.json");
+                                        Console.WriteLine("enter table Number.");
                                         int TableNo = int.Parse(Console.ReadLine());
+                                        Console.WriteLine("enter table capacity.");
                                         int TableCapicty = int.Parse(Console.ReadLine());
+                                        Console.WriteLine("enter type. true for smoking, false for non smoking");
                                         bool type = bool.Parse(Console.ReadLine());
-                                        admin.AddTables(TableNo, TableCapicty, type);
-                                        DiningTable.SaveDiningTableToFile(@"D:\ITI\new\c#\c# project1\FINAL\DiningTable.json");
+                                        Admin.AddTables(TableNo, TableCapicty, type);
+                                        DiningTable.SaveDiningTableToFile(@"D:\C# Projects\Restaurant C# Project\DiningTable.json");
                                         goto adminloop;
                                     case 9:
-                                        Reservations.LoadAllReserervisionFromJson(@"D:\ITI\new\c#\c# project1\FINAL\Reservations.json");
-                                        Reservations.SaveReservationToJson(@"D:\ITI\new\c#\c# project1\FINAL\Reservations.json");
-                                        admin.ShowAllReservations();
+                                        Reservations.LoadAllReserervisionFromJson(@"D:\C# Projects\Restaurant C# Project\Reservations.json");
+                                        Admin.ShowAllReservations();
                                         goto adminloop;
                                     case 10:
                                         Order.LoadAllOrders(@"D:\C# Projects\Restaurant C# Project\Order.json");
                                         Order.ShowOrdersList();
                                         goto adminloop;
                                     case 11:
-                                        Customer.LoadAllCustomersFromJson(@"D:\ITI\new\c#\c# project1\FINAL\Customer.json");
-                                        Customer.SaveCustomersToFile(@"D:\ITI\new\c#\c# project1\FINAL\Customer.json");
-                                        admin.ShowAllCustomers();
+                                        Customer.LoadAllCustomersFromJson(@"D:\C# Projects\Restaurant C# Project\Customer.json");
+                                        Customer.SaveCustomersToFile(@"D:\C# Projects\Restaurant C# Project\Customer.json");
+                                        Admin.ShowAllCustomers();
                                         goto adminloop;
                                     case 12:
-                                        goto adminloop;
+                                        goto loop;
                                 }
+                            }
+                            else
+                            {
+                                goto Employeerolepart;
                             }
                             break;
                         case 2:
